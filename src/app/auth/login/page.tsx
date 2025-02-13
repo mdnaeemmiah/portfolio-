@@ -78,8 +78,8 @@ const Login = () => {
         <h3 className="text-2xl font-bold leading-10 tracking-wide mt-5">
           Login
         </h3>
-        <p className="text-xl my-5">
-          See your growth and get consulting support!
+        <p className="text-xl my-5 text-red-600">
+         Login only google or github
         </p>
         <form
           autoComplete="off"
@@ -142,21 +142,21 @@ const Login = () => {
           </div>
 
           {/* Login Button */}
-          <Button
+          {/* <Button
             type="submit"
             color="primary"
             variant="solid"
             radius="none"
-            disabled={isLoading}
+            isDisabled={isLoading}
             className="text-2xl py-6 my-3 btn hover:scale-105 transform transition duration-300"
           >
             {isLoading ? "Logging in..." : "Login"}
-          </Button>
+          </Button> */}
 
             {/* Social Login Buttons */}
           <div className="flex justify-center gap-4 mt-4">
             <button className="flex items-center justify-center w-12 h-12 bg-gray-100 rounded-full shadow-md hover:bg-gray-200"
-             onClick={() => signIn("google" , {callbackUrl: "http://localhost:3000"})}
+             onClick={() => signIn("google" , {callbackUrl: "http://localhost:3001"})}
             >
               <Image
                 src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png"
@@ -166,7 +166,7 @@ const Login = () => {
               />
             </button>
             <button className="flex items-center justify-center w-12 h-12 bg-gray-100 rounded-full shadow-md hover:bg-gray-200"
-            onClick={() => signIn("github" , {callbackUrl: "http://localhost:3000"})}
+            onClick={() => signIn("github" , {callbackUrl: "http://localhost:3001"})}
             >
               <Image
                 src="https://cdn-icons-png.flaticon.com/512/25/25231.png"

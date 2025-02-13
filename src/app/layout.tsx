@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "@/components/shared/Navbar";
-import { getServerSession } from "next-auth";
-import Footer from "@/components/shared/Footer";
+// import Navbar from "@/components/shared/Navbar";
+// import { getServerSession } from "next-auth";
+// import Footer from "@/components/shared/Footer";
 
 export const metadata: Metadata = {
   title: "Next Auth",
@@ -15,14 +15,14 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
 
-  const session = await getServerSession();
+  // const session = await getServerSession();
 
   return (
     <html lang="en" data-theme="light">
       <body cz-shortcut-listen="true">
-        <Navbar  session={session}/>
-        <div className="min-h-screen w-[90%] mx-auto" suppressHydrationWarning>{children}</div>
-        <Footer></Footer>
+        {/* <Navbar  session={session}/> */}
+        <div className="min-h-screen" suppressHydrationWarning>{children}</div>
+        {/* <Footer></Footer> */}
       </body>
     </html>
   );

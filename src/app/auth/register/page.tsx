@@ -35,7 +35,7 @@ const Register = () => {
     const toastId = toast.loading("Registering...");
 
     try {
-      const userInfo = {
+      const userInfo = { 
         name: data.name,
         email: data.email,
         password: data.password,
@@ -58,7 +58,7 @@ const Register = () => {
         dispatch(setUser({ user, token: res.data.accessToken }));
 
         toast.success("Registration successful", { id: toastId });
-        router.push("/");
+        router.push("/auth/login");
       } else {
         toast.error("Registration failed. Please try again.", { id: toastId });
       }
@@ -151,7 +151,7 @@ const Register = () => {
           />
 
           {/* Register Button */}
-          <Button
+          {/* <Button
             type="submit"
             color="primary"
             variant="solid"
@@ -160,7 +160,7 @@ const Register = () => {
             className="text-2xl py-6 my-3 btn hover:scale-105 transform transition duration-300"
           >
             {isLoading ? "Registering..." : "Register"}
-          </Button>
+          </Button> */}
         </form>
 
         <p className="text-sm text-center">
