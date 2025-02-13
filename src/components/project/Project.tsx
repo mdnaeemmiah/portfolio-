@@ -12,10 +12,6 @@ const Projects = () => {
     return <p>Loading projects...</p>;
   }
 
-  if (isError) {
-    return <p>Error: {error?.message}</p>;
-  }
-
   // Ensure data is an array of projects
   const projects = Array.isArray(data?.data) ? data.data : [];
 

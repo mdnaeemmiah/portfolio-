@@ -1,11 +1,11 @@
 import React from 'react';
 
-const page = () => {
+const AllProject = () => {
     return (
         <div>
-            <h1>Profile page</h1>
+            <h1>All porject</h1>
         </div>
     );
 };
 
-export default page;
+export default AllProject;

@@ -1,4 +1,6 @@
 export interface Blog {
+    author: string;
+    likes: number;
     _id: string;  // Change `id` to `_id`
     title: string;
     content: string;

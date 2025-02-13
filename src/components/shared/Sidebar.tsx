@@ -16,20 +16,56 @@ const Sidebar = () => {
         </li>
         <li>
           <Link
-            href="/blogs"
+            href="/dashboard/blogs"
             className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-200 text-gray-700"
           >
             <FaUser className="h-5 w-5" />
-            <span>Blog</span>
+            <span>All Blog</span>
           </Link>
         </li>
         <li>
           <Link
-            href="/profile"
+            href="/dashboard/blogPost"
+            className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-200 text-gray-700"
+          >
+            <FaUser className="h-5 w-5" />
+            <span>Blog Post</span>
+          </Link>
+        </li>
+        <li>
+          <Link
+            href="/dashboard/blogManage"
+            className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-200 text-gray-700"
+          >
+            <FaUser className="h-5 w-5" />
+            <span>Blog Manage</span>
+          </Link>
+        </li>
+        <li>
+          <Link
+            href="/dashboard/allProject"
             className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-200 text-gray-700"
           >
             <FaCog className="h-5 w-5" />
-            <span>Profile</span>
+            <span>All Project</span>
+          </Link>
+        </li>
+        <li>
+          <Link
+            href="/dashboard/projectPost"
+            className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-200 text-gray-700"
+          >
+            <FaCog className="h-5 w-5" />
+            <span> Project Post</span>
+          </Link>
+        </li>
+        <li>
+          <Link
+            href="/dashboard/ProjectManage"
+            className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-200 text-gray-700"
+          >
+            <FaCog className="h-5 w-5" />
+            <span> Project Management</span>
           </Link>
         </li>
         <li>

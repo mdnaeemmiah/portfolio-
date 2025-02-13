@@ -17,9 +17,7 @@ const LatestBlogCard = () => {
     return <p>Loading blogs...</p>;
   }
 
-  if (isError) {
-    return <p>Error: {error?.message}</p>;
-  }
+
 
   // Check if `data` exists and is an object with the `data` array
   const blogs = Array.isArray(data?.data) ? data.data : [];
