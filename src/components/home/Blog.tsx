@@ -24,7 +24,7 @@ const Blog = () => {
   return (
     <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h1 className="text-3xl sm:text-4xl text-center my-5 font-bold">
-        Explore More Blogs <span className="text-teal-600">NexaBlog</span>
+        Explore More Blogs <span className="text-teal-600">My Site</span>
       </h1>
       <p className="text-center text-gray-400 mx-auto w-full md:w-2/3 lg:w-1/2">
         <i>

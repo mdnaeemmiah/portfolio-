@@ -7,7 +7,7 @@ const BlogDetailsPage = async({params}: {params:Promise<{blogId :string}>}) => {
     console.log(blog.data)
     
      return (
-         <div>
+         <div className="pt-10">
              <BlogDetails blog={blog}></BlogDetails>
          </div>
      );

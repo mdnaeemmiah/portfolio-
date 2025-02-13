@@ -48,7 +48,7 @@ const Projects = () => {
               className="w-full h-48 object-cover rounded-lg mb-4"
             />
             {/* Project Title */}
-            <h2 className="text-xl font-semibold">{project.title}</h2>
+            <h2 className="text-xl font-semibold text-teal-600">{project.title}</h2>
             {/* Project Description */}
             <p className="text-gray-600 mt-2">
               {truncateDescription(project.description)}{" "}

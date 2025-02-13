@@ -9,9 +9,9 @@ const BlogDetails = ({ blog }: { blog: Blog }) => {
 
 
   return (
-    <div className="w-full md:w-2/3 bg-white shadow-lg rounded-lg mx-auto p-6">
+    <div className="w-full  md:w-2/3 bg-white shadow-lg rounded-lg mx-auto p-6">
       {/* Blog Title */}
-      <h2 className="text-center text-4xl font-semibold my-5">{blog.data.title}</h2>
+      <h2 className="text-center text-4xl font-semibold text-blue-600 my-5">{blog.data.title}</h2>
 
       {/* Publish Date and Category */}
       <div className="flex justify-center items-center mb-5">

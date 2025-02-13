@@ -55,7 +55,7 @@ const products = [
 export default function Cart() {
   return (
     <div className="container mx-auto p-4">
-      <h2 className="text-2xl font-bold mb-4 text-center">Product Cart</h2>
+      <h2 className="text-2xl font-bold mb-4 text-center">I am familir with Technology</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {products.map((product) => (
           <div
@@ -69,7 +69,7 @@ export default function Cart() {
               height={150}
               className="rounded-lg"
             />
-            <h3 className="text-lg font-semibold mt-2">{product.name}</h3>
+            <h3 className="text-lg font-semibold text-teal-600 mt-2">{product.name}</h3>
             <p className="text-sm text-gray-500 font-medium">{product.title}</p>
             <p className="text-gray-700 mt-1 text-center">{product.description}</p>
           </div>

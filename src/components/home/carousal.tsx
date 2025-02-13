@@ -5,28 +5,35 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
+import img1 from '@/assets/images/pict1.jpg';
+import img2 from '@/assets/images/pict2.jpg';
+import img3 from '@/assets/images/pict3.jpg';
+import img4 from '@/assets/images/img5.avif';
 
 const carouselData = [
   {
-    image:
-      "https://plus.unsplash.com/premium_photo-1681426687411-21986b0626a8?w=1200&auto=format&fit=crop&q=60",
-    projectName: "Business Name",
-    title: "Slide 1",
-    description: "This is the description for Slide 1.",
+    image: img1,
+    projectName: "Library Management",
+    title: "Manage Library Resources Efficiently",
+    description: "A comprehensive library management system for organizing books, students, and staff.",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=1200&auto=format&fit=crop&q=60",
-    projectName: "Business Name",
-    title: "Slide 2",
-    description: "This is the description for Slide 2.",
+    image: img2,
+    projectName: "Hospital Management",
+    title: "Streamline Hospital Operations",
+    description: "A hospital management system to manage patient records, appointments, and staff schedules.",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=1200&auto=format&fit=crop&q=60",
-    projectName: "Business Name",
-    title: "Slide 3",
-    description: "This is the description for Slide 3.",
+    image: img3,
+    projectName: "School Management",
+    title: "Efficient School Administration",
+    description: "A school management system that helps manage students, teachers, and administrative tasks.",
+  },
+  {
+    image: img4,
+    projectName: "Car Management",
+    title: "Manage Fleet of Vehicles",
+    description: "A comprehensive system for managing a fleet of cars, including tracking, maintenance, and rental.",
   },
 ];
 
@@ -45,21 +52,21 @@ const Carousal = () => {
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-center text-2xl font-bold mb-4">
-        Welcome to the Carousel Example
+        Welcome to Our Project Showcase
       </h1>
       <div className="carousel-container">
         <Slider {...settings}>
           {carouselData.map((item, index) => (
             <div key={index} className="carousel-slide">
-              {/* Business Name */}
-              <h2 className="text-center text-lg font-semibold text-blue-600 mb-2">
+              {/* Project Name */}
+              <h2 className="text-center text-xl font-semibold text-blue-600 mb-2">
                 {item.projectName}
               </h2>
 
               {/* Slide Image */}
               <Image
                 src={item.image}
-                alt={item.title}
+                alt={item.projectName}
                 className="carousel-image w-full h-[500px] object-cover"
                 width={1200}
                 height={500}

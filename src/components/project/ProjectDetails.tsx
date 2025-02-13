@@ -5,7 +5,7 @@ const ProjectDetails = ({ project }: { project: Project }) => {
   return (
     <div className="w-full md:w-2/3 bg-white shadow-lg rounded-lg mx-auto p-6">
       {/* Project Title */}
-      <h2 className="text-center text-4xl font-semibold my-5">{project.title}</h2>
+      <h2 className="text-center text-4xl text-teal-600 font-semibold my-5">{project.title}</h2>
 
       {/* Project Image */}
       <figure className="mb-5">

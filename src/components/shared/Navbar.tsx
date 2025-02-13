@@ -47,11 +47,11 @@ export default function Navbar({ session }: { session: UserProps | null }) {
   };
 
   return (
-    <nav className="bg-white dark:bg-gray-900 shadow-md p-4 flex justify-between items-center fixed top-0 left-0 w-full z-50 transition-all">
+    <nav className="bg-gray-900 text-white shadow-md p-4 flex justify-between items-center fixed top-0 left-0 w-full z-50 transition-all">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center gap-2">
-          <span className="text-2xl font-bold dark:text-white">📁 Portfolio</span>
+          <span className="text-2xl font-bold text-teal-600">My Portfolio</span>
         </div>
 
         {/* Desktop Navigation */}
@@ -87,7 +87,7 @@ export default function Navbar({ session }: { session: UserProps | null }) {
                     ) : (
                       <UserCircle size={32} className="text-gray-600 dark:text-white" />
                     )}
-                    <span className="text-gray-800 dark:text-white font-medium">
+                    <span className="text-teal-600 dark:text-white font-medium">
                       {session.user.name || "User"}
                     </span>
                   </button>
@@ -113,7 +113,9 @@ export default function Navbar({ session }: { session: UserProps | null }) {
               </DropdownMenu>
             ) : (
               <Link href="/auth/login">
-                <Button variant="default">Login</Button>
+                <Button variant="default" className="bg-blue-500 hover:bg-blue-700 text-white">
+                  Login
+                </Button>
               </Link>
             )}
           </div>

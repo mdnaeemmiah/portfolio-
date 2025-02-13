@@ -9,7 +9,7 @@ const ProjectDetailsPage = async ({ params }: { params: Promise<{ projectId: str
   console.log(project.data);
   
   return (
-    <div>
+    <div className="pt-10">
       {/* Pass the fetched project data to the ProjectDetails component */}
       <ProjectDetails project={project.data} />
     </div>
