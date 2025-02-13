@@ -1,16 +1,17 @@
 import Link from "next/link";
-import { FaUser, FaCog, FaHome } from "react-icons/fa";
+import { MdDashboard } from "react-icons/md";
+import { FaBook, FaPen, FaClipboardList, FaProjectDiagram, FaPlusSquare, FaTasks, FaHome } from "react-icons/fa";
 
 const Sidebar = () => {
   return (
-    <div className="bg-slate-100 min-h-screen p-4 rounded-xl">
+    <div className="bg-slate-100 min-h-screen p-4 pt-12 rounded-xl">
       <ul className="space-y-4">
         <li>
           <Link
             href="/dashboard"
             className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-200 text-gray-700"
           >
-            <FaHome className="h-5 w-5" />
+            <MdDashboard className="h-5 w-5" />
             <span>Dashboard</span>
           </Link>
         </li>
@@ -19,7 +20,7 @@ const Sidebar = () => {
             href="/dashboard/blogs"
             className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-200 text-gray-700"
           >
-            <FaUser className="h-5 w-5" />
+            <FaBook className="h-5 w-5" />
             <span>All Blog</span>
           </Link>
         </li>
@@ -28,7 +29,7 @@ const Sidebar = () => {
             href="/dashboard/blogPost"
             className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-200 text-gray-700"
           >
-            <FaUser className="h-5 w-5" />
+            <FaPen className="h-5 w-5" />
             <span>Blog Post</span>
           </Link>
         </li>
@@ -37,7 +38,7 @@ const Sidebar = () => {
             href="/dashboard/blogManage"
             className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-200 text-gray-700"
           >
-            <FaUser className="h-5 w-5" />
+            <FaClipboardList className="h-5 w-5" />
             <span>Blog Manage</span>
           </Link>
         </li>
@@ -46,7 +47,7 @@ const Sidebar = () => {
             href="/dashboard/allProject"
             className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-200 text-gray-700"
           >
-            <FaCog className="h-5 w-5" />
+            <FaProjectDiagram className="h-5 w-5" />
             <span>All Project</span>
           </Link>
         </li>
@@ -55,8 +56,8 @@ const Sidebar = () => {
             href="/dashboard/projectPost"
             className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-200 text-gray-700"
           >
-            <FaCog className="h-5 w-5" />
-            <span> Project Post</span>
+            <FaPlusSquare className="h-5 w-5" />
+            <span>Project Post</span>
           </Link>
         </li>
         <li>
@@ -64,8 +65,8 @@ const Sidebar = () => {
             href="/dashboard/ProjectManage"
             className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-200 text-gray-700"
           >
-            <FaCog className="h-5 w-5" />
-            <span> Project Management</span>
+            <FaTasks className="h-5 w-5" />
+            <span>Project Management</span>
           </Link>
         </li>
         <li>
@@ -73,7 +74,7 @@ const Sidebar = () => {
             href="/"
             className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-200 text-gray-700"
           >
-            <FaCog className="h-5 w-5" />
+            <FaHome className="h-5 w-5" />
             <span>Home</span>
           </Link>
         </li>

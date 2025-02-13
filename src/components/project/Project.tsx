@@ -19,6 +19,15 @@ const Projects = () => {
     return <p>No projects available.</p>;
   }
 
+  // Function to truncate the description if it's longer than 20 words
+  const truncateDescription = (description: string, wordLimit: number = 20) => {
+    const words = description.split(" ");
+    if (words.length > wordLimit) {
+      return `${words.slice(0, wordLimit).join(" ")}...`;
+    }
+    return description;
+  };
+
   return (
     <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h1 className="text-3xl sm:text-4xl text-center my-5 font-bold">
@@ -41,7 +50,16 @@ const Projects = () => {
             {/* Project Title */}
             <h2 className="text-xl font-semibold">{project.title}</h2>
             {/* Project Description */}
-            <p className="text-gray-600 mt-2">{project.description}</p>
+            <p className="text-gray-600 mt-2">
+              {truncateDescription(project.description)}{" "}
+              {project.description.split(" ").length > 5 && (
+                <Link href={`/project/${project._id}`} passHref>
+                  <button className="text-blue-500 hover:underline focus:outline-none">
+                    See More...
+                  </button>
+                </Link>
+              )}
+            </p>
             {/* Live Link */}
             <div className="mt-4">
               <Link href={project.liveLink} passHref>

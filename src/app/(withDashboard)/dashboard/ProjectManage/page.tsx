@@ -1,8 +1,9 @@
+import ManageProjectTable from "@/components/form/ManageProjectTable";
 
 const ProjectMange = () => {
     return (
         <div>
-            <h1>Project Manage</h1>
+           <ManageProjectTable></ManageProjectTable>
         </div>
     );
 };

@@ -1,9 +1,10 @@
+import ProjectTable from '@/components/form/ProjectTable';
 import React from 'react';
 
 const AllProject = () => {
     return (
         <div>
-            <h1>All porject</h1>
+            <ProjectTable></ProjectTable>
         </div>
     );
 };

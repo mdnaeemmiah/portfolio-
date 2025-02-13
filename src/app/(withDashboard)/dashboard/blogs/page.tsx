@@ -1,9 +1,10 @@
+import BlogTable from '@/components/form/BlogTable';
 import React from 'react';
 
 const page = () => {
     return (
         <div>
-            <h1>blog page</h1>
+            <BlogTable></BlogTable>
         </div>
     );
 };

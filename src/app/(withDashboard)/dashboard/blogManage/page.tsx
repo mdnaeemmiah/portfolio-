@@ -1,9 +1,10 @@
+import ManageBlogTable from '@/components/form/ManageBlogTable';
 import React from 'react';
 
 const BlogManage = () => {
     return (
         <div>
-            <h1>blogManage</h1>
+            <ManageBlogTable></ManageBlogTable>
         </div>
     );
 };
