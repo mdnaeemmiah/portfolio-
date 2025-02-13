@@ -113,7 +113,7 @@ export default function Navbar({ session }: { session: UserProps | null }) {
               </DropdownMenu>
             ) : (
               <Link href="/auth/login">
-                <Button variant="default" className="bg-blue-500 hover:bg-blue-700 text-white">
+                <Button variant="default" className="bg-blue-600 text-white py-2 px-4 rounded-md font-semibold hover:bg-[#C51963] hover:scale-105 transform transition duration-300">
                   Login
                 </Button>
               </Link>

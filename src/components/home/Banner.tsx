@@ -28,7 +28,7 @@ export default function Banner() {
           React.js, Next.js, TypeScript, and more. I love building efficient and scalable applications.
         </p>
        <Link href='/contact-us'>
-       <button className="mt-6 px-6 py-3 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition">
+       <button className="bg-blue-600 mt-5 text-white py-2 px-4 rounded-md font-semibold hover:bg-[#C51963] hover:scale-105 transform transition duration-300">
           Contact Me
         </button>
        </Link>
