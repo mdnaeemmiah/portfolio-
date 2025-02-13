@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Providers from "@/providers";
 // import Navbar from "@/components/shared/Navbar";
 // import { getServerSession } from "next-auth";
 // import Footer from "@/components/shared/Footer";
@@ -21,7 +22,9 @@ export default async function RootLayout({
     <html lang="en" data-theme="light">
       <body cz-shortcut-listen="true">
         {/* <Navbar  session={session}/> */}
+        <Providers>
         <div className="min-h-screen" suppressHydrationWarning>{children}</div>
+        </Providers>
         {/* <Footer></Footer> */}
       </body>
     </html>

@@ -1,9 +1,10 @@
+import LatestBlogCard from '@/components/home/LatestBlogCard';
 import React from 'react';
 
 const page = () => {
     return (
         <div>
-            <h2>blog page</h2>
+            <LatestBlogCard></LatestBlogCard>
         </div>
     );
 };
