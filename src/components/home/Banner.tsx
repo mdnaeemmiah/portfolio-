@@ -24,14 +24,21 @@ export default function Banner() {
       <div className="flex-1 text-center md:text-left">
         <h2 className="text-4xl font-semibold text-gray-800">Welcome to My Portfolio</h2>
         <p className="mt-4 text-gray-700 text-lg leading-relaxed">
-          I'm a passionate software engineer skilled in web development, specializing in modern technologies such as
+          I am a passionate software engineer skilled in web development, specializing in modern technologies such as
           React.js, Next.js, TypeScript, and more. I love building efficient and scalable applications.
         </p>
-       <Link href='/contact-us'>
-       <button className="bg-blue-600 mt-5 text-white py-2 px-4 rounded-md font-semibold hover:bg-[#C51963] hover:scale-105 transform transition duration-300">
-          Contact Me
-        </button>
-       </Link>
+        <div className="mt-5 space-y-4">
+          <Link href='/contact-us'>
+            <button className="bg-blue-600 text-white py-2 px-4 rounded-md font-semibold hover:bg-[#C51963] hover:scale-105 transform transition duration-300">
+              Contact Me
+            </button>
+          </Link>
+          <Link href='/resume'>
+            <button className="bg-blue-600 ml-5 text-white py-2 px-4 rounded-md font-semibold hover:bg-[#C51963] hover:scale-105 transform transition duration-300">
+              Resume 
+            </button>
+          </Link>
+        </div>
       </div>
     </section>
   );
