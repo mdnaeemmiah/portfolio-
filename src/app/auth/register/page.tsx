@@ -3,7 +3,7 @@
 import { useRegisterMutation } from "@/redux/features/auth/authApi";
 import { setUser, TUser } from "@/redux/features/auth/authSlice";
 import { verifyToken } from "@/utils/veryfyToken";
-import { Button, Input, Link } from "@nextui-org/react";
+import {  Input, Link } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
 import { useForm, Controller, SubmitHandler } from "react-hook-form";
 import toast from "react-hot-toast";
@@ -20,7 +20,7 @@ type RegisterFormInputs = {
 const Register = () => {
   const router = useRouter();
   const dispatch = useAppDispatch();
-  const [register, { isLoading }] = useRegisterMutation();
+  const [register] = useRegisterMutation();
 
   // Setup react-hook-form
   const {

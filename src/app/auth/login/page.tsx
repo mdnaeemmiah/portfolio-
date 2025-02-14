@@ -3,7 +3,7 @@
 import { useLoginMutation } from "@/redux/features/auth/authApi";
 import { setUser, TUser } from "@/redux/features/auth/authSlice";
 import { verifyToken } from "@/utils/veryfyToken";
-import { Button, Input, Link } from "@nextui-org/react";
+import {  Input, Link } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
 import { useForm, Controller, SubmitHandler } from "react-hook-form";
 import toast from "react-hot-toast";
@@ -11,6 +11,7 @@ import { useAppDispatch } from "@/redux/hooks";
 import Cookies from "js-cookie"; 
 import Image from "next/image";
 import {  signIn } from "next-auth/react"
+import img1 from '@/assets/images/google.png'
 // For storing token in cookies
 type LoginFormInputs = {
   email: string;
@@ -21,7 +22,7 @@ type LoginFormInputs = {
 const Login = () => {
   const router = useRouter();
   const dispatch = useAppDispatch();
-  const [login, { isLoading }] = useLoginMutation();
+  const [login] = useLoginMutation();
 
   // Setup react-hook-form
   const {
@@ -156,17 +157,17 @@ const Login = () => {
             {/* Social Login Buttons */}
           <div className="flex justify-center gap-4 mt-4">
             <button className="flex items-center justify-center w-12 h-12 bg-gray-100 rounded-full shadow-md hover:bg-gray-200"
-             onClick={() => signIn("google" , {callbackUrl: "http://localhost:3001"})}
+             onClick={() => signIn("google" , {callbackUrl: "https://l2b4-a5-client.vercel.app"})}
             >
               <Image
-                src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png"
+                src={img1}
                 width={30}
                 height={30}
                 alt="Google logo"
               />
             </button>
             <button className="flex items-center justify-center w-12 h-12 bg-gray-100 rounded-full shadow-md hover:bg-gray-200"
-            onClick={() => signIn("github" , {callbackUrl: "http://localhost:3001"})}
+            onClick={() => signIn("github" , {callbackUrl: "https://l2b4-a5-client.vercel.app"})}
             >
               <Image
                 src="https://cdn-icons-png.flaticon.com/512/25/25231.png"

@@ -2,13 +2,12 @@
 
 import { useGetAllBlogPostsQuery } from "@/redux/features/blog/blogApi";
 import { Blog as BlogType } from "@/types"; // Import your Blog interface
-import BlogCard from "./BlogCard"; // Import BlogCard component
-import Link from "next/link";
+import BlogCard from "./BlogCard"; // Import BlogCard
 import { useState } from "react";
 
 const LatestBlogCard = () => {
   // Use the hook to get the blogs
-  const { data, isLoading, isError, error } = useGetAllBlogPostsQuery(undefined);
+  const { data, isLoading } = useGetAllBlogPostsQuery(undefined);
 
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 6;
@@ -41,7 +40,7 @@ const LatestBlogCard = () => {
   return (
     <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h1 className="text-3xl sm:text-4xl text-center my-5 font-bold">
-        Explore More Blogs <span className="text-teal-600">NexaBlog</span>
+        Explore More Blogs <span className="text-teal-600">My Site</span>
       </h1>
       <p className="text-center text-gray-400 mx-auto w-full md:w-2/3 lg:w-1/2">
         <i>

@@ -79,6 +79,7 @@ const BlogPostForm = () => {
     try {
       await createBlogPost(blogPost); // Call the mutation to create the blog post
       alert('Blog post created successfully!');
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       alert('Error creating blog post.');
     }

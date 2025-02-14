@@ -1,98 +1,127 @@
-"use client";
-import { useState } from "react";
+"use client"
+import { useCreateMessageMutation } from "@/redux/features/message/messageApi";
+import { toast } from "react-toastify";
 
 export default function ContactUsPage() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
+  const [createMessage, { isLoading }] = useCreateMessageMutation();
 
-  const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.id]: e.target.value });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const handleSubmit = async (e:any) => {
     e.preventDefault();
-    setLoading(true);
-    setError(null);
-    setSuccess(false);
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData.entries());
 
     try {
-      const response = await fetch("http://localhost:5000/api/message/create", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-
-      if (!response.ok) throw new Error("Failed to send message");
-
-      setSuccess(true);
-      setFormData({ name: "", email: "", subject: "", message: "" });
-    } catch (err) {
-      setError((err as Error).message);
-    } finally {
-      setLoading(false);
+      await createMessage(data).unwrap();
+      toast.success("Message sent successfully!");
+      e.target.reset();
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    } catch (error) {
+      toast.error("Failed to send message. Please try again.");
     }
   };
 
   return (
-    <section className="min-h-screen bg-slate-50 px-5 max-w-6xl mx-auto pt-9 mt-20 pb-10">
-      <div>
-        <h1 className="text-5xl text-[rgb(60,0,64)] mt-10 font-bold my-5">
-          Everything for pets & pet parents in one place.
-        </h1>
-        <p className="text-xl text-teal-600 my-5">
-          Our platform brings together everything you need for your pet’s well-being...
-        </p>
-      </div>
-
-      <section>
+    <section className="min-h-screen bg-slate-50 px-5 max-w-6xl mx-auto pt-9">
+      <section className=" ">
         <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold underline text-center mb-8 rancho-regular text-[rgb(60,0,64)]">
+          <h2 className="text-4xl font-bold underline text-center mb-8 rancho-regular text-[#3C4064]">
             Contact Us
           </h2>
 
           <div className="flex flex-wrap -mx-6">
-            <div className="w-full md:w-1/2 px-6">
-              <h3 className="text-2xl font-semibold mb-4 text-[rgb(60,0,64)]">Send Us a Message</h3>
-              {success && <p className="text-green-600">Message sent successfully!</p>}
-              {error && <p className="text-red-600">{error}</p>}
+            <div className="w-full md:w-1/2 px-6 mb-6 md:mb-0 flex flex-col justify-center ">
+              <h3 className="text-2xl text-[#3C4064] font-semibold mb-4 rancho-regular">
+                Get in Touch
+              </h3>
+              <p className="mb-4 text-xl text-[#3C4064] my-5 ">
+                We&apos;d love to hear from you! Whether you have a question
+                about our services, need assistance, or just want to talk about
+                your idea, feel free to reach out.
+              </p>
+              <ul className="mb-4 text-[#3C4064]">
+                <li className="mb-2">
+                  <strong>Address:</strong> 123 bekar street, PC 12345
+                </li>
+                <li className="mb-2">
+                  <strong>Phone:</strong> (123) 456-7890
+                </li>
+                <li className="mb-2">
+                  <strong>Email:</strong>{" "}
+                  <button className="text-[#EF1F76] font-semibold hover:underline">
+                    info@beamer.com
+                  </button>
+                </li>
+                <li className="mb-2">
+                  <strong>Hours:</strong> Mon - Fri, 9am - 5pm
+                </li>
+              </ul>
+            </div>
 
+            <div className="w-full md:w-1/2 px-6 text-[#3C4064]">
+              <h3 className="text-2xl font-semibold mb-4 rancho-regular text-[#3C4064]">
+                Send Us a Message
+              </h3>
               <form onSubmit={handleSubmit}>
                 <div className="mb-4">
-                  <label className="block text-gray-700 mb-2" htmlFor="name">Name</label>
-                  <input className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#C51963]"
-                    type="text" id="name" required value={formData.name} onChange={handleChange} />
+                  <label className="block text-gray-700 mb-2" htmlFor="name">
+                    Name
+                  </label>
+                  <div className="border-[1.5px] rounded-lg">
+                    <input
+                      className="w-full px-4 bg-white py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C51963]"
+                      type="text"
+                      id="name"
+                      name="name"
+                      required
+                    />
+                  </div>
                 </div>
-
                 <div className="mb-4">
-                  <label className="block text-gray-700 mb-2" htmlFor="email">Email</label>
-                  <input className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#C51963]"
-                    type="email" id="email" required value={formData.email} onChange={handleChange} />
+                  <label className="block text-gray-700 mb-2" htmlFor="email">
+                    Email
+                  </label>
+                  <div className="border-[1.5px] rounded-lg">
+                    <input
+                      className="w-full px-4 bg-white py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C51963]"
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                    />
+                  </div>
                 </div>
-
                 <div className="mb-4">
-                  <label className="block text-gray-700 mb-2" htmlFor="subject">Subject</label>
-                  <input className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#C51963]"
-                    type="text" id="subject" required value={formData.subject} onChange={handleChange} />
+                  <label className="block text-gray-700 mb-2" htmlFor="subject">
+                    Subject
+                  </label>
+                  <div className="border-[1.5px] rounded-lg">
+                    <input
+                      className="w-full px-4 bg-white py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C51963]"
+                      type="text"
+                      id="subject"
+                      name="subject"
+                      required
+                    />
+                  </div>
                 </div>
-
                 <div className="mb-4">
-                  <label className="block text-gray-700 mb-2" htmlFor="message">Message</label>
-                  <textarea className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#C51963]"
-                    id="message" required value={formData.message} onChange={handleChange}></textarea>
+                  <label className="block text-gray-700 mb-2" htmlFor="message">
+                    Message
+                  </label>
+                  <textarea
+                    className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C51963]"
+                    id="message"
+                    name="message"
+                    required
+                  ></textarea>
                 </div>
-
-                <button type="submit"
-                  className="bg-blue-600 text-white py-2 px-4 rounded-md font-semibold hover:bg-[#C51963] hover:scale-105 transition duration-300"
-                  disabled={loading}>
-                  {loading ? "Sending..." : "Send Message"}
+                <button
+                  type="submit"
+                  className="bg-blue-600 ml-5 text-white py-2 px-4 rounded-md font-semibold hover:bg-[#C51963] hover:scale-105 transform transition duration-300"
+                  disabled={isLoading}
+                >
+                  {isLoading ? "Sending..." : "Send Message"}
                 </button>
               </form>
             </div>

@@ -28,6 +28,7 @@ const MessageTable = () => {
         </thead>
         <tbody>
           {messages.length > 0 ? (
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             messages.map((msg:Message, index:any) => (
               <tr key={index} className="hover:bg-gray-50">
                 <td className="px-4 py-2 border">{msg.name}</td>

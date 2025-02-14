@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const Blog = () => {
   // Use the hook to get the blogs
-  const { data, isLoading, isError, error } = useGetAllBlogPostsQuery(undefined);
+  const { data, isLoading } = useGetAllBlogPostsQuery(undefined);
 
   if (isLoading) {
     return <p>Loading blogs...</p>;

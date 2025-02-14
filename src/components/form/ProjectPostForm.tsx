@@ -83,6 +83,7 @@ const ProjectPostForm = () => {
       toast.success('Project post created successfully!');
       setFormData({ title: '', description: '', liveLink: '', image: null });
       setImageUrl('');
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       console.error('❌ Error:', error);
       toast.error(error?.data?.message || 'Error creating project post');

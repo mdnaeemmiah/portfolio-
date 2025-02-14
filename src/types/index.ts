@@ -1,4 +1,5 @@
 export interface Blog {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     data: any;
     _id: string;  // Change `id` to `_id`
     title: string;

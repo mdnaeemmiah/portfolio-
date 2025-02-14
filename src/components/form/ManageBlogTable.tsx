@@ -38,6 +38,7 @@ const BlogTable = () => {
       await deleteBlogPost(id).unwrap();
       toast.success('Blog post deleted successfully!');
       refetch(); // Refetch data to reflect the deletion
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       console.error('Error deleting post:', error);
       toast.error(error?.data?.message || 'Error deleting post');
@@ -86,6 +87,7 @@ const BlogTable = () => {
       toast.success('Blog post updated successfully!');
       refetch(); // Refetch the blog posts to get the updated data
       closeUpdateModal(); // Close the modal after successful update
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       console.error('Error updating post:', error);
       toast.error(error?.data?.message || 'Error updating post');

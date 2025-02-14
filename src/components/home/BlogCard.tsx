@@ -64,13 +64,13 @@ const BlogCard = ({ blog }: BlogCardProps) => {
                 className="object-cover"
               />
             </div>
-            <span className="text-sm font-medium text-gray-500">{blog.author || "Unknown Author"}</span>
+            <span className="text-sm font-medium text-gray-500">{ "Unknown Author"}</span>
           </div>
           
           {/* Likes Count */}
           <div className="flex items-center text-sm text-gray-700">
             <AiFillLike className="text-teal-600 text-xl mr-1" />
-            {blog.likes || 0} Likes {/* Display the like count, defaulting to 0 */}
+            { 0} Likes {/* Display the like count, defaulting to 0 */}
           </div>
         </div>
       </div>

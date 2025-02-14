@@ -40,7 +40,8 @@ function App() {
       },
       tooltip: {
         callbacks: {
-          label: (context: { raw: any; }) => {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          label: (context: { raw: any }) => {
             return `Importance: ${context.raw}`;
           }
         }

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import { useState } from 'react';
@@ -44,6 +45,7 @@ const ManageProjectTable = () => {
       await deleteProject(id).unwrap();
       toast.success('Project deleted successfully!');
       refetch(); // Refetch data to reflect the deletion
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       console.error('Error deleting project:', error);
       toast.error(error?.data?.message || 'Error deleting project');
@@ -92,6 +94,7 @@ const ManageProjectTable = () => {
       toast.success('Project updated successfully!');
       refetch(); // Refetch the projects to get the updated data
       closeUpdateModal(); // Close the modal after successful update
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       console.error('Error updating project:', error);
       toast.error(error?.data?.message || 'Error updating project');

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { useGetAllProjectsQuery } from "@/redux/features/project/projectApi";
@@ -5,7 +6,7 @@ import { Project as ProjectType } from "@/types"; // Import the Project interfac
 import Link from "next/link"; // Link to project details or live project
 
 const Projects = () => {
-  const { data, isLoading, isError, error } = useGetAllProjectsQuery(undefined);
+  const { data, isLoading } = useGetAllProjectsQuery(undefined);
 
   // Check for loading and error states
   if (isLoading) {
@@ -34,7 +35,7 @@ const Projects = () => {
         Explore Our Projects
       </h1>
       <p className="text-center text-gray-400 mx-auto w-full md:w-2/3 lg:w-1/2">
-        <i>Discover the cutting-edge projects we've built!</i>
+        <i>Discover the cutting-edge projects we have built!</i>
       </p>
 
       {/* Projects grid layout with responsive columns */}
