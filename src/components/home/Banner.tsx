@@ -27,14 +27,14 @@ export default function Banner() {
           I am a passionate software engineer skilled in web development, specializing in modern technologies such as
           React.js, Next.js, TypeScript, and more. I love building efficient and scalable applications.
         </p>
-        <div className="mt-5 space-y-4">
+        <div className="mt-5 flex gap-4">
           <Link href='/contact-us'>
-            <button className="bg-blue-600 text-white py-2 px-4 rounded-md font-semibold hover:bg-[#C51963] hover:scale-105 transform transition duration-300">
+            <button className="text-white py-2 px-4 rounded-md font-semibold bg-[#C51963] hover:bg-[#C51963]/90 hover:scale-105 transform transition duration-300">
               Contact Me
             </button>
           </Link>
           <Link href='/resume'>
-            <button className="bg-blue-600 ml-5 text-white py-2 px-4 rounded-md font-semibold hover:bg-[#C51963] hover:scale-105 transform transition duration-300">
+            <button className="text-white py-2 px-4 rounded-md font-semibold bg-[#C51963] hover:bg-[#C51963]/90 hover:scale-105 transform transition duration-300">
               Resume 
             </button>
           </Link>
