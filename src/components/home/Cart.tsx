@@ -52,18 +52,18 @@ export default function Cart() {
   return (
     <div className="container mx-auto p-4">
       <h2 className="text-2xl font-bold mb-4 text-center">Technology Stack</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {products.slice(0, showAll ? products.length : 6).map((product) => (
-          <div key={product.id} className="bg-white shadow-lg rounded-lg p-4 flex flex-col items-center">
+          <div key={product.id} className=" shadow-lg rounded-lg p-4 flex flex-col items-center">
             <Image src={product.image} alt={product.name} width={150} height={150} className="rounded-lg" />
-            <h3 className="text-lg font-semibold text-teal-600 mt-2">{product.name}</h3>
-            <p className="text-sm text-gray-500 font-medium">{product.title}</p>
-            <p className="text-gray-700 mt-1 text-center">{product.description}</p>
+            <h3 className="text-lg font-semibold  mt-2">{product.name}</h3>
+            <p className="text-sm  font-medium">{product.title}</p>
+            <p className="mt-1 text-center">{product.description}</p>
           </div>
         ))}
       </div>
       <div className="text-center mt-4">
-        <button onClick={() => setShowAll(!showAll)} className="bg-blue-600 text-white py-2 px-4 rounded-md font-semibold hover:bg-[#C51963] hover:scale-105 transform transition duration-300">
+        <button onClick={() => setShowAll(!showAll)} className="text-white py-2 px-4 rounded-md font-semibold bg-[#C51963] hover:bg-[#C51963]/90 hover:scale-105 transform transition duration-300">
           {showAll ? 'See Less' : 'See More'}
         </button>
       </div>
