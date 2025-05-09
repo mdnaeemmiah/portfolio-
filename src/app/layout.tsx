@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Providers from "@/providers";
+import { Toaster } from "react-hot-toast";
 // import Navbar from "@/components/shared/Navbar";
 // import { getServerSession } from "next-auth";
 // import Footer from "@/components/shared/Footer";
@@ -24,6 +25,7 @@ export default async function RootLayout({
         {/* <Navbar  session={session}/> */}
         <Providers>
         <div className="min-h-screen" suppressHydrationWarning>{children}</div>
+        <Toaster position="top-center" reverseOrder={false} />
         </Providers>
         {/* <Footer></Footer> */}
       </body>

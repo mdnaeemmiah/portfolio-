@@ -21,12 +21,13 @@ export default function ContactUsPage() {
     }
   };
 
+  
   return (
     <section className="min-h-screen bg-slate-50 px-5 max-w-6xl mx-auto pt-9">
       <section className=" ">
         <div className="container mx-auto px-6">
           <h2 className="text-4xl font-bold underline text-center mb-8 rancho-regular text-[#3C4064]">
-            Contact Us
+            Contact Me
           </h2>
 
           <div className="flex flex-wrap -mx-6">
@@ -49,7 +50,7 @@ export default function ContactUsPage() {
                 <li className="mb-2">
                   <strong>Email:</strong>{" "}
                   <button className="text-[#EF1F76] font-semibold hover:underline">
-                    info@beamer.com
+                    mdnaeemmiah48@gmail.com
                   </button>
                 </li>
                 <li className="mb-2">
@@ -60,7 +61,7 @@ export default function ContactUsPage() {
 
             <div className="w-full md:w-1/2 px-6 text-[#3C4064]">
               <h3 className="text-2xl font-semibold mb-4 rancho-regular text-[#3C4064]">
-                Send Us a Message
+                Send Me a Message
               </h3>
               <form onSubmit={handleSubmit}>
                 <div className="mb-4">
@@ -118,7 +119,7 @@ export default function ContactUsPage() {
                 </div>
                 <button
                   type="submit"
-                  className="bg-blue-600 ml-5 text-white py-2 px-4 rounded-md font-semibold hover:bg-[#C51963] hover:scale-105 transform transition duration-300"
+                  className=" ml-5 text-white py-2 px-4 rounded-md font-semibold bg-[#C51963] hover:scale-105 transform transition duration-300"
                   disabled={isLoading}
                 >
                   {isLoading ? "Sending..." : "Send Message"}
