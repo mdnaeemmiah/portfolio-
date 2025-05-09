@@ -1,6 +1,6 @@
 "use client"
 import { useCreateMessageMutation } from "@/redux/features/message/messageApi";
-import { toast } from "react-toastify";
+import { toast } from "react-hot-toast";
 
 export default function ContactUsPage() {
   const [createMessage, { isLoading }] = useCreateMessageMutation();
@@ -21,7 +21,7 @@ export default function ContactUsPage() {
     }
   };
 
-  
+
   return (
     <section className="min-h-screen bg-slate-50 px-5 max-w-6xl mx-auto pt-9">
       <section className=" ">
