@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export default function Banner() {
   return (
-    <section className="w-full bg-gray-100 py-12 px-6 md:px-16 flex flex-col md:flex-row items-center gap-8 md:gap-16">
+    <section className="w-full text-white py-12 px-6 md:px-16 flex flex-col md:flex-row items-center gap-8 md:gap-16">
       {/* Left Side - Profile Info */}
       <div className="flex flex-col items-center md:items-start text-center md:text-left max-w-sm">
         <Image 
