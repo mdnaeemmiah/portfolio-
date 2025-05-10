@@ -60,12 +60,12 @@ export default function ContactUsPage() {
             </div>
 
             <div className="w-full md:w-1/2 px-6 ">
-              <h3 className="text-2xl font-semibold mb-4 rancho-regular text-[#3C4064]">
+              <h3 className="text-2xl font-semibold mb-4 rancho-regular ">
                 Send Me a Message
               </h3>
               <form onSubmit={handleSubmit}>
                 <div className="mb-4">
-                  <label className="block text-gray-700 mb-2" htmlFor="name">
+                  <label className="block  mb-2" htmlFor="name">
                     Name
                   </label>
                   <div className="border-[1.5px] rounded-lg">
