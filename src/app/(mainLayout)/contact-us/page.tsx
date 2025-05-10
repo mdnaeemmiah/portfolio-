@@ -23,24 +23,24 @@ export default function ContactUsPage() {
 
 
   return (
-    <section className="min-h-screen bg-slate-50 px-5 max-w-6xl mx-auto pt-9">
+    <section className="min-h-screen dark:bg-gray-900 px-5 max-w-6xl mx-auto pt-9">
       <section className=" ">
         <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold underline text-center mb-8 rancho-regular text-[#3C4064]">
+          <h2 className="text-4xl font-bold underline text-center mb-8 rancho-regular">
             Contact Me
           </h2>
 
           <div className="flex flex-wrap -mx-6">
             <div className="w-full md:w-1/2 px-6 mb-6 md:mb-0 flex flex-col justify-center ">
-              <h3 className="text-2xl text-[#3C4064] font-semibold mb-4 rancho-regular">
+              <h3 className="text-2xl  font-semibold mb-4 rancho-regular">
                 Get in Touch
               </h3>
-              <p className="mb-4 text-xl text-[#3C4064] my-5 ">
+              <p className="mb-4 text-xl  my-5 ">
                 We&apos;d love to hear from you! Whether you have a question
                 about our services, need assistance, or just want to talk about
                 your idea, feel free to reach out.
               </p>
-              <ul className="mb-4 text-[#3C4064]">
+              <ul className="mb-4 ">
                 <li className="mb-2">
                   <strong>Address:</strong> 123 bekar street, PC 12345
                 </li>
@@ -59,7 +59,7 @@ export default function ContactUsPage() {
               </ul>
             </div>
 
-            <div className="w-full md:w-1/2 px-6 text-[#3C4064]">
+            <div className="w-full md:w-1/2 px-6 ">
               <h3 className="text-2xl font-semibold mb-4 rancho-regular text-[#3C4064]">
                 Send Me a Message
               </h3>
@@ -79,7 +79,7 @@ export default function ContactUsPage() {
                   </div>
                 </div>
                 <div className="mb-4">
-                  <label className="block text-gray-700 mb-2" htmlFor="email">
+                  <label className="block  mb-2" htmlFor="email">
                     Email
                   </label>
                   <div className="border-[1.5px] rounded-lg">
@@ -93,7 +93,7 @@ export default function ContactUsPage() {
                   </div>
                 </div>
                 <div className="mb-4">
-                  <label className="block text-gray-700 mb-2" htmlFor="subject">
+                  <label className="block  mb-2" htmlFor="subject">
                     Subject
                   </label>
                   <div className="border-[1.5px] rounded-lg">
@@ -107,7 +107,7 @@ export default function ContactUsPage() {
                   </div>
                 </div>
                 <div className="mb-4">
-                  <label className="block text-gray-700 mb-2" htmlFor="message">
+                  <label className="block  mb-2" htmlFor="message">
                     Message
                   </label>
                   <textarea
