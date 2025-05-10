@@ -14,7 +14,7 @@ const BlogCard = ({ blog }: BlogCardProps) => {
   const imageSrc = blog.image && blog.image.trim() !== "1" ? blog.image : null; // Set to null if empty string
 
   return (
-    <div className="w-full bg-white shadow-md rounded-lg overflow-hidden">
+    <div className="w-full  shadow-md rounded-lg overflow-hidden">
       <figure>
         {/* Render Image only if src is valid */}
         {imageSrc ? (
@@ -33,7 +33,7 @@ const BlogCard = ({ blog }: BlogCardProps) => {
       </figure>
       <div className="p-6">
         {/* Blog Category */}
-        <p className="flex items-center justify-center text-teal-600 bg-teal-100 w-32 rounded-full py-1 text-sm">
+        <p className="flex items-center justify-center text-teal-600 bg-teal-100  rounded-full py-1 text-sm">
           <FaCalendar className="mr-2" />
           {blog.category || "Uncategorized"} {/* Display category or fallback */}
         </p>
