@@ -39,7 +39,7 @@ const Projects = () => {
       </p>
 
       {/* Projects grid layout with responsive columns */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 my-5 ">
+      <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-6 my-5 ">
         {projects.map((project: ProjectType) => (
           <div key={project._id} className="shadow-lg  dark:bg-gray-900  rounded-lg p-4">
             {/* Project Image */}
