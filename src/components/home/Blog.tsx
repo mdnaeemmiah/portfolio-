@@ -43,7 +43,7 @@ const Blog = () => {
       {/* See More Button */}
       <div className="flex justify-center mt-6">
         <Link href="/blog">
-          <button className="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition duration-200">
+          <button className="text-white py-2 px-4 rounded-md font-semibold bg-[#C51963] hover:bg-[#C51963]/90 hover:scale-105 transform transition duration-300">
             See More...
           </button>
         </Link>
