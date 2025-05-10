@@ -54,7 +54,7 @@ export default function Cart() {
       <h2 className="text-2xl font-bold mb-4 text-center">Technology Stack</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {products.slice(0, showAll ? products.length : 6).map((product) => (
-          <div key={product.id} className=" shadow-lg rounded-lg p-4 flex flex-col items-center">
+          <div key={product.id} className="dark:bg-gray-900 shadow-lg rounded-lg p-4 flex flex-col items-center">
             <Image src={product.image} alt={product.name} width={150} height={150} className="rounded-lg" />
             <h3 className="text-lg font-semibold  mt-2">{product.name}</h3>
             <p className="text-sm  font-medium">{product.title}</p>
