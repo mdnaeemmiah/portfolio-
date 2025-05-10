@@ -4,7 +4,7 @@ const ProjectDetailsPage = async ({ params }: { params: Promise<{ projectId: str
   const { projectId } = await params;
   
   // Fetching the project details by ID
-  const res = await fetch(`https://l2b4-a5-server.vercel.app/api/project/${projectId}`);
+  const res = await fetch(`http://localhost:5000/api/project/${projectId}`);
   const project = await res.json();
   console.log(project.data);
   

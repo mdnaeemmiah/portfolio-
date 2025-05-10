@@ -3,7 +3,7 @@ import { Project } from "@/types"; // Assuming you are importing the Project int
 
 const ProjectDetails = ({ project }: { project: Project }) => {
   return (
-    <div className="w-full md:w-2/3 bg-white shadow-lg rounded-lg mx-auto p-6">
+    <div className="w-full md:w-2/3 shadow-lg  dark:bg-gray-900  rounded-lg p-6 mx-auto">
       {/* Project Title */}
       <h2 className="text-center text-4xl text-teal-600 font-semibold my-5">{project.title}</h2>
 
@@ -19,8 +19,8 @@ const ProjectDetails = ({ project }: { project: Project }) => {
       </figure>
 
       {/* Project Description */}
-      <div className="text-gray-700 text-lg leading-relaxed">
-        <p className="text-justify text-gray-500">{project.description}</p>
+      <div className=" text-lg leading-relaxed">
+        <p className="text-justify ">{project.description}</p>
       </div>
 
       {/* Link to live project */}
