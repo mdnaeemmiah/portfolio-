@@ -34,7 +34,7 @@ const Blog = () => {
       </p>
 
       {/* Blog grid layout with responsive columns */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 my-5">
+      <div className="grid  grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 my-5">
         {blogs.slice(0, 3).map((blog: BlogType) => (
           <BlogCard key={blog._id} blog={blog} />
         ))}
