@@ -64,59 +64,66 @@ export default function ContactUsPage() {
                 Send Me a Message
               </h3>
               <form onSubmit={handleSubmit}>
-                <div className="mb-4">
-                  <label className="block  mb-2" htmlFor="name">
-                    Name
-                  </label>
-                  <div className="border-[1.5px] rounded-lg">
-                    <input
-                      className="w-full px-4 bg-white py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C51963]"
-                      type="text"
-                      id="name"
-                      name="name"
-                      required
-                    />
-                  </div>
-                </div>
-                <div className="mb-4">
-                  <label className="block  mb-2" htmlFor="email">
-                    Email
-                  </label>
-                  <div className="border-[1.5px] rounded-lg">
-                    <input
-                      className="w-full px-4 bg-white py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C51963]"
-                      type="email"
-                      id="email"
-                      name="email"
-                      required
-                    />
-                  </div>
-                </div>
-                <div className="mb-4">
-                  <label className="block  mb-2" htmlFor="subject">
-                    Subject
-                  </label>
-                  <div className="border-[1.5px] rounded-lg">
-                    <input
-                      className="w-full px-4 bg-white py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C51963]"
-                      type="text"
-                      id="subject"
-                      name="subject"
-                      required
-                    />
-                  </div>
-                </div>
-                <div className="mb-4">
-                  <label className="block  mb-2" htmlFor="message">
-                    Message
-                  </label>
-                  <textarea
-                    className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C51963]"
-                    id="message"
-                    name="message"
+              <div className="mb-4">
+                <label className="block mb-2" htmlFor="name">
+                  Name
+                </label>
+                <div className="border-[1.5px] rounded-lg">
+                  <input
+                    className="w-full px-4 bg-white py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C51963]"
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Enter your name"
                     required
-                  ></textarea>
+                  />
                 </div>
+              </div>
+
+              <div className="mb-4">
+                <label className="block mb-2" htmlFor="email">
+                  Email
+                </label>
+                <div className="border-[1.5px] rounded-lg">
+                  <input
+                    className="w-full px-4 bg-white py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C51963]"
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="mb-4">
+                <label className="block mb-2" htmlFor="subject">
+                  Subject
+                </label>
+                <div className="border-[1.5px] rounded-lg">
+                  <input
+                    className="w-full px-4 bg-white py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C51963]"
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    placeholder="Subject of your message"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="mb-4">
+                <label className="block mb-2" htmlFor="message">
+                  Message
+                </label>
+                <textarea
+                  className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C51963]"
+                  id="message"
+                  name="message"
+                  placeholder="Write your message here..."
+                  required
+                ></textarea>
+              </div>
                 <button
                   type="submit"
                   className=" ml-5 text-white py-2 px-4 rounded-md font-semibold bg-[#C51963] hover:scale-105 transform transition duration-300"
@@ -132,3 +139,4 @@ export default function ContactUsPage() {
     </section>
   );
 }
+
