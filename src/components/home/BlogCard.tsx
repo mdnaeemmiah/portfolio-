@@ -35,22 +35,29 @@ const BlogCard = ({ blog }: BlogCardProps) => {
         {/* Blog Category */}
         <p className="flex items-center justify-center text-teal-600 bg-teal-100  rounded-full py-1 text-sm">
           <FaCalendar className="mr-2" />
-          {blog.category || "Uncategorized"} {/* Display category or fallback */}
+          {blog.category || "Uncategorized"}{" "}
+          {/* Display category or fallback */}
         </p>
-        
-        {/* Blog Title */}
-        <h2 className="text-xl font-bold mt-4">
-          {blog.title.length > 30 ? blog.title.slice(0, 30) + "..." : blog.title}
-        </h2>
-        
-        {/* Blog Content Preview */}
-        <p className="text-gray-400 mt-2">
-          {blog.content.length > 100 ? blog.content.slice(0, 60) + "..." : blog.content}
-          <Link href={`/blog/${blog._id}`} className="text-teal-600 ml-1">
-            Read More
-          </Link>
-        </p>
-        
+
+        <div className="text-left">
+          {/* Blog Title */}
+          <h2 className="text-xl font-bold mt-4">
+            {blog.title.length > 30
+              ? blog.title.slice(0, 30) + "..."
+              : blog.title}
+          </h2>
+
+          {/* Blog Content Preview */}
+          <p className="text-gray-400 mt-2">
+            {blog.content.length > 100
+              ? blog.content.slice(0, 60) + "..."
+              : blog.content}
+            <Link href={`/blog/${blog._id}`} className="text-teal-600 ml-1">
+              Read More
+            </Link>
+          </p>
+        </div>
+
         {/* Author Info and Likes */}
         <div className="flex justify-between items-center mt-5">
           <div className="flex items-center">
@@ -64,13 +71,15 @@ const BlogCard = ({ blog }: BlogCardProps) => {
                 className="object-cover"
               />
             </div>
-            <span className="text-sm font-medium text-gray-500">{ "Unknown Author"}</span>
+            <span className="text-sm font-medium text-gray-500">
+              {"Unknown Author"}
+            </span>
           </div>
-          
+
           {/* Likes Count */}
           <div className="flex items-center text-sm text-gray-700">
             <AiFillLike className="text-teal-600 text-xl mr-1" />
-            { 0} Likes {/* Display the like count, defaulting to 0 */}
+            {0} Likes {/* Display the like count, defaulting to 0 */}
           </div>
         </div>
       </div>
