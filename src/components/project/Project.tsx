@@ -39,9 +39,9 @@ const Projects = () => {
       </p>
 
       {/* Projects grid layout with responsive columns */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 my-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 my-5 ">
         {projects.map((project: ProjectType) => (
-          <div key={project._id} className="bg-white shadow-md rounded-lg p-4">
+          <div key={project._id} className="shadow-lg  dark:bg-gray-900  rounded-lg p-4">
             {/* Project Image */}
             <img
               src={project.image}
@@ -51,7 +51,7 @@ const Projects = () => {
             {/* Project Title */}
             <h2 className="text-xl font-semibold text-teal-600">{project.title}</h2>
             {/* Project Description */}
-            <p className="text-gray-600 mt-2">
+            <p className=" mt-2">
               {truncateDescription(project.description)}{" "}
               {project.description.split(" ").length > 5 && (
                 <Link href={`/project/${project._id}`} passHref>
