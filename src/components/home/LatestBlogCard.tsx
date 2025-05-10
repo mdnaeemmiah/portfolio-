@@ -95,7 +95,7 @@ import { useState } from "react";
 const LatestBlogCard = () => {
   const { data, isLoading } = useGetAllBlogPostsQuery(undefined);
   const [currentPage, setCurrentPage] = useState(1);
-  const postsPerPage = 3;
+  const postsPerPage = 6;
 
   if (isLoading) {
     return <p>Loading blogs...</p>;
