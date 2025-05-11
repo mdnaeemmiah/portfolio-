@@ -1,5 +1,4 @@
 // 
-
 'use client';
 
 import Image from 'next/image';
@@ -55,7 +54,10 @@ export default function Banner() {
           className="rounded-full border-4 border-blue-500 shadow-lg"
         />
         <h1 className="text-3xl font-bold mt-4">I am</h1>
-        <h2 className="text-xl text-[#C51963] min-h-[1.5rem] font-mono">{displayText}<span className="animate-pulse">|</span></h2>
+        <h2 className="text-xl text-[#C51963] min-h-[1.5rem] font-mono whitespace-nowrap">
+          {displayText}
+          <span className="animate-pulse">|</span>
+        </h2>
       </div>
 
       {/* Right Side - About Info */}
