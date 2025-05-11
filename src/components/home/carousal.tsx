@@ -5,7 +5,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
-import img1 from '@/assets/images/pict1.jpg';
+import img1 from '@/assets/images/library-interior-interior-design-books-wallpaper-preview.jpg';
 import img2 from '@/assets/images/pict2.jpg';
 import img3 from '@/assets/images/pict3.jpg';
 import img4 from '@/assets/images/img5.avif';
