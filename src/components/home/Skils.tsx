@@ -23,6 +23,11 @@ import pic17 from "@/assets/images/pic17.jpg";
 import pic18 from "@/assets/images/pic19.png";
 import pic19 from "@/assets/images/pic20.png";
 import pic20 from "@/assets/images/pic21.jpg";
+// import pic20 from "@/assets/images/pic22.jpg"; // Prisma
+// import pic21 from "@/assets/images/pic23.jpg"; // Tailwind
+// import pic22 from "@/assets/images/pic24.jpg"; // Stripe
+
+
 
 const skills = [
   { id: 1, name: "HTML", title: "Building Blocks of Web", description: "The foundation of web structure and content.", image: pic1 },
