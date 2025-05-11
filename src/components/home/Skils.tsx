@@ -50,7 +50,7 @@ const skills = [
 const Skils = () => {
   return (
     <div className="w-full  py-8 text-center">
-      <h2 className="text-3xl font-bold text-gray-800 mb-2">Explore My Skills</h2>
+      <h2 className="text-3xl font-bold  mb-2">Explore My Skills</h2>
       <div className="w-72 h-1 bg-green-500 mx-auto mb-6"></div>
 
       {/* Scrolling skills */}
