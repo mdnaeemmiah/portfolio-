@@ -10,7 +10,6 @@ const HomePage = () => {
  
   return (
     <div className='text-center  mt-28 '>
-      <h1>ho</h1>
       <Banner></Banner>
       <Cart></Cart>
       <Carousal></Carousal>
