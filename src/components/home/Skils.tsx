@@ -49,7 +49,7 @@ const skills = [
 
 const Skils = () => {
   return (
-    <div className="w-full  py-8 text-center">
+    <div className="w-full   py-8 text-center">
       <h2 className="text-3xl font-bold  mb-2">Explore My Skills</h2>
       <div className="w-72 h-1 bg-green-500 mx-auto mb-6"></div>
 
@@ -59,12 +59,12 @@ const Skils = () => {
           {[...skills, ...skills].map((skill) => (
             <div
               key={skill.id}
-              className="w-64 h-64  shadow-lg rounded-xl p-4 flex flex-col items-center justify-center 
+              className=" dark:bg-gray-900 shadow-lg rounded-xl p-4 flex flex-col items-center justify-center 
                          transition transform hover:scale-105"
             >
               <Image src={skill.image} alt={skill.name} width={80} height={80} className="rounded-md" />
-              <h3 className="text-lg font-bold mt-2 text-gray-800">{skill.name}</h3>
-              <p className="text-sm text-gray-600">{skill.title}</p>
+              <h3 className="text-lg font-bold mt-2 ">{skill.name}</h3>
+              <p className="text-sm ">{skill.title}</p>
             </div>
           ))}
         </div>
