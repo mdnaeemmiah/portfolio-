@@ -45,7 +45,7 @@ export default function Banner() {
   return (
     <section className="w-full dark:bg-gray-900 py-12 px-6 md:px-16 flex flex-col md:flex-row items-center gap-8 md:gap-16">
       {/* Left Side - Profile Info */}
-      <div className="flex flex-col items-center md:items-start text-center md:text-left max-w-sm">
+      <div className="flex  flex-col items-center md:items-start text-center md:text-left max-w-sm">
         <Image
           src={img}
           alt="Profile Picture"
@@ -54,7 +54,7 @@ export default function Banner() {
           className="rounded-full border-4 border-blue-500 shadow-lg"
         />
         <h1 className="text-3xl font-bold mt-4">I am</h1>
-        <h2 className="text-xl text-[#C51963] min-h-[1.5rem] font-mono whitespace-nowrap">
+        <h2 className="text-xl w-32 text-[#C51963] min-h-[1.5rem] font-mono whitespace-nowrap">
           {displayText}
           <span className="animate-pulse">|</span>
         </h2>
