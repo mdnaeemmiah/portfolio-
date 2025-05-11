@@ -16,8 +16,11 @@ export default function Banner() {
           height={150} 
           className="rounded-full border-4 border-blue-500 shadow-lg"
         />
-        <h1 className="text-3xl  font-bold mt-4">Naeem</h1>
+        <h1 className="text-3xl  font-bold mt-4">I am</h1>
+        <h1 className="text-lg">Naeem</h1>
         <p className="text-lg">Software Engineer</p>
+        <p className="text-lg">web developer </p>
+        <p className="text-lg">mernstact developer </p>
       </div>
       
       {/* Right Side - About Info */}
