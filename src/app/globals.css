@@ -70,3 +70,29 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-wrapper {
+  overflow: hidden;
+  width: 100%;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.animate-marquee {
+  display: flex;
+  animation: marquee 30s linear infinite;
+  min-width: 200%;
+}
+
+.marquee-content {
+  display: flex;
+}
