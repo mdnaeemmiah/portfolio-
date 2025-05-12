@@ -13,10 +13,10 @@ const TabButton: React.FC<TabButtonProps> = ({ children, selectTab, active }) =>
     <button
       onClick={selectTab}
       className={clsx(
-        "px-4 py-2 font-medium transition duration-300",
+        "px-4  font-medium transition duration-300",
         active
           ? "text-[#C51963] border-b-2 border-blue-600"
-          : "text-gray-600 hover:text-blue-600"
+          : " hover:text-blue-600"
       )}
     >
       {children}

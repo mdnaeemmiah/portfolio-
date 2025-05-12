@@ -131,7 +131,7 @@ const About = () => {
             collaborative environments and aim to build seamless user
             experiences.
           </p>
-          <div className="flex flex-row justify-start mt-8 text-md flex-wrap gap-4">
+          <div className="flex  flex-row justify-start mt-8 text-md flex-wrap gap-4">
             <TabButton
               selectTab={() => handleTabChange("skills")}
               active={tab === "skills"}
