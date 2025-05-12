@@ -32,7 +32,7 @@ export default function Footer() {
         {/* Contact Info */}
         <div>
           <h3 className="text-lg font-semibold mb-3">Contact Us</h3>
-          <p>Phone: +123 456 7890</p>
+          <p>Phone: + 01892927131</p>
           <p>Email: contact@example.com</p>
           <p>Address: 123 Street, City, Country</p>
         </div>
@@ -75,7 +75,7 @@ export default function Footer() {
 
       {/* Copyright Notice */}
       <div className="text-center mt-6 border-t border-gray-700 pt-4">
-        <p>© 2024 All Rights Reserved.</p>
+        <p>© 2024 All Rights Reserved By Naeem</p>
       </div>
     </footer>
   );
