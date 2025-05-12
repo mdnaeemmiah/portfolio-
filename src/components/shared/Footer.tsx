@@ -12,7 +12,7 @@ export default function Footer() {
     <footer className="w-full bg-gray-900 text-white p-6 mt-10">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left px-4">
           <div className="flex items-center gap-2">
-          <Image src={img1} alt="Description" width={100} height={100} />
+          <Image src={img1} alt="Description" width={200} height={200} />
         </div>
 
         {/* Contact Info */}
