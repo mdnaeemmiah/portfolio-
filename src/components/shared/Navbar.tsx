@@ -199,6 +199,9 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import Image from "next/image";
+import img1 from "@/assets/images/ChatGPT Image May 12, 2025, 02_54_23 PM.png";
+
 
 type UserProps = {
   user?: {
@@ -236,9 +239,15 @@ export default function Navbar({ session }: { session: UserProps | null }) {
     <nav className="bg-gray-900 text-white shadow-md p-4 flex justify-between items-center fixed top-0 left-0 w-full z-50 transition-all">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
-        <div className="flex items-center gap-2">
-          <span className="text-2xl font-bold text-teal-600">My Portfolio</span>
-        </div>
+          <div className="flex items-center gap-2">
+      <Image
+        src={img1}
+        alt="Description"
+        width={80}
+        height={80}
+    
+      />
+    </div>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex gap-6 dark:text-white">
