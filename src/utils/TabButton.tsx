@@ -1,23 +1,25 @@
+"use client";
 import React from "react";
+import clsx from "clsx";
 
 interface TabButtonProps {
-  active: boolean;
-  selectTab: () => void;
   children: React.ReactNode;
+  selectTab: () => void;
+  active: boolean;
 }
 
-const TabButton: React.FC<TabButtonProps> = ({
-  active,
-  selectTab,
-  children,
-}) => {
-  const buttonClasses = active
-    ? "text-transparent bg-clip-text bg-gradient-to-br from-yellow-300 to-red-600 border-b-2 border-yellow-500"
-    : "text-[#ADB0BE] dark:text-[#ADB0BE] ";
-
+const TabButton: React.FC<TabButtonProps> = ({ children, selectTab, active }) => {
   return (
-    <button onClick={selectTab} className="relative">
-      <p className={`mr-4 font-bold ${buttonClasses}`}>{children}</p>
+    <button
+      onClick={selectTab}
+      className={clsx(
+        "px-4 py-2 font-medium transition duration-300",
+        active
+          ? "text-[#C51963] border-b-2 border-blue-600"
+          : "text-gray-600 hover:text-blue-600"
+      )}
+    >
+      {children}
     </button>
   );
 };
