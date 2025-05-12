@@ -126,7 +126,7 @@ export default function ContactUsPage() {
               </div>
                 <button
                   type="submit"
-                  className=" ml-5 text-white py-2 px-4 rounded-md font-semibold bg-[#C51963] hover:scale-105 transform transition duration-300"
+                  className="group inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
                   disabled={isLoading}
                 >
                   {isLoading ? "Sending..." : "Send Message"}
