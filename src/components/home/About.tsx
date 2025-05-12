@@ -169,11 +169,11 @@ const About = () => {
         </div>
 
         {/* Image Section */}
-        <div className="rounded-full mx-auto p-2 border-2 flex items-center justify-center w-[240px] h-[295px] lg:w-[315px] lg:h-[390px] order-1 md:order-2">
+        <div className="rounded-full mx-auto  flex items-center justify-center w-[240px] h-[295px] lg:w-[315px] lg:h-[390px] order-1 md:order-2">
           <Image
             className="rounded-full object-cover"
             src={img1}
-            width={315}
+            width={390}
             height={390}
             alt="About pic"
             priority
