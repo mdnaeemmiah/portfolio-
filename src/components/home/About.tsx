@@ -2,7 +2,7 @@
 "use client";
 import React, { useTransition, useState } from "react";
 import Image from "next/image";
-// import TabButton from "@/utils/TabButton";
+import TabButton from "@/utils/TabButton";
 
 const TAB_DATA = [
   {
@@ -108,7 +108,7 @@ const About = () => {
             experiences. In my free time, I enjoy exploring new technologies and
             contributing to open-source projects.
           </p>
-          {/* <div className="flex flex-row justify-start mt-8 text-md flex-wrap gap-4">
+          <div className="flex flex-row justify-start mt-8 text-md flex-wrap gap-4">
             <TabButton
               selectTab={() => handleTabChange("skills")}
               active={tab === "skills"}
@@ -139,7 +139,7 @@ const About = () => {
             >
               Certifications
             </TabButton>
-          </div> */}
+          </div>
           <div className="mt-4 border p-4">
             {selectedTab ? selectedTab.content : "No content found"}
           </div>
