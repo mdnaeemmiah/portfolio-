@@ -50,7 +50,28 @@ const TAB_DATA = [
   {
     title: "Experience",
     id: "experience",
-    content: <h1 className="text-center">N/A</h1>,
+    content: (
+      <ul className="list-disc pl-4 space-y-2">
+        <li>
+          <strong>Full-Stack Web Developer (2024 - Present)</strong> <br />
+          Built and maintained multiple full-stack applications using:
+          <ul className="list-disc pl-6">
+            <li>Frontend: React.js, Next.js, Tailwind CSS, TypeScript</li>
+            <li>Backend: Node.js, Express.js, MongoDB, Prisma</li>
+            <li>Authentication: JWT, Role-Based Access Control</li>
+            <li>Payments: Stripe Integration</li>
+            <li>Form Handling: Formik & Yup</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Freelance Projects & Personal Portfolio (2024 - 25)</strong>{" "}
+          <br />
+          Developed and deployed several responsive web applications and a
+          personal portfolio site. Focused on clean UI/UX and dynamic API
+          integration.
+        </li>
+      </ul>
+    ),
   },
   {
     title: "Education",
@@ -102,12 +123,13 @@ const About = () => {
             About Me
           </h2>
           <p className="text-base text-justify">
-            Hi, I&apos;m a Junior Web Developer skilled in JavaScript, TypeScript,
-            React, Node.js, Express, MongoDB, and Tailwind CSS. I have built
-            several full-stack projects and enjoy working on scalable, modern
-            web apps. I am always eager to learn new technologies and contribute
-            to open-source. I thrive in collaborative environments and aim to
-            build seamless user experiences.
+            Hi, I&apos;m a Junior Web Developer skilled in JavaScript,
+            TypeScript, React, Node.js, Express, MongoDB, and Tailwind CSS. I
+            have built several full-stack projects and enjoy working on
+            scalable, modern web apps. I am always eager to learn new
+            technologies and contribute to open-source. I thrive in
+            collaborative environments and aim to build seamless user
+            experiences.
           </p>
           <div className="flex flex-row justify-start mt-8 text-md flex-wrap gap-4">
             <TabButton
