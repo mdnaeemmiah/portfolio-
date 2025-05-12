@@ -9,26 +9,34 @@ const TAB_DATA = [
     title: "Skills",
     id: "skills",
     content: (
-      <div className="flex gap-24">
+      <div className="flex gap-24 flex-wrap">
         <div>
-          <h1 className="font-bold underline">Technical Skills:</h1>
-          <ul className="list-disc pl-2">
-            <li>JavaScript</li>
-            <li>React.js</li>
-            <li>Node.js</li>
-            <li>Express</li>
-            <li>MongoDB</li>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>Tailwind</li>
+          <h1 className="font-bold underline mb-2">Technical Skills:</h1>
+          <ul className="list-disc pl-4">
+            <li>JavaScript (ES6+)</li>
+            <li>TypeScript</li>
+            <li>React.js & Next.js</li>
+            <li>Node.js & Express.js</li>
+            <li>MongoDB & Mongoose</li>
+            <li>Tailwind CSS</li>
+            <li>HTML5 & CSS3</li>
+            <li>REST API Development</li>
+            <li>JWT & Role-based Authentication</li>
+            <li>Stripe Payment Integration</li>
+            <li>Formik & Yup Validation</li>
+            <li>Redux Toolkit</li>
+            <li>Git & GitHub</li>
           </ul>
         </div>
         <div>
-          <h1 className="font-bold underline">Soft Skills:</h1>
-          <ul className="list-disc pl-2">
-            <li>Communication</li>
+          <h1 className="font-bold underline mb-2">Soft Skills:</h1>
+          <ul className="list-disc pl-4">
+            <li>Strong Communication</li>
+            <li>Team Collaboration</li>
+            <li>Problem Solving</li>
+            <li>Continuous Learner</li>
             <li>Adaptability</li>
-            <li>Hard worker</li>
+            <li>Time Management</li>
           </ul>
         </div>
       </div>
@@ -48,11 +56,19 @@ const TAB_DATA = [
     title: "Education",
     id: "education",
     content: (
-      <ul className="list-disc pl-2">
-        <li>National University</li>
-        <li>Bachelor of Honours Degree, Department of Philosophy</li>
-        <li>Ananda Mohon University and College, Mymensingh, Bangladesh</li>
-        <li>(From 2021 to Running)</li>
+      <ul className="list-disc pl-4">
+        <li>
+          <strong>Daffodil International University</strong> (Present) <br />
+          BSc in Software Engineering
+        </li>
+        <li>
+          <strong>National University of Bangladesh</strong> (Running) <br />
+          Bachelor of Honours in Philosophy <br />
+          Ananda Mohon University College, Mymensingh
+        </li>
+        <li>
+          Completed HSC and SSC from Mymensingh Board
+        </li>
       </ul>
     ),
   },
@@ -60,9 +76,23 @@ const TAB_DATA = [
     title: "Certifications",
     id: "certifications",
     content: (
-      <ul className="list-disc pl-2">
-        <li>Complete Web Development Course With Jhankar Mahbub</li>
-        <li>Programming Hero</li>
+      <ul className="list-disc pl-4">
+        <li>
+          <strong>Complete Web Development Course</strong> <br />
+          Programming Hero (Instructor: Jhankar Mahbub)
+        </li>
+        <li>
+          <strong>JavaScript Algorithms and Data Structures</strong> <br />
+          freeCodeCamp
+        </li>
+        <li>
+          <strong>Responsive Web Design</strong> <br />
+          freeCodeCamp
+        </li>
+        <li>
+          <strong>Backend Development with Node.js</strong> <br />
+          Udemy (Instructor: Jonas Schmedtmann / Colt Steele)
+        </li>
       </ul>
     ),
   },
@@ -83,22 +113,18 @@ const About = () => {
   return (
     <section className="text-black dark:bg-gray-900 dark:text-white container mx-auto">
       <div className="md:grid min-h-[700px] md:grid-cols-2 gap-8 items-center py-8 px-6 xl:gap-16 sm:py-16 xl:px-24">
-        
-        {/* Text Column - Left Side */}
-        <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
+        {/* Text Section */}
+        <div className="mt-4 md:mt-0 text-left flex flex-col h-full order-2 md:order-1">
           <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-center lg:text-left mt-4">
             About Me
           </h2>
           <p className="text-base text-justify">
-            Hi, I&apos;m a Junior Web Developer skilled in JavaScript, React,
-            Node.js, Express, MongoDB, HTML, CSS, and Tailwind CSS and other
-            tools. I have completed several full-stack projects, showcasing my
-            ability to develop both front-end and back-end solutions. I am
-            passionate about coding and eager to join a collaborative team where
-            I can contribute to innovative web applications and continue to grow
-            my skills. My goal is to create user-friendly and efficient web
-            experiences. In my free time, I enjoy exploring new technologies and
-            contributing to open-source projects.
+            Hi, I&apos;m a Junior Web Developer skilled in JavaScript, TypeScript,
+            React, Node.js, Express, MongoDB, and Tailwind CSS. I have built
+            several full-stack projects and enjoy working on scalable, modern
+            web apps. I am always eager to learn new technologies and contribute
+            to open-source. I thrive in collaborative environments and aim to
+            build seamless user experiences.
           </p>
           <div className="flex flex-row justify-start mt-8 text-md flex-wrap gap-4">
             <TabButton
@@ -132,15 +158,15 @@ const About = () => {
               Certifications
             </TabButton>
           </div>
-          <div className="mt-4 border p-4">
+          <div className="mt-4 border p-4 rounded-md">
             {selectedTab ? selectedTab.content : "No content found"}
           </div>
         </div>
 
-        {/* Image Column - Right Side */}
-        <div className="rounded-full mx-auto p-2 border-2 flex items-center justify-center w-[240px] h-[295px] lg:w-[315px] lg:h-[390px]">
+        {/* Image Section */}
+        <div className="rounded-full mx-auto p-2 border-2 flex items-center justify-center w-[240px] h-[295px] lg:w-[315px] lg:h-[390px] order-1 md:order-2">
           <Image
-            className="rounded-full"
+            className="rounded-full object-cover"
             src={img1}
             width={315}
             height={390}
