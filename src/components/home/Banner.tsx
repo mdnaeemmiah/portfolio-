@@ -84,7 +84,7 @@ export default function Banner() {
           </Link>
            {/* Preview Resume */}
             <Link
-              href="https://drive.google.com/file/d/1DAt5fkZ18TuYLom2LmUlzl03ANkksyU-/view?usp=sharing"
+              href="https://docs.google.com/document/d/1u5UZBHIecxEikRcAQWfTK8_rSAovM9d5/edit?usp=drive_link&ouid=107296665174850575619&rtpof=true&sd=true"
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 bg-gradient-to-r from-yellow-700 via-orange-600 to-red-500 text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
@@ -98,7 +98,7 @@ export default function Banner() {
 
             {/* Download Resume */}
             <a
-              href="https://drive.google.com/uc?export=download&id=1DAt5fkZ18TuYLom2LmUlzl03ANkksyU-"
+              href="https://docs.google.com/document/d/1u5UZBHIecxEikRcAQWfTK8_rSAovM9d5/edit?usp=drive_link&ouid=107296665174850575619&rtpof=true&sd=true"
               download
               className="group inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
             >
