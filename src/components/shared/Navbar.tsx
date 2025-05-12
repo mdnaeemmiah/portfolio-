@@ -200,7 +200,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import Image from "next/image";
-import img1 from "@/assets/images/ChatGPT Image May 12, 2025, 02_54_23 PM.png";
+import img1 from "@/assets/images/ChatGPT_Image_May_12__2025__03_08_36_PM-removebg-preview.png";
 
 
 type UserProps = {
