@@ -23,7 +23,7 @@ export default function ContactUsPage() {
 
 
   return (
-    <section className="min-h-screen dark:bg-gray-900 px-5 max-w-6xl mx-auto pt-9">
+    <section className="min-h-screen dark:bg-gray-900 px-5 max-w-6xl mx-auto pt-9 mt-36">
       <section className=" ">
         <div className="container mx-auto px-6">
           <h2 className="text-4xl font-bold underline text-center mb-8 rancho-regular">
