@@ -11,7 +11,7 @@ const HomePage = () => {
 
  
   return (
-    <div className='text-center  mt-28 '>
+    <div className='text-center  mt-36 '>
       <Banner></Banner>
       <Skils></Skils>
       {/* <Cart></Cart> */}
