@@ -3,6 +3,7 @@
 import React, { useTransition, useState } from "react";
 import Image from "next/image";
 import TabButton from "@/utils/TabButton";
+import img1 from "@/assets/images/WhatsApp Image 2024-03-27 at 14.53.53_5b68d4e3.jpg";
 
 const TAB_DATA = [
   {
@@ -86,8 +87,8 @@ const About = () => {
         <div className=" rounded-full mx-auto p-2 lg:p-2 border-2 flex items-center justify-center w-[240px] h-[295px] lg:w-[315px] lg:h-[390px]">
           <Image
             className="rounded-full"
-            src="/src/assets/images/img5.avif"
-            width={350}
+            src={img1}
+            width={400}
             height={350}
             alt="About pic"
             priority
