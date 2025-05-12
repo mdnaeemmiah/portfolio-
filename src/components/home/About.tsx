@@ -1,4 +1,3 @@
-
 "use client";
 import React, { useTransition, useState } from "react";
 import Image from "next/image";
@@ -28,7 +27,7 @@ const TAB_DATA = [
           <h1 className="font-bold underline">Soft Skills:</h1>
           <ul className="list-disc pl-2">
             <li>Communication</li>
-            <li>Aduptibility</li>
+            <li>Adaptability</li>
             <li>Hard worker</li>
           </ul>
         </div>
@@ -83,17 +82,9 @@ const About = () => {
 
   return (
     <section className="text-black dark:bg-gray-900 dark:text-white container mx-auto">
-      <div className="md:grid  min-h-[700px] md:grid-cols-2 gap-8 items-center py-8 px-6 xl:gap-16 sm:py-16 xl:px-24">
-        <div className=" rounded-full mx-auto p-2 lg:p-2 border-2 flex items-center justify-center w-[240px] h-[295px] lg:w-[315px] lg:h-[390px]">
-          <Image
-            className="rounded-full"
-            src={img1}
-            width={400}
-            height={350}
-            alt="About pic"
-            priority
-          />
-        </div>
+      <div className="md:grid min-h-[700px] md:grid-cols-2 gap-8 items-center py-8 px-6 xl:gap-16 sm:py-16 xl:px-24">
+        
+        {/* Text Column - Left Side */}
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
           <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-center lg:text-left mt-4">
             About Me
@@ -144,6 +135,18 @@ const About = () => {
           <div className="mt-4 border p-4">
             {selectedTab ? selectedTab.content : "No content found"}
           </div>
+        </div>
+
+        {/* Image Column - Right Side */}
+        <div className="rounded-full mx-auto p-2 border-2 flex items-center justify-center w-[240px] h-[295px] lg:w-[315px] lg:h-[390px]">
+          <Image
+            className="rounded-full"
+            src={img1}
+            width={315}
+            height={390}
+            alt="About pic"
+            priority
+          />
         </div>
       </div>
     </section>
