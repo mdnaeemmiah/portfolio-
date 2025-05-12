@@ -5,6 +5,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import img from '../../assets/images/photo_2023-09-14_16-42-04 (2).jpg';
+import { DownloadIcon, Eye } from "lucide-react";
+
 
 const titles = [
   "Naeem",
@@ -80,6 +82,32 @@ export default function Banner() {
               Resume
             </button>
           </Link>
+           {/* Preview Resume */}
+            <Link
+              href="https://drive.google.com/file/d/1DAt5fkZ18TuYLom2LmUlzl03ANkksyU-/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 bg-gradient-to-r from-yellow-700 via-orange-600 to-red-500 text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
+            >
+              <Eye
+                size={20}
+                className="transition-transform duration-300 group-hover:rotate-6"
+              />
+              <span className="font-medium">Preview Resume</span>
+            </Link>
+
+            {/* Download Resume */}
+            <a
+              href="https://drive.google.com/uc?export=download&id=1DAt5fkZ18TuYLom2LmUlzl03ANkksyU-"
+              download
+              className="group inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
+            >
+              <DownloadIcon
+                size={20}
+                className="transition-transform duration-300 group-hover:translate-x-1"
+              />
+              <span className="font-medium">Download Resume</span>
+            </a>
         </div>
       </div>
     </section>
