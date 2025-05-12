@@ -245,7 +245,7 @@ export default function Navbar({ session }: { session: UserProps | null }) {
           <Link
             href="/"
             className={clsx(
-              "hover:text-blue-600 dark:hover:text-blue-300 border-b-2 transition-all duration-200",
+              " hover:text-blue-600 border-b-2 transition-all duration-200",
               pathname === "/" ? "text-[#C51963] border-blue-600" : "border-transparent text-white"
             )}
           >
@@ -254,7 +254,7 @@ export default function Navbar({ session }: { session: UserProps | null }) {
           <Link
             href="/blog"
             className={clsx(
-              "hover:text-blue-600 dark:hover:text-blue-300 border-b-2 transition-all duration-200",
+              "hover:text-blue-600  border-b-2 transition-all duration-200",
               pathname === "/blog" ? "text-[#C51963] border-blue-600" : "border-transparent text-white"
             )}
           >
@@ -263,7 +263,7 @@ export default function Navbar({ session }: { session: UserProps | null }) {
           <Link
             href="/project"
             className={clsx(
-              "hover:text-blue-600 dark:hover:text-blue-300 border-b-2 transition-all duration-200",
+              "hover:text-blue-600  border-b-2 transition-all duration-200",
               pathname.startsWith("/project") ? "text-[#C51963] border-blue-600" : "border-transparent text-white"
             )}
           >
@@ -272,7 +272,7 @@ export default function Navbar({ session }: { session: UserProps | null }) {
           <Link
             href="/contact-us"
             className={clsx(
-              "hover:text-blue-600 dark:hover:text-blue-300 border-b-2 transition-all duration-200",
+              "hover:text-blue-600  border-b-2 transition-all duration-200",
               pathname === "/contact-us" ? "text-[#C51963] border-blue-600" : "border-transparent text-white"
             )}
           >
