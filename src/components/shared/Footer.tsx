@@ -17,7 +17,7 @@ export default function Footer() {
 
         {/* Contact Info */}
         <div>
-          <h3 className="text-lg font-semibold mb-3">Contact Us</h3>
+          <h3 className="text-lg font-semibold mb-3">Contact </h3>
           <p>Phone: + 01892927131</p>
           <p >Email:<span className="text-[#EF1F76] font-semibold hover:underline"> mdnaeemmiah@gmail.com</span></p>
           <p>Address: Tolarbag, Mirpur-01,Dhaka, Bangladesh</p>
