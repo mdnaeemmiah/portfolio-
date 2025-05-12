@@ -33,7 +33,7 @@ export default function Footer() {
         <div>
           <h3 className="text-lg font-semibold mb-3">Contact Us</h3>
           <p>Phone: + 01892927131</p>
-          <p>Email: mdnaeemmiah@gmail.com</p>
+          <p >Email:<span className="text-[#EF1F76] font-semibold hover:underline"> mdnaeemmiah@gmail.com</span></p>
           <p>Address: 123 Street, City, Country</p>
         </div>
 
