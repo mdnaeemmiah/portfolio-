@@ -178,8 +178,6 @@
 //   );
 // }
 
-
-
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
@@ -201,7 +199,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 import Image from "next/image";
 import img1 from "@/assets/images/ChatGPT_Image_May_12__2025__03_08_36_PM-removebg-preview.png";
-
 
 type UserProps = {
   user?: {
@@ -239,15 +236,9 @@ export default function Navbar({ session }: { session: UserProps | null }) {
     <nav className="bg-gray-900 text-white shadow-md p-4 flex justify-between items-center fixed top-0 left-0 w-full z-50 transition-all">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
-          <div className="flex items-center gap-2">
-      <Image
-        src={img1}
-        alt="Description"
-        width={80}
-        height={80}
-    
-      />
-    </div>
+        <div className="flex items-center gap-2">
+          <Image src={img1} alt="Description" width={80} height={80} />
+        </div>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex gap-6 dark:text-white">
@@ -255,7 +246,9 @@ export default function Navbar({ session }: { session: UserProps | null }) {
             href="/"
             className={clsx(
               " hover:text-blue-600 border-b-2 transition-all duration-200",
-              pathname === "/" ? "text-[#C51963] border-blue-600" : "border-transparent text-white"
+              pathname === "/"
+                ? "text-[#C51963] border-blue-600"
+                : "border-transparent text-white"
             )}
           >
             Home
@@ -264,7 +257,9 @@ export default function Navbar({ session }: { session: UserProps | null }) {
             href="/blog"
             className={clsx(
               "hover:text-blue-600  border-b-2 transition-all duration-200",
-              pathname === "/blog" ? "text-[#C51963] border-blue-600" : "border-transparent text-white"
+              pathname === "/blog"
+                ? "text-[#C51963] border-blue-600"
+                : "border-transparent text-white"
             )}
           >
             Blogs
@@ -273,7 +268,9 @@ export default function Navbar({ session }: { session: UserProps | null }) {
             href="/project"
             className={clsx(
               "hover:text-blue-600  border-b-2 transition-all duration-200",
-              pathname.startsWith("/project") ? "text-[#C51963] border-blue-600" : "border-transparent text-white"
+              pathname.startsWith("/project")
+                ? "text-[#C51963] border-blue-600"
+                : "border-transparent text-white"
             )}
           >
             Projects
@@ -282,7 +279,9 @@ export default function Navbar({ session }: { session: UserProps | null }) {
             href="/contact-us"
             className={clsx(
               "hover:text-blue-600  border-b-2 transition-all duration-200",
-              pathname === "/contact-us" ? "text-[#C51963] border-blue-600" : "border-transparent text-white"
+              pathname === "/contact-us"
+                ? "text-[#C51963] border-blue-600"
+                : "border-transparent text-white"
             )}
           >
             Contact Us
@@ -312,7 +311,10 @@ export default function Navbar({ session }: { session: UserProps | null }) {
                         className="w-8 h-8 rounded-full"
                       />
                     ) : (
-                      <UserCircle size={32} className="text-gray-600 dark:text-white" />
+                      <UserCircle
+                        size={32}
+                        className="text-gray-600 dark:text-white"
+                      />
                     )}
                     <span className="text-teal-600 dark:text-white font-medium">
                       {session.user.name || "User"}
@@ -340,7 +342,10 @@ export default function Navbar({ session }: { session: UserProps | null }) {
               </DropdownMenu>
             ) : (
               <Link href="/auth/login">
-                <Button variant="default" className="group inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl">
+                <Button
+                  variant="default"
+                  className="group inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                >
                   Login
                 </Button>
               </Link>
@@ -356,19 +361,36 @@ export default function Navbar({ session }: { session: UserProps | null }) {
                 <Menu size={24} />
               </Button>
             </SheetTrigger>
-            <SheetContent side="left" className="p-4 dark:bg-gray-900 dark:text-white">
+            <SheetContent
+              side="left"
+              className="p-4 dark:bg-gray-900 dark:text-white"
+            >
               <DialogTitle>
                 <VisuallyHidden>Navigation Menu</VisuallyHidden>
               </DialogTitle>
               <div className="flex flex-col gap-4 text-lg">
-                <Link href="/" onClick={() => setOpen(false)}>Home</Link>
-                <Link href="/blog" onClick={() => setOpen(false)}>Blogs</Link>
-                <Link href="/project" onClick={() => setOpen(false)}>Projects</Link>
-                <Link href="/contact-us" onClick={() => setOpen(false)}>Contact Us</Link>
+                <Link href="/" onClick={() => setOpen(false)}>
+                  Home
+                </Link>
+                <Link href="/blog" onClick={() => setOpen(false)}>
+                  Blogs
+                </Link>
+                <Link href="/project" onClick={() => setOpen(false)}>
+                  Projects
+                </Link>
+                <Link href="/contact-us" onClick={() => setOpen(false)}>
+                  Contact Us
+                </Link>
 
                 {session?.user ? (
                   <>
-                    <Link href="/dashboard" onClick={() => setOpen(false)} className="mt-4 w-full">Dashboard</Link>
+                    <Link
+                      href="/dashboard"
+                      onClick={() => setOpen(false)}
+                      className="mt-4 w-full"
+                    >
+                      Dashboard
+                    </Link>
                     <button
                       onClick={() => signOut()}
                       className="mt-2 w-full text-left text-red-600"
@@ -377,7 +399,13 @@ export default function Navbar({ session }: { session: UserProps | null }) {
                     </button>
                   </>
                 ) : (
-                  <Link href="/auth/login" onClick={() => setOpen(false)} className="mt-4 w-full">Login</Link>
+                  <Link
+                    href="/auth/login"
+                    onClick={() => setOpen(false)}
+                    className="mt-4 w-full"
+                  >
+                    Login
+                  </Link>
                 )}
               </div>
 
