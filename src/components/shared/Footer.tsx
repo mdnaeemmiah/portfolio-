@@ -11,26 +11,8 @@ export default function Footer() {
   return (
     <footer className="w-full bg-gray-900 text-white p-6 mt-10">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left px-4">
-        {/* Projects Links */}
         <div>
-          <h3 className="text-lg font-semibold mb-3">Projects</h3>
-          <ul className="space-y-2">
-            <li>
-              <Link href="/project1" className="hover:text-blue-400">
-                Project 1
-              </Link>
-            </li>
-            <li>
-              <Link href="/project2" className="hover:text-blue-400">
-                Project 2
-              </Link>
-            </li>
-            <li>
-              <Link href="/project3" className="hover:text-blue-400">
-                Project 3
-              </Link>
-            </li>
-          </ul>
+
         </div>
 
         {/* Contact Info */}
