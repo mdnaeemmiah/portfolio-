@@ -61,14 +61,6 @@ const TAB_DATA = [
           <strong>Daffodil International University</strong> (Present) <br />
           BSc in Software Engineering
         </li>
-        <li>
-          <strong>National University of Bangladesh</strong> (Running) <br />
-          Bachelor of Honours in Philosophy <br />
-          Ananda Mohon University College, Mymensingh
-        </li>
-        <li>
-          Completed HSC and SSC from Mymensingh Board
-        </li>
       </ul>
     ),
   },
@@ -82,16 +74,7 @@ const TAB_DATA = [
           Programming Hero (Instructor: Jhankar Mahbub)
         </li>
         <li>
-          <strong>JavaScript Algorithms and Data Structures</strong> <br />
-          freeCodeCamp
-        </li>
-        <li>
-          <strong>Responsive Web Design</strong> <br />
-          freeCodeCamp
-        </li>
-        <li>
           <strong>Backend Development with Node.js</strong> <br />
-          Udemy (Instructor: Jonas Schmedtmann / Colt Steele)
         </li>
       </ul>
     ),
