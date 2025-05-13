@@ -9,6 +9,7 @@ import { useForm, Controller, SubmitHandler } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useAppDispatch } from "@/redux/hooks";
 import Cookies from "js-cookie";
+import { Button } from "@/components/ui/button";
 
 // Define the type for form inputs
 type RegisterFormInputs = {
@@ -161,6 +162,8 @@ const Register = () => {
           >
             {isLoading ? "Registering..." : "Register"}
           </Button> */}
+          <Button>hello</Button>
+          
         </form>
 
         <p className="text-sm text-center">
