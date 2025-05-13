@@ -233,7 +233,7 @@ export default function Navbar({ session }: { session: UserProps | null }) {
   };
 
   return (
-    <nav className="bg-gray-900 text-white shadow-md p-4 flex justify-between items-center fixed top-0 left-0 w-full z-50 transition-all">
+    <nav className="bg-gray-900 text-white shadow-md p-4 flex justify-between items-center fixed top-0 left-0 w-full  z-50 transition-all">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center gap-2">
@@ -284,7 +284,7 @@ export default function Navbar({ session }: { session: UserProps | null }) {
                 : "border-transparent text-white"
             )}
           >
-            Contact Us
+            Contact 
           </Link>
         </div>
 
