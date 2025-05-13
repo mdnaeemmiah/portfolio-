@@ -62,7 +62,6 @@ const Login = () => {
     <section className="max-w-7xl mx-2 w-full flex items-center justify-center bg-white rounded-lg">
       <div className="p-5 md:w-1/2 xl:px-16 flex flex-col">
         <h3 className="text-2xl font-bold leading-10 tracking-wide mt-5">Login</h3>
-        <p className="text-xl my-5 text-red-600">Login only with Google or GitHub</p>
 
         <form
           autoComplete="off"
