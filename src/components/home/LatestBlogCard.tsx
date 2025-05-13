@@ -170,7 +170,7 @@ const LatestBlogCard = () => {
                 ? "bg-gray-300 text-gray-600 cursor-not-allowed"
                 : "bg-[#C51963] text-white hover:bg-[#C51963]/90 hover:scale-105"}`}
           >
-            {/* Next */}
+            Next
           </button>
         </nav>
       </div>
