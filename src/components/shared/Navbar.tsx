@@ -387,7 +387,7 @@ export default function Navbar() {
                 <DropdownMenuTrigger asChild>
                   <button className="flex items-center gap-2 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700">
                     <UserCircle size={32} className="text-white" />
-                    <span className="text-teal-400">{user.email}</span>
+                    {/* <span className="text-teal-400">{user.email}</span> */}
                   </button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="bg-white dark:bg-gray-800 shadow-lg rounded-md p-2 absolute right-0 w-40">
