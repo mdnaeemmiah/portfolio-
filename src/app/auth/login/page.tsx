@@ -50,6 +50,7 @@ const Login = () => {
       } else {
         toast.error("Login failed. Please try again.", { id: toastId });
       }
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       toast.error(err?.data?.message || "Something went wrong", {
         id: toastId,
