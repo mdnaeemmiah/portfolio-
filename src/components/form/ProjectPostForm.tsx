@@ -92,7 +92,7 @@ const ProjectPostForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="max-w-xl mx-auto p-4 bg-gray-900 rounded shadow-md">
-      <h2 className="text-2xl font-bold mb-4">Create Project Post</h2>
+      <h2 className="text-2xl font-bold mb-4 text-center">Create Project Post</h2>
 
       <div className="mb-4">
         <label htmlFor="title" className="block text-sm font-semibold">
