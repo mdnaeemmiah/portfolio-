@@ -481,7 +481,7 @@ const ManageProjectTable = () => {
                   id="liveLink"
                   value={editProject.liveLink}
                   onChange={(e) => setEditProject({ ...editProject, liveLink: e.target.value })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded"
+                  className="w-full px-3 py-2 border border-gray-300 rounded text-black"
                   required
                 />
               </div>
