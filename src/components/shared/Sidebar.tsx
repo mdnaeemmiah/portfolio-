@@ -81,7 +81,7 @@ const Sidebar = () => {
         <li>
           <Link
             href="/dashboard/ProjectManage"
-            className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-200 text-gray-700"
+            className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-200 "
           >
             <FaTasks className="h-5 w-5" />
             <span>Project Management</span>
@@ -90,7 +90,7 @@ const Sidebar = () => {
         <li>
           <Link
             href="/dashboard/message"
-            className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-200 text-gray-700"
+            className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-200 "
           >
             <BiTask className="h-5 w-5" />
             <span>All Message</span>
