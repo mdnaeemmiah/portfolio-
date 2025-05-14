@@ -27,7 +27,7 @@ const Sidebar = () => {
         <li>
           <Link
             href="/hello"
-            className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-200 "
+            className="flex items-center space-x-2 p-3 rounded-md hover:bg-[#C51963] "
           >
             <AiOutlineDashboard className="h-5 w-5" />
             <span>Dashboard</span>
@@ -36,7 +36,7 @@ const Sidebar = () => {
         <li>
           <Link
             href="/dashboard/blogs"
-            className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-200 "
+            className="flex items-center space-x-2 p-3 rounded-md hover:bg-[#C51963] "
           >
             <BiBook className="h-5 w-5" />
             <span>All Blog</span>
@@ -45,7 +45,7 @@ const Sidebar = () => {
         <li>
           <Link
             href="/dashboard/blogPost"
-            className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-200 "
+            className="flex items-center space-x-2 p-3 rounded-md hover:bg-[#C51963] "
           >
             <BiEdit className="h-5 w-5" />
             <span>Blog Post</span>
@@ -54,7 +54,7 @@ const Sidebar = () => {
         <li>
           <Link
             href="/dashboard/blogManage"
-            className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-200 "
+            className="flex items-center space-x-2 p-3 rounded-md hover:bg-[#C51963] "
           >
             <BiListCheck className="h-5 w-5" />
             <span>Blog Manage</span>
@@ -63,7 +63,7 @@ const Sidebar = () => {
         <li>
           <Link
             href="/dashboard/allProject"
-            className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-200 "
+            className="flex items-center space-x-2 p-3 rounded-md hover:bg-[#C51963] "
           >
             <BiFolderOpen className="h-5 w-5" />
             <span>All Project</span>
