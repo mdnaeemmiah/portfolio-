@@ -459,7 +459,7 @@ const ManageProjectTable = () => {
                   id="description"
                   value={editProject.description}
                   onChange={(e) => setEditProject({ ...editProject, description: e.target.value })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded"
+                  className="w-full px-3 py-2 border border-gray-300 rounded text-black"
                   required
                 />
               </div>
@@ -470,7 +470,7 @@ const ManageProjectTable = () => {
                   id="image"
                   value={editProject.image}
                   onChange={(e) => setEditProject({ ...editProject, image: e.target.value })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded"
+                  className="w-full px-3 py-2 border border-gray-300 rounded text-black"
                   required
                 />
               </div>
