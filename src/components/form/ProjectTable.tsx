@@ -37,9 +37,9 @@ const ProjectTable = () => {
   return (
     <div>
       <div className="overflow-x-auto ">
-        <table className="min-w-full border-collapse border border-gray-300">
+        <table className="min-w-full border-collapse border bg-gray-900 border-gray-300">
           <thead>
-            <tr className="bg-gray-100">
+            <tr className="bg-gray-800">
               <th className="border p-2">Image</th>
               <th className="border p-2">Title</th>
               <th className="border p-2">Live Link</th>
@@ -47,8 +47,8 @@ const ProjectTable = () => {
           </thead>
           <tbody>
             {currentProjects.map((project: Project) => (
-              <tr key={project._id} className="border">
-                <td className="border p-2">
+              <tr key={project._id} className="border text-center">
+                <td className="border p-2 ">
                   <Image
                     src={project.image}
                     alt={project.title}
@@ -57,7 +57,7 @@ const ProjectTable = () => {
                     className="rounded"
                   />
                 </td>
-                <td className="border p-2">{project.title}</td>
+                <td className="border p-2 text-center">{project.title}</td>
                 <td className="border p-2">
                   <a
                     href={project.liveLink}
