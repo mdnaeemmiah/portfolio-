@@ -54,6 +54,7 @@ function App() {
       },
       tooltip: {
         callbacks: {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           label: (context: { raw: any }) => `Importance: ${context.raw}`
         }
       }

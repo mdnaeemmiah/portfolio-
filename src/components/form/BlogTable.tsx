@@ -37,9 +37,9 @@ const BlogTable = () => {
   return (
     <div>
       <div className="overflow-x-auto">
-        <table className="min-w-full border-collapse border border-gray-300">
+        <table className="min-w-full border-collapse border bg-gray-900">
           <thead>
-            <tr className="bg-gray-100">
+            <tr className="bg-gray-800 text-white">
               <th className="border p-2">Image</th>
               <th className="border p-2">Title</th>
               <th className="border p-2">Category</th>
