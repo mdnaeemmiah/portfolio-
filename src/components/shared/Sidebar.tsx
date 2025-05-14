@@ -90,7 +90,7 @@ const Sidebar = () => {
         <li>
           <Link
             href="/dashboard/message"
-            className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-200 "
+            className="flex items-center space-x-2 p-3 rounded-md hover:bg-[#C51963] "
           >
             <BiTask className="h-5 w-5" />
             <span>All Message</span>
