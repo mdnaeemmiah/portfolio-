@@ -91,7 +91,7 @@ const ProjectPostForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-xl mx-auto p-4">
+    <form onSubmit={handleSubmit} className="max-w-xl mx-auto p-4 bg-gray-900 rounded shadow-md">
       <h2 className="text-2xl font-bold mb-4">Create Project Post</h2>
 
       <div className="mb-4">
