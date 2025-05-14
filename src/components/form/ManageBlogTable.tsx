@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useGetAllBlogPostsQuery, useDeleteBlogPostMutation, useUpdateBlogPostMutation } from '@/redux/features/blog/blogApi';
 import toast from 'react-hot-toast';
-
+import { Pencil, Trash2 } from 'lucide-react';
 const BlogTable = () => {
   // Fetch all blog posts
   const { data, isLoading, isError, refetch } = useGetAllBlogPostsQuery(undefined);
@@ -102,7 +102,7 @@ const BlogTable = () => {
       <h2 className="text-2xl font-bold mb-4">Blog Posts</h2>
       <table className="w-full border-collapse border border-gray-300">
         <thead>
-          <tr className="bg-gray-200">
+          <tr className="bg-gray-800 text-white">
             <th className="border p-2">Title</th>
             <th className="border p-2">Category</th>
             <th className="border p-2">Update</th>
@@ -115,18 +115,23 @@ const BlogTable = () => {
               <tr key={post._id || index} className="text-center border">
                 <td className="border p-2">{post.title}</td>
                 <td className="border p-2">{post.category}</td>
-                <td className="border p-2">
-                  <button onClick={() => openUpdateModal(post)} className="bg-blue-500 text-white px-3 py-1 rounded">Update</button>
-                </td>
-                <td className="border p-2">
-                  <button
-                    onClick={() => post._id && handleDelete(post._id)}
-                    className="bg-red-500 text-white px-3 py-1 rounded"
-                    disabled={!post._id}
-                  >
-                    Delete
-                  </button>
-                </td>
+<td className="border p-2">
+  <button
+    onClick={() => openUpdateModal(post)}
+    className=" text-white p-2 rounded hover:bg-green-600 transition"
+  >
+    <Pencil size={16} />
+  </button>
+</td>
+<td className="border p-2">
+  <button
+    onClick={() => post._id && handleDelete(post._id)}
+    className="bg-red-500 text-white p-2 rounded hover:bg-red-600 transition"
+    disabled={!post._id}
+  >
+    <Trash2 size={16} />
+  </button>
+</td>
               </tr>
             ))
           ) : (
