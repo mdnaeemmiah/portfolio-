@@ -441,7 +441,7 @@ export default function Navbar() {
                 <Link href="/contact-us" onClick={() => setOpen(false)}>Contact Us</Link>
                 {user ? (
                   <>
-                    <Link href="/dashboard" onClick={() => setOpen(false)}>Dashboard</Link>
+                    <Link href="/hello" onClick={() => setOpen(false)}>Dashboard</Link>
                     <button onClick={handleLogout} className="text-left text-red-600">
                       Logout
                     </button>
