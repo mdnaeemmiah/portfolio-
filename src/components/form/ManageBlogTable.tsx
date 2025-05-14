@@ -569,7 +569,7 @@ const BlogTable = () => {
                 </button>
                 <button
                   type="submit"
-                  className="bg-blue-500 text-white px-4 py-2 rounded"
+                  className=" bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white shadow-lg transition-all duration-300 hover:scale-105 px-4 py-2 rounded"
                 >
                   Update
                 </button>
