@@ -439,7 +439,7 @@ const ManageProjectTable = () => {
       {/* Modal */}
       {isModalOpen && editProject && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-          <div className="bg-white p-6 rounded-lg w-1/3">
+          <div className="bg-gray-950 p-6 rounded-lg w-1/3">
             <h3 className="text-2xl mb-4">Update Project</h3>
             <form onSubmit={handleUpdateSubmit}>
               <div className="mb-4">
@@ -449,7 +449,7 @@ const ManageProjectTable = () => {
                   id="title"
                   value={editProject.title}
                   onChange={(e) => setEditProject({ ...editProject, title: e.target.value })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded"
+                  className="w-full px-3 py-2 border border-gray-300 rounded text-black"
                   required
                 />
               </div>

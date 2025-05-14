@@ -32,7 +32,7 @@ const MessageTable = () => {
   if (error) return <p className="text-red-500">Error loading messages</p>;
 
   return (
-    <div className="mt-6 bg-gray-900 p-6 rounded-lg shadow-lg">
+    <div className=" bg-gray-900 p-6 rounded-lg shadow-lg">
       <h2 className="text-2xl font-bold mb-4 text-white text-center">All Messages</h2>
       <div className="overflow-x-auto">
         <table className="min-w-full bg-gray-900 border border-gray-200 rounded-lg">
