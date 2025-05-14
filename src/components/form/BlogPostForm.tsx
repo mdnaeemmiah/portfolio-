@@ -86,7 +86,7 @@ const BlogPostForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-xl mx-auto p-4">
+    <form onSubmit={handleSubmit} className="max-w-xl mx-auto p-4  bg-gray-900">
       <h2 className="text-2xl font-bold mb-4">Create Blog Post</h2>
 
       <div className="mb-4">
