@@ -48,12 +48,12 @@ const ProjectTable = () => {
           <tbody>
             {currentProjects.map((project: Project) => (
               <tr key={project._id} className="border text-center">
-                <td className="border p-2  ">
+                <td className="border p-2  flex items-center justify-center">
                   <Image
                     src={project.image}
                     alt={project.title}
-                    width={50}
-                    height={50}
+                    width={60}
+                    height={60}
                     className="rounded"
                   />
                 </td>
