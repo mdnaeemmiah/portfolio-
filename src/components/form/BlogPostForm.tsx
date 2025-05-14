@@ -151,7 +151,7 @@ const BlogPostForm = () => {
 
       <button
         type="submit"
-        className="w-full bg-blue-500 text-white p-2 rounded"
+        className="w-full bg-gradient-to-r from-purple-500 via-pink-500 to-red-500  shadow-lg transition-all duration-300 hover:scale-105 text-white p-2 rounded"
       >
         Create Blog Post
       </button>
