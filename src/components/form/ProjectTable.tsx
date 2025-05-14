@@ -48,7 +48,7 @@ const ProjectTable = () => {
           <tbody>
             {currentProjects.map((project: Project) => (
               <tr key={project._id} className="border text-center">
-                <td className="border p-2 ">
+                <td className="border p-2  ">
                   <Image
                     src={project.image}
                     alt={project.title}
@@ -57,7 +57,7 @@ const ProjectTable = () => {
                     className="rounded"
                   />
                 </td>
-                <td className="border p-2 text-center">{project.title}</td>
+                <td className="border p-2 ">{project.title}</td>
                 <td className="border p-2">
                   <a
                     href={project.liveLink}
