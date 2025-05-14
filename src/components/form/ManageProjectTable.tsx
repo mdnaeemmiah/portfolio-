@@ -266,7 +266,7 @@ const ManageProjectTable = () => {
   const projects = Array.isArray(data?.data) ? data?.data : data?.data?.projects || [];
 
   const [currentPage, setCurrentPage] = useState(1);
-  const projectsPerPage = 13;
+  const projectsPerPage = 10;
   const indexOfLastProject = currentPage * projectsPerPage;
   const indexOfFirstProject = indexOfLastProject - projectsPerPage;
   const currentProjects = projects.slice(indexOfFirstProject, indexOfLastProject);
@@ -395,7 +395,7 @@ const ManageProjectTable = () => {
       </table>
 
       {/* Pagination UI */}
-      {projects.length > projectsPerPage && (
+  
         <div className="flex justify-center mt-8">
           <nav className="inline-flex items-center gap-2 bg-gray-100 dark:bg-gray-800 px-4 py-2 rounded-md shadow-md">
             <button
@@ -434,7 +434,7 @@ const ManageProjectTable = () => {
             </button>
           </nav>
         </div>
-      )}
+
 
       {/* Modal */}
       {isModalOpen && editProject && (
