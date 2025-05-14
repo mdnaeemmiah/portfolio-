@@ -393,7 +393,7 @@ export default function Navbar() {
                 <DropdownMenuContent className="bg-white dark:bg-gray-800 shadow-lg rounded-md p-2 absolute right-0 w-40">
                   <DropdownMenuItem asChild>
                     <Link
-                      href="/dashboard"
+                      href="/dashboard/blogs"
                       className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
                     >
                       Dashboard
