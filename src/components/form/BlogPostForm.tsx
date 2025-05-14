@@ -86,7 +86,7 @@ const BlogPostForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-xl mx-auto p-4  bg-gray-900">
+    <form onSubmit={handleSubmit} className="max-w-xl  mx-auto p-4  bg-gray-900">
       <h2 className="text-2xl font-bold mb-4">Create Blog Post</h2>
 
       <div className="mb-4">
@@ -99,7 +99,7 @@ const BlogPostForm = () => {
           name="title"
           value={formData.title}
           onChange={handleChange}
-          className="w-full p-2 border rounded"
+          className="w-full p-2 border rounded text-black"
           required
         />
       </div>
@@ -114,7 +114,7 @@ const BlogPostForm = () => {
           name="category"
           value={formData.category}
           onChange={handleChange}
-          className="w-full p-2 border rounded"
+          className="w-full p-2 border rounded text-black"
           required
         />
       </div>
@@ -129,7 +129,7 @@ const BlogPostForm = () => {
           value={formData.content}
           onChange={handleChange}
           rows={4}
-          className="w-full p-2 border rounded"
+          className="w-full p-2 border rounded text-black"
           required
         />
       </div>
