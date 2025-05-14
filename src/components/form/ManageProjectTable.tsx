@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // /* eslint-disable @next/next/no-img-element */
 // 'use client';
 
@@ -351,7 +352,7 @@ const ManageProjectTable = () => {
         </thead>
         <tbody>
           {currentProjects.length > 0 ? (
-            currentProjects.map((project, index) => (
+            currentProjects.map((project:any, index:any) => (
               <tr key={project._id || index} className="text-center border">
                 <td className="border p-2">{project.title}</td>
                 <td className="border p-2">
