@@ -39,7 +39,7 @@ export default function DashboardLayout({
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 bg-slate-100 text-[rgb(60,0,64)] rounded-xl p-4 md:ml-2 pt-16">
+      <div className="flex-1 text-white rounded-xl p-4 md:ml-2 pt-16">
         {children}
       </div>
     </div>
