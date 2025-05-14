@@ -294,7 +294,8 @@ import {
   useUpdateBlogPostMutation,
 } from "@/redux/features/blog/blogApi";
 import toast from "react-hot-toast";
-import { Pencil, Trash2 } from "lucide-react";
+import { Trash2 } from "lucide-react";
+import { FiEdit } from 'react-icons/fi';
 
 const BlogTable = () => {
   const { data, isLoading, isError, refetch } =
@@ -423,17 +424,17 @@ const BlogTable = () => {
                   <td className="border p-2">
                     <button
                       onClick={() => openUpdateModal(post)}
-                      className="text-white p-2 rounded hover:bg-green-600 transition group"
+                      className="text-blue-500 hover:text-blue-700"
                     >
                       <span className="group-hover:underline">
-                        <Pencil size={16} />
+                        <FiEdit size={16} />
                       </span>
                     </button>
                   </td>
                   <td className="border p-2">
                     <button
                       onClick={() => post._id && handleDelete(post._id)}
-                      className="bg-red-500 text-white p-2 rounded hover:bg-red-600 transition"
+                      className=" text-red-500 hover:text-red-700"
                       disabled={!post._id}
                     >
                       <Trash2 size={16} />
