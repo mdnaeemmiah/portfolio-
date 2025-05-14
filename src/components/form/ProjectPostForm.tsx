@@ -104,6 +104,7 @@ const ProjectPostForm = () => {
           name="title"
           value={formData.title}
           onChange={handleChange}
+          placeholder="Enter title"
           className="w-full p-2 border rounded text-black"
           required
         />
@@ -117,6 +118,7 @@ const ProjectPostForm = () => {
           id="description"
           name="description"
           value={formData.description}
+          placeholder="Enter description"
           onChange={handleChange}
           rows={4}
           className="w-full p-2 border rounded text-black"
@@ -133,6 +135,7 @@ const ProjectPostForm = () => {
           id="liveLink"
           name="liveLink"
           value={formData.liveLink}
+          placeholder="Enter url link"
           onChange={handleChange}
           className="w-full p-2 border rounded text-black"
           required
