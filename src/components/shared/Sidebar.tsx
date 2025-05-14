@@ -13,7 +13,7 @@ import { FaTasks } from "react-icons/fa";
 
 const Sidebar = () => {
   return (
-    <div className="bg-slate-100 min-h-screen p-4 pt-12 rounded-xl">
+    <div className=" min-h-screen p-4 pt-12 rounded-xl">
       <ul className="space-y-4">
         <li>
           <Link
