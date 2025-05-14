@@ -31,7 +31,7 @@ export default function DashboardLayout({
 
       {/* Sidebar - Hidden on small screens, toggleable */}
       <div
-        className={`fixed md:static top-0 left-0 w-64 h-full bg-white transition-transform z-40 ${
+        className={`fixed md:static top-0 left-0 w-64 h-full  transition-transform z-40 ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         } md:translate-x-0 md:w-[20%]`}
       >
