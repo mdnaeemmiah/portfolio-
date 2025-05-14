@@ -63,7 +63,7 @@ const Sidebar = () => {
         <li>
           <Link
             href="/dashboard/allProject"
-            className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-200 text-gray-700"
+            className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-200 "
           >
             <BiFolderOpen className="h-5 w-5" />
             <span>All Project</span>
@@ -72,7 +72,7 @@ const Sidebar = () => {
         <li>
           <Link
             href="/dashboard/projectPost"
-            className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-200 text-gray-700"
+            className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-200 "
           >
             <BiPlusCircle className="h-5 w-5" />
             <span>Project Post</span>
