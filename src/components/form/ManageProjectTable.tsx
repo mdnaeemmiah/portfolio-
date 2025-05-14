@@ -339,7 +339,7 @@ const ManageProjectTable = () => {
 
   return (
     <div className="container mx-auto mt-6 bg-gray-900 p-6 rounded-lg shadow-lg">
-      <h2 className="text-2xl font-bold mb-4 text-white">Project Management</h2>
+      <h2 className="text-2xl font-bold mb-4 text-white text-center">Project Management</h2>
       <table className="w-full border-collapse border border-gray-300 text-white">
         <thead>
           <tr className="bg-gray-800">
