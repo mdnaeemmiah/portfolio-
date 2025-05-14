@@ -496,7 +496,7 @@ const BlogTable = () => {
       {/* Update Modal */}
       {isModalOpen && editPost && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-          <div className="bg-white p-6 rounded-lg w-1/3">
+          <div className=" p-6 bg-gray-900 rounded-lg w-1/3">
             <h3 className="text-2xl mb-4">Update Blog Post</h3>
             <form onSubmit={handleUpdateSubmit}>
               <div className="mb-4">
@@ -510,7 +510,7 @@ const BlogTable = () => {
                   onChange={(e) =>
                     setEditPost({ ...editPost, title: e.target.value })
                   }
-                  className="w-full px-3 py-2 border border-gray-300 rounded"
+                  className="w-full px-3 text-black py-2 border border-gray-300 rounded"
                   required
                 />
               </div>
