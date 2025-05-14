@@ -119,7 +119,7 @@ const ProjectPostForm = () => {
           value={formData.description}
           onChange={handleChange}
           rows={4}
-          className="w-full p-2 border rounded"
+          className="w-full p-2 border rounded text-black"
           required
         />
       </div>
@@ -134,7 +134,7 @@ const ProjectPostForm = () => {
           name="liveLink"
           value={formData.liveLink}
           onChange={handleChange}
-          className="w-full p-2 border rounded"
+          className="w-full p-2 border rounded text-black"
           required
         />
       </div>
@@ -156,7 +156,7 @@ const ProjectPostForm = () => {
 
       <button
         type="submit"
-        className="w-full bg-blue-500 text-white p-2 rounded"
+        className="w-full bg-gradient-to-r from-purple-500 via-pink-500 to-red-500  shadow-lg transition-all duration-300 hover:scale-105 text-white p-2 rounded"
         disabled={isLoading}
       >
         {isLoading ? 'Creating...' : 'Create Project Post'}
