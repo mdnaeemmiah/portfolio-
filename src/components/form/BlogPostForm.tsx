@@ -99,6 +99,7 @@ const BlogPostForm = () => {
           name="title"
           value={formData.title}
           onChange={handleChange}
+          placeholder="Enter blog post title"
           className="w-full p-2 border rounded text-black"
           required
         />
@@ -114,6 +115,7 @@ const BlogPostForm = () => {
           name="category"
           value={formData.category}
           onChange={handleChange}
+           placeholder="Enter blog category (e.g. Tech, Health)"
           className="w-full p-2 border rounded text-black"
           required
         />
@@ -128,6 +130,7 @@ const BlogPostForm = () => {
           name="content"
           value={formData.content}
           onChange={handleChange}
+              placeholder="Write your blog content here..."
           rows={4}
           className="w-full p-2 border rounded text-black"
           required
