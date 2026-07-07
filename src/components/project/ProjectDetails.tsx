@@ -3,32 +3,30 @@ import { Project } from "@/types"; // Assuming you are importing the Project int
 
 const ProjectDetails = ({ project }: { project: Project }) => {
   return (
-    <div className="w-full md:w-2/3 shadow-lg  dark:bg-gray-900  rounded-lg p-6 mx-auto">
-      {/* Project Title */}
-      <h2 className="text-center text-4xl text-teal-600 font-semibold my-5">{project.title}</h2>
+    <div className="glass-card mx-auto w-full max-w-3xl overflow-hidden">
+      <div className="p-6 sm:p-8">
+        <p className="section-kicker">Case Study</p>
+        <h2 className="mt-3 text-3xl font-semibold text-slate-900 sm:text-4xl">
+          {project.title}
+        </h2>
+      </div>
 
-      {/* Project Image */}
-      <figure className="mb-5">
+      <figure className="px-6 pb-6 sm:px-8">
         <Image
           src={project.image}
-          width={800}
-          height={400}
+          width={900}
+          height={480}
           alt={project.title}
-          className="rounded-lg w-full object-cover"
+          className="h-72 w-full rounded-2xl object-cover"
         />
       </figure>
 
-      {/* Project Description */}
-      <div className=" text-lg leading-relaxed">
-        <p className="text-justify ">{project.description}</p>
-      </div>
-
-      {/* Link to live project */}
-      <div className="mt-5">
+      <div className="space-y-6 px-6 pb-10 text-base text-slate-600 sm:px-8">
+        <p className="leading-relaxed">{project.description}</p>
         <a
           href={project.liveLink}
           target="_blank"
-          className="text-teal-500 underline"
+          className="inline-flex items-center rounded-full border border-slate-200/70 px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-700 transition hover:border-slate-300"
           rel="noopener noreferrer"
         >
           View Live Project

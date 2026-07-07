@@ -1,101 +1,100 @@
 import React from 'react';
 
 const ResumePage = () => {
-    return (
-        <div style={{ fontFamily: 'Arial, sans-serif', lineHeight: 1.6, backgroundColor: '#f4f4f4', color: '#333' }}>
-        <header style={{ backgroundColor: '#0070f3', color: 'white', padding: '20px', textAlign: 'center' }}>
-          <h1>Naeem</h1>
-          <h2>Software Engineer</h2>
-        </header>
-  
-        <div style={{ width: '80%', margin: '0 auto', padding: '20px' }}>
-          {/* About Section */}
-          <section style={{ marginTop: '20px' }}>
-            <h2>About Me</h2>
+  return (
+    <section className="section">
+      <div className="glass-card mx-auto max-w-4xl p-8 sm:p-10">
+        <div className="flex flex-col items-center text-center">
+          <p className="section-kicker">Resume</p>
+          <h1 className="mt-3 text-4xl font-semibold text-slate-900">Naeem</h1>
+          <p className="mt-2 text-sm uppercase tracking-[0.3em] text-slate-500">
+            Software Engineer
+          </p>
+        </div>
+
+        <div className="mt-10 space-y-10 text-sm text-slate-600">
+          <section className="space-y-3">
+            <h2 className="text-xl font-semibold text-slate-900">About Me</h2>
             <p>
-              I am a passionate software engineer with a strong background in web development. I specialize in modern technologies such as React.js, Next.js, TypeScript, Node.js, and more. I am driven by the desire to create efficient, scalable, and user-friendly applications. With experience working in fast-paced environments, I am always ready to take on new challenges and improve my skills.
+              I am a software engineer focused on modern web development. I build
+              clean, scalable applications with React, Next.js, TypeScript, and Node.js.
             </p>
           </section>
-  
-          {/* Education Section */}
-          <section style={{ marginTop: '20px' }}>
-            <h2>Education</h2>
-            <h3>Bachelor of Science in Software Engineering</h3>
-            <p><strong>Daffodil international university</strong> — 2023</p>
-            <p>Relevant coursework: Full-Stack Development, Algorithms & Data Structures, Web Development, Database Management Systems.</p>
+
+          <section className="space-y-3">
+            <h2 className="text-xl font-semibold text-slate-900">Education</h2>
+            <p className="font-semibold text-slate-800">
+              Bachelor of Science in Software Engineering
+            </p>
+            <p>Daffodil International University — 2023</p>
+            <p>
+              Relevant coursework: Full-Stack Development, Algorithms & Data
+              Structures, Database Management Systems.
+            </p>
           </section>
-  
-          {/* Skills Section */}
-          <section style={{ marginTop: '20px' }}>
-            <h2>Skills</h2>
-            <ul style={{ listStyleType: 'none', paddingLeft: '0' }}>
+
+          <section className="space-y-3">
+            <h2 className="text-xl font-semibold text-slate-900">Skills</h2>
+            <ul className="grid gap-2 sm:grid-cols-2">
               <li><strong>Languages:</strong> JavaScript, TypeScript, HTML, CSS</li>
-              <li><strong>Frameworks/Libraries:</strong> React.js, Next.js, Node.js, Express.js, Redux, Tailwind CSS, Ant Design, ShadCN</li>
-              <li><strong>Tools:</strong> Git, Webpack, Docker</li>
+              <li><strong>Frameworks:</strong> React, Next.js, Node.js, Express</li>
+              <li><strong>Tools:</strong> Git, Docker, Webpack</li>
               <li><strong>Databases:</strong> MongoDB, PostgreSQL</li>
-              <li><strong>Other:</strong> Responsive Web Design, Agile Development, RESTful APIs, UI/UX Design</li>
+              <li><strong>UI:</strong> Tailwind CSS, ShadCN, Ant Design</li>
+              <li><strong>Other:</strong> REST APIs, UX, Agile</li>
             </ul>
           </section>
-  
-          {/* Certifications Section */}
-          <section style={{ marginTop: '20px' }}>
-            <h2>Certifications</h2>
-            <ul style={{ listStyleType: 'none', paddingLeft: '0' }}>
-              <li><strong>Web Development (Frontend & Backend)</strong> — Programming Hero <em>Date Obtained: [Month, Year]</em></li>
-              <li><strong>JavaScript Algorithms and Data Structures</strong> — Programming Hero <em>Date Obtained: [Month, Year]</em></li>
+
+          <section className="space-y-3">
+            <h2 className="text-xl font-semibold text-slate-900">Certifications</h2>
+            <ul className="space-y-2">
+              <li><strong>Web Development (Frontend & Backend)</strong> — Programming Hero</li>
+              <li><strong>JavaScript Algorithms and Data Structures</strong> — Programming Hero</li>
             </ul>
           </section>
-  
-          {/* Projects Section */}
-          <section style={{ marginTop: '20px' }}>
-            <h2>Projects</h2>
-            <ul style={{ listStyleType: 'none', paddingLeft: '0' }}>
+
+          <section className="space-y-3">
+            <h2 className="text-xl font-semibold text-slate-900">Projects</h2>
+            <ul className="space-y-4">
               <li>
-                <h3>1. Portfolio Website</h3>
-                <p><strong>Technologies:</strong> React.js, Tailwind CSS, Next.js</p>
-                <p>Developed a personal portfolio showcasing my skills, projects, and professional background. Implemented a responsive design with smooth animations for an interactive user experience.</p>
+                <p className="font-semibold text-slate-800">Portfolio Website</p>
+                <p>React, Next.js, Tailwind CSS</p>
+                <p>Responsive portfolio with smooth animations and project showcases.</p>
               </li>
               <li>
-                <h3>2. E-commerce Web Application</h3>
-                <p><strong>Technologies:</strong> React.js, Redux, Node.js, MongoDB</p>
-                <p>Built a fully functional e-commerce platform with user authentication, product management, and a shopping cart. Integrated payment gateway and ensured security best practices for sensitive information.</p>
+                <p className="font-semibold text-slate-800">E-commerce Web Application</p>
+                <p>React, Redux, Node.js, MongoDB</p>
+                <p>Full e-commerce platform with secure payments and user auth.</p>
               </li>
               <li>
-                <h3>3. Blog Platform</h3>
-                <p><strong>Technologies:</strong> React.js, Node.js, Express.js, MongoDB</p>
-                <p>Created a blog platform where users can post, edit, and delete articles. Implemented user authentication, role-based access, and real-time commenting.</p>
-              </li>
-              <li>
-                <h3>4. Task Management Application</h3>
-                <p><strong>Technologies:</strong> React.js, Node.js, PostgreSQL</p>
-                <p>Developed a task management application to track tasks and deadlines for teams. Features include task creation, assignment, and progress tracking.</p>
+                <p className="font-semibold text-slate-800">Blog Platform</p>
+                <p>React, Node.js, Express.js, MongoDB</p>
+                <p>Role-based publishing workflow with user authentication.</p>
               </li>
             </ul>
           </section>
-  
-          {/* Experience Section */}
-          <section style={{ marginTop: '20px' }}>
-            <h2>Experience</h2>
-            <h3>Software Engineer Intern</h3>
-            <p><strong>[Company Name]</strong> — [Month, Year] to [Month, Year]</p>
-            <ul style={{ listStyleType: 'none', paddingLeft: '0' }}>
-              <li>Collaborated on the development of a web-based application, contributing to the frontend and backend features.</li>
-              <li>Worked with a team to build and maintain responsive pages using React.js and Node.js.</li>
-              <li>Participated in code reviews and contributed to debugging and optimizing code.</li>
+
+          <section className="space-y-3">
+            <h2 className="text-xl font-semibold text-slate-900">Experience</h2>
+            <p className="font-semibold text-slate-800">Software Engineer Intern</p>
+            <p>[Company Name] — [Month, Year] to [Month, Year]</p>
+            <ul className="list-disc pl-5">
+              <li>Built responsive UI and backend features for web apps.</li>
+              <li>Collaborated in code reviews and performance tuning.</li>
+              <li>Shipped features with React and Node.js.</li>
             </ul>
           </section>
-  
-          {/* Contact Section */}
-          <section style={{ marginTop: '20px', textAlign: 'center' }}>
-            <h2>Contact Me</h2>
-            <p>Email: <a href="mailto:your-email@example.com" style={{ color: '#0070f3' }}>mdnaeem@example.com</a></p>
-            <p>Phone: <a href="tel:your-phone-number" style={{ color: '#0070f3' }}>01892907131</a></p>
-            <p>Portfolio: <a href="your-portfolio-link" target="_blank" style={{ color: '#0070f3' }}>your-portfolio-link</a></p>
-            <p>LinkedIn: <a href="your-linkedin-profile" target="_blank" style={{ color: '#0070f3' }}> md-naeem-islam-59a2a8292</a></p>
+
+          <section className="text-center">
+            <h2 className="text-xl font-semibold text-slate-900">Contact</h2>
+            <p>Email: mdnaeemmiah48@gmail.com</p>
+            <p>Phone: 01892927131</p>
+            <p>LinkedIn: md-naeem-islam-59a2a8292</p>
           </section>
         </div>
       </div>
-    );
+    </section>
+  );
 };
 
 export default ResumePage;

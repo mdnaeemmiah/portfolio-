@@ -340,15 +340,19 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-gray-900 text-white shadow-md p-4 fixed top-0 left-0 w-full z-50">
-      <div className="container mx-auto flex justify-between items-center">
+    <nav className="fixed top-0 left-0 w-full z-50 border-b border-slate-200/70 bg-white/80 backdrop-blur dark:border-slate-700/60 dark:bg-[#111319]/80">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         {/* Logo */}
-        <div className="flex items-center gap-2">
-          <Image src={img1} alt="Logo" width={80} height={80} />
+        <div className="flex items-center gap-3">
+          <Image src={img1} alt="Logo" width={56} height={56} className="logo-tint" />
+          <div className="hidden sm:block">
+            <p className="text-sm uppercase tracking-[0.3em] text-[#c27a52]">Portfolio</p>
+            <p className="text-lg font-semibold text-slate-900 dark:text-slate-100">Naeem</p>
+          </div>
         </div>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex gap-6">
+        <div className="hidden md:flex items-center gap-6 text-sm font-medium">
           {[
             { href: "/", label: "Home" },
             { href: "/blog", label: "Blogs" },
@@ -359,10 +363,10 @@ export default function Navbar() {
               key={href}
               href={href}
               className={clsx(
-                "hover:text-blue-600 border-b-2 transition-all duration-200",
+                "relative pb-1 text-slate-600 transition-all duration-200 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white",
                 pathname === href || (href === "/project" && pathname.startsWith("/project"))
-                  ? "text-[#C51963] border-blue-600"
-                  : "border-transparent text-white"
+                  ? "text-slate-900 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-[#c27a52]"
+                  : "after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-[#c27a52] hover:after:w-full"
               )}
             >
               {label}
@@ -371,11 +375,11 @@ export default function Navbar() {
         </div>
 
         {/* Right Side */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
           {/* Theme Toggle */}
           <button
             onClick={toggleDarkMode}
-            className="p-2 rounded-full bg-gray-200 dark:bg-gray-700"
+            className="rounded-full border border-slate-200/70 bg-white p-2 text-slate-700 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md dark:border-slate-700/60 dark:bg-[#171a22] dark:text-slate-200"
           >
             {darkMode ? <Sun size={24} /> : <Moon size={24} />}
           </button>
@@ -386,15 +390,15 @@ export default function Navbar() {
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <button className="flex items-center gap-2 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700">
-                    <UserCircle size={32} className="text-white" />
+                    <UserCircle size={32} className="text-slate-700 dark:text-slate-200" />
                     {/* <span className="text-teal-400">{user.email}</span> */}
                   </button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="bg-white dark:bg-gray-800 shadow-lg rounded-md p-2 absolute right-0 w-40">
+                <DropdownMenuContent className="rounded-xl bg-white p-2 shadow-lg">
                   <DropdownMenuItem asChild>
                     <Link
                       href="/hello"
-                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                      className="block rounded-lg px-4 py-2 text-sm hover:bg-slate-100"
                     >
                       Dashboard
                     </Link>
@@ -402,7 +406,7 @@ export default function Navbar() {
                   <DropdownMenuItem asChild>
                     <button
                       onClick={handleLogout}
-                      className="block px-4 py-2 w-full text-left text-red-600 hover:bg-gray-100 dark:hover:bg-gray-700"
+                      className="block w-full rounded-lg px-4 py-2 text-left text-sm text-red-600 hover:bg-slate-100"
                     >
                       Logout
                     </button>
@@ -411,7 +415,7 @@ export default function Navbar() {
               </DropdownMenu>
             ) : (
               <Link href="/auth/login">
-                <Button className="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white hover:scale-105">
+                <Button className="rounded-full bg-slate-900 px-6 py-2 text-white shadow-md transition hover:-translate-y-0.5 hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100">
                   Login
                 </Button>
               </Link>
@@ -429,12 +433,12 @@ export default function Navbar() {
             </SheetTrigger>
             <SheetContent
               side="left"
-              className="p-4 dark:bg-gray-900 dark:text-white"
+              className="p-6 dark:bg-[#111319]"
             >
               <DialogTitle>
                 <VisuallyHidden>Navigation Menu</VisuallyHidden>
               </DialogTitle>
-              <div className="flex flex-col gap-4 text-lg">
+              <div className="flex flex-col gap-4 text-lg text-slate-700 dark:text-slate-200">
                 <Link href="/" onClick={() => setOpen(false)}>Home</Link>
                 <Link href="/blog" onClick={() => setOpen(false)}>Blogs</Link>
                 <Link href="/project" onClick={() => setOpen(false)}>Projects</Link>
@@ -454,7 +458,7 @@ export default function Navbar() {
               </div>
               <button
                 onClick={toggleDarkMode}
-                className="mt-6 w-full p-2 rounded bg-gray-200 dark:bg-gray-700 flex items-center justify-center"
+                className="mt-8 flex w-full items-center justify-center gap-2 rounded-full border border-slate-200/70 bg-white p-2 text-sm text-slate-700 shadow-sm dark:border-slate-700/60 dark:bg-[#171a22] dark:text-slate-200"
               >
                 {darkMode ? (
                   <>

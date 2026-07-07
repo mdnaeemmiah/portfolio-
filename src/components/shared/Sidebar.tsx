@@ -137,16 +137,18 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="dark:bg-gray-900 min-h-screen p-4 pt-12 rounded-xl">
-      <ul className="space-y-4">
+    <div className="glass-card min-h-screen rounded-2xl p-4 pt-10">
+      <ul className="space-y-3 text-sm">
         {menuItems.map((item) => {
           const isActive = pathname === item.href;
           return (
             <li key={item.href}>
               <Link
                 href={item.href}
-                className={`flex items-center space-x-2 p-3 rounded-md ${
-                  isActive ? "bg-[#C51963] text-white" : "hover:bg-[#C51963]"
+                className={`flex items-center space-x-2 rounded-xl px-3 py-2 transition ${
+                  isActive
+                    ? "bg-slate-900 text-white"
+                    : "text-slate-600 hover:bg-white/80 hover:text-slate-900"
                 }`}
               >
                 {item.icon}

@@ -11,13 +11,12 @@ const HomePage = () => {
 
  
   return (
-    <div className='text-center  mt-36 '>
-      <Banner></Banner>
-      <Skils></Skils>
-      {/* <Cart></Cart> */}
-      <About></About>
-      <Carousal></Carousal>
-      <Blog></Blog>
+    <div className="space-y-24 pb-24">
+      <Banner />
+      <Skils />
+      <About />
+      <Carousal />
+      <Blog />
     </div>
   );
 };

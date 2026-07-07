@@ -30,49 +30,48 @@ const Projects = () => {
   };
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h1 className="text-3xl sm:text-4xl text-center my-5 font-bold">
-        Explore Our Projects
-      </h1>
-      <p className="text-center text-gray-400 mx-auto w-full md:w-2/3 lg:w-1/2">
-        <i>Discover the cutting-edge projects we have built!</i>
-      </p>
+    <section className="section">
+      <div className="text-center">
+        <p className="section-kicker">Selected Work</p>
+        <h1 className="section-title mt-3">Projects crafted for clarity and scale.</h1>
+        <p className="mx-auto mt-4 max-w-2xl text-base text-slate-600">
+          A curated set of products spanning full-stack systems, dashboards,
+          and customer-facing experiences.
+        </p>
+      </div>
 
-      {/* Projects grid layout with responsive columns */}
-      <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-6 my-5 ">
+      <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {projects.map((project: ProjectType) => (
-          <div key={project._id} className="shadow-lg  dark:bg-gray-900  rounded-lg p-4">
-            {/* Project Image */}
+          <div key={project._id} className="glass-card overflow-hidden">
             <img
               src={project.image}
               alt={project.title}
-              className="w-full h-48 object-cover rounded-lg mb-4"
+              className="h-48 w-full object-cover"
             />
-            {/* Project Title */}
-            <h2 className="text-xl font-semibold text-teal-600">{project.title}</h2>
-            {/* Project Description */}
-            <p className=" mt-2">
-              {truncateDescription(project.description)}{" "}
-              {project.description.split(" ").length > 5 && (
-                <Link href={`/project/${project._id}`} passHref>
-                  <button className="text-blue-500 hover:underline focus:outline-none">
-                    See More...
+            <div className="space-y-4 p-6">
+              <h2 className="text-lg font-semibold text-slate-900">{project.title}</h2>
+              <p className="text-sm text-slate-600">
+                {truncateDescription(project.description)}{" "}
+                {project.description.split(" ").length > 5 && (
+                  <Link href={`/project/${project._id}`} passHref>
+                    <button className="ml-1 text-sm font-semibold text-slate-900 underline underline-offset-4">
+                      See details
+                    </button>
+                  </Link>
+                )}
+              </p>
+              <div>
+                <Link href={project.liveLink} passHref>
+                  <button className="rounded-full border border-slate-200/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-600 transition hover:border-slate-300 hover:text-slate-900">
+                    View Live
                   </button>
                 </Link>
-              )}
-            </p>
-            {/* Live Link */}
-            <div className="mt-4">
-              <Link href={project.liveLink} passHref>
-                <button className="text-blue-500 hover:underline focus:outline-none">
-                  View Live Project
-                </button>
-              </Link>
+              </div>
             </div>
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -9,49 +9,55 @@ import img1 from "@/assets/images/ChatGPT_Image_May_12__2025__03_08_36_PM-remove
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-gray-900 text-white p-6 mt-10">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left px-4">
-          <div className="flex items-center gap-2">
-          <Image src={img1} alt="Description" width={200} height={200} />
+    <footer className="w-full bg-[#101114] text-slate-200 dark:bg-[#0b0d12]">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-10 px-4 py-14 sm:px-6 md:grid-cols-3">
+        <div className="flex flex-col gap-4">
+          <Image src={img1} alt="Logo" width={160} height={160} />
+          <p className="text-sm text-slate-400">
+            Crafting clean, modern web experiences with care and clarity.
+          </p>
         </div>
 
-        {/* Contact Info */}
         <div>
-          <h3 className="text-lg font-semibold mb-3">Contact </h3>
-          <p>Phone: + 01892927131</p>
-          <p >Email:<span className="text-[#EF1F76] font-semibold hover:underline"> mdnaeemmiah@gmail.com</span></p>
-          <p>Address: Tolarbag, Mirpur-01,Dhaka, Bangladesh</p>
+          <h3 className="text-sm uppercase tracking-[0.3em] text-[#c27a52]">Contact</h3>
+          <div className="mt-4 space-y-2 text-sm text-slate-300">
+            <p>Phone: +01892927131</p>
+            <p>
+              Email:
+              <span className="ml-2 font-semibold text-white">mdnaeemmiah@gmail.com</span>
+            </p>
+            <p>Address: Tolarbag, Mirpur-01, Dhaka, Bangladesh</p>
+          </div>
         </div>
 
-        {/* Social Media Links */}
         <div>
-          <h3 className="text-lg font-semibold mb-3">Follow Us</h3>
-          <div className="flex justify-center md:justify-start gap-4">
+          <h3 className="text-sm uppercase tracking-[0.3em] text-[#c27a52]">Follow</h3>
+          <div className="mt-4 flex gap-4">
             <Link
               href="https://facebook.com"
               target="_blank"
-              className="hover:text-blue-400"
+              className="rounded-full border border-slate-700 p-2 text-slate-300 transition hover:border-[#c27a52] hover:text-white"
             >
               <Facebook />
             </Link>
             <Link
               href="https://twitter.com"
               target="_blank"
-              className="hover:text-blue-400"
+              className="rounded-full border border-slate-700 p-2 text-slate-300 transition hover:border-[#c27a52] hover:text-white"
             >
               <Twitter />
             </Link>
             <Link
               href="https://instagram.com"
               target="_blank"
-              className="hover:text-blue-400"
+              className="rounded-full border border-slate-700 p-2 text-slate-300 transition hover:border-[#c27a52] hover:text-white"
             >
               <Instagram />
             </Link>
             <Link
               href="https://linkedin.com"
               target="_blank"
-              className="hover:text-blue-400"
+              className="rounded-full border border-slate-700 p-2 text-slate-300 transition hover:border-[#c27a52] hover:text-white"
             >
               <Linkedin />
             </Link>
@@ -59,9 +65,11 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Copyright Notice */}
-      <div className="text-center mt-6 border-t border-gray-700 pt-4">
-        <p>© 2024 All Rights Reserved By Naeem</p>
+      <div className="border-t border-slate-800">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-6 text-xs text-slate-400 sm:px-6">
+          <p>© 2026 Naeem. All rights reserved.</p>
+          <p>Designed with care in Dhaka.</p>
+        </div>
       </div>
     </footer>
   );

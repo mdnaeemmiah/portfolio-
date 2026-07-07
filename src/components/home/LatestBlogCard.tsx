@@ -117,46 +117,42 @@ const LatestBlogCard = () => {
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-36">
-      <h1 className="text-3xl sm:text-4xl text-center my-5 font-bold">
-        Explore More Blogs <span className="text-teal-600">My Site</span>
-      </h1>
-      <p className="text-center text-gray-400 mx-auto w-full md:w-2/3 lg:w-1/2">
-        <i>
-          Dive into the fascinating world of quantum computing, where unlocking
-          unprecedented computational power.
-        </i>
-      </p>
+    <section className="section">
+      <div className="text-center">
+        <p className="section-kicker">Journal</p>
+        <h1 className="section-title mt-3">Explore the full archive.</h1>
+        <p className="mx-auto mt-4 max-w-2xl text-base text-slate-600">
+          A growing collection of thoughts, experiments, and case studies.
+        </p>
+      </div>
 
-      {/* Blog grid layout */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 my-5">
+      <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {currentPosts.map((blog: BlogType) => (
           <BlogCard key={blog._id} blog={blog} />
         ))}
       </div>
 
-      {/* Attractive Pagination Controls */}
-      <div className="flex justify-center mt-8">
-        <nav className="inline-flex items-center gap-2 bg-gray-100 dark:bg-gray-800 px-4 py-2 rounded-md shadow-md">
+      <div className="mt-10 flex justify-center">
+        <nav className="inline-flex items-center gap-2 rounded-full border border-slate-200/70 bg-white px-4 py-2 text-sm shadow-sm">
           <button
             onClick={() => paginate(currentPage - 1)}
             disabled={currentPage === 1}
-            className={`px-3 py-1 rounded-md text-sm font-medium transition 
+            className={`rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] transition 
               ${currentPage === 1
-                ? "bg-gray-300 text-gray-600 cursor-not-allowed"
-                : "bg-[#C51963] text-white hover:bg-[#C51963]/90 hover:scale-105"}`}
+                ? "text-slate-400"
+                : "text-slate-700 hover:text-slate-900"}`}
           >
-            Previous
+            Prev
           </button>
 
           {Array.from({ length: totalPages }, (_, i) => i + 1).map((number) => (
             <button
               key={number}
               onClick={() => paginate(number)}
-              className={`px-3 py-1 rounded-md text-sm font-medium transition 
+              className={`rounded-full px-3 py-1 text-xs font-semibold transition 
                 ${currentPage === number
-                  ? "bg-[#C51963] text-white"
-                  : "bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600"}`}
+                  ? "bg-slate-900 text-white"
+                  : "text-slate-600 hover:text-slate-900"}`}
             >
               {number}
             </button>
@@ -165,16 +161,16 @@ const LatestBlogCard = () => {
           <button
             onClick={() => paginate(currentPage + 1)}
             disabled={currentPage === totalPages}
-            className={`px-3 py-1 rounded-md text-sm font-medium transition 
+            className={`rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] transition 
               ${currentPage === totalPages
-                ? "bg-gray-300 text-gray-600 cursor-not-allowed"
-                : "bg-[#C51963] text-white hover:bg-[#C51963]/90 hover:scale-105"}`}
+                ? "text-slate-400"
+                : "text-slate-700 hover:text-slate-900"}`}
           >
             Next
           </button>
         </nav>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -23,119 +23,108 @@ export default function ContactUsPage() {
 
 
   return (
-    <section className="min-h-screen dark:bg-gray-900 px-5 max-w-6xl mx-auto pt-9 mt-36">
-      <section className=" ">
-        <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold underline text-center mb-8 rancho-regular">
-            Contact Me
-          </h2>
+    <section className="section">
+      <div className="text-center">
+        <p className="section-kicker">Contact</p>
+        <h2 className="section-title mt-3">Let&apos;s build something purposeful.</h2>
+        <p className="mx-auto mt-4 max-w-2xl text-base text-slate-600">
+          Share your idea, timeline, or collaboration request. I&apos;ll get back
+          to you within 24 hours.
+        </p>
+      </div>
 
-          <div className="flex flex-wrap -mx-6">
-            <div className="w-full md:w-1/2 px-6 mb-6 md:mb-0 flex flex-col justify-center ">
-              <h3 className="text-2xl  font-semibold mb-4 rancho-regular">
-                Get in Touch
-              </h3>
-              <p className="mb-4 text-xl  my-5 ">
-                We&apos;d love to hear from you! Whether you have a question
-                about our services, need assistance, or just want to talk about
-                your idea, feel free to reach out.
-              </p>
-              <ul className="mb-4 ">
-                <li className="mb-2">
-                  <strong>Address:</strong> 123 bekar street, PC 12345
-                </li>
-                <li className="mb-2">
-                  <strong>Phone:</strong> (123) 456-7890
-                </li>
-                <li className="mb-2">
-                  <strong>Email:</strong>{" "}
-                  <button className="text-[#EF1F76] font-semibold hover:underline">
-                    mdnaeemmiah48@gmail.com
-                  </button>
-                </li>
-                <li className="mb-2">
-                  <strong>Hours:</strong> Mon - Fri, 9am - 5pm
-                </li>
-              </ul>
-            </div>
-
-            <div className="w-full md:w-1/2 px-6 ">
-              <h3 className="text-2xl font-semibold mb-4 rancho-regular ">
-                Send Me a Message
-              </h3>
-              <form onSubmit={handleSubmit}>
-              <div className="mb-4">
-                <label className="block mb-2" htmlFor="name">
-                  Name
-                </label>
-                <div className="border-[1.5px] rounded-lg">
-                  <input
-                    className="w-full px-4 bg-white py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C51963]"
-                    type="text"
-                    id="name"
-                    name="name"
-                    placeholder="Enter your name"
-                    required
-                  />
-                </div>
-              </div>
-
-              <div className="mb-4">
-                <label className="block mb-2" htmlFor="email">
-                  Email
-                </label>
-                <div className="border-[1.5px] rounded-lg">
-                  <input
-                    className="w-full px-4 bg-white py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C51963]"
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="Enter your email"
-                    required
-                  />
-                </div>
-              </div>
-
-              <div className="mb-4">
-                <label className="block mb-2" htmlFor="subject">
-                  Subject
-                </label>
-                <div className="border-[1.5px] rounded-lg">
-                  <input
-                    className="w-full px-4 bg-white py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C51963]"
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    placeholder="Subject of your message"
-                    required
-                  />
-                </div>
-              </div>
-
-              <div className="mb-4">
-                <label className="block mb-2" htmlFor="message">
-                  Message
-                </label>
-                <textarea
-                  className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C51963]"
-                  id="message"
-                  name="message"
-                  placeholder="Write your message here..."
-                  required
-                ></textarea>
-              </div>
-                <button
-                  type="submit"
-                  className="group inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
-                  disabled={isLoading}
-                >
-                  {isLoading ? "Sending..." : "Send Message"}
-                </button>
-              </form>
-            </div>
-          </div>
+      <div className="mt-10 grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="glass-card p-6 sm:p-8">
+          <h3 className="text-xl font-semibold text-slate-900">Get in touch</h3>
+          <p className="mt-3 text-sm text-slate-600">
+            Whether you need a product redesign, a new landing page, or a full
+            stack build, let&apos;s talk.
+          </p>
+          <ul className="mt-6 space-y-3 text-sm text-slate-600">
+            <li>
+              <strong className="text-slate-900">Address:</strong> Tolarbag,
+              Mirpur-01, Dhaka
+            </li>
+            <li>
+              <strong className="text-slate-900">Phone:</strong> +01892927131
+            </li>
+            <li>
+              <strong className="text-slate-900">Email:</strong> mdnaeemmiah48@gmail.com
+            </li>
+            <li>
+              <strong className="text-slate-900">Hours:</strong> Mon - Fri, 9am - 6pm
+            </li>
+          </ul>
         </div>
-      </section>
+
+        <div className="glass-card p-6 sm:p-8">
+          <h3 className="text-xl font-semibold text-slate-900">Send a message</h3>
+          <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+            <div>
+              <label className="mb-2 block text-xs uppercase tracking-[0.2em] text-slate-500" htmlFor="name">
+                Name
+              </label>
+              <input
+                className="w-full rounded-xl border border-slate-200/70 bg-white/80 px-4 py-3 text-sm text-slate-700 outline-none transition focus:border-[#c27a52]"
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Enter your name"
+                required
+              />
+            </div>
+
+            <div>
+              <label className="mb-2 block text-xs uppercase tracking-[0.2em] text-slate-500" htmlFor="email">
+                Email
+              </label>
+              <input
+                className="w-full rounded-xl border border-slate-200/70 bg-white/80 px-4 py-3 text-sm text-slate-700 outline-none transition focus:border-[#c27a52]"
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+
+            <div>
+              <label className="mb-2 block text-xs uppercase tracking-[0.2em] text-slate-500" htmlFor="subject">
+                Subject
+              </label>
+              <input
+                className="w-full rounded-xl border border-slate-200/70 bg-white/80 px-4 py-3 text-sm text-slate-700 outline-none transition focus:border-[#c27a52]"
+                type="text"
+                id="subject"
+                name="subject"
+                placeholder="Subject of your message"
+                required
+              />
+            </div>
+
+            <div>
+              <label className="mb-2 block text-xs uppercase tracking-[0.2em] text-slate-500" htmlFor="message">
+                Message
+              </label>
+              <textarea
+                className="w-full rounded-xl border border-slate-200/70 bg-white/80 px-4 py-3 text-sm text-slate-700 outline-none transition focus:border-[#c27a52]"
+                id="message"
+                name="message"
+                placeholder="Write your message here..."
+                rows={5}
+                required
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              className="inline-flex items-center justify-center rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white shadow-md transition hover:-translate-y-0.5 hover:bg-slate-800"
+              disabled={isLoading}
+            >
+              {isLoading ? "Sending..." : "Send message"}
+            </button>
+          </form>
+        </div>
+      </div>
     </section>
   );
 }

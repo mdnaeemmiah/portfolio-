@@ -3,8 +3,8 @@ import React from 'react';
 
 const page = () => {
     return (
-        <div className='mt-36'>
-            <Project></Project>
+        <div>
+            <Project />
         </div>
     );
 };

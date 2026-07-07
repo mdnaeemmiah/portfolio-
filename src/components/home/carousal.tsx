@@ -50,67 +50,36 @@ const Carousal = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-center text-2xl font-bold mb-4">
-        Welcome to Our Project Showcase
-      </h1>
-      <div className="carousel-container">
+    <section className="section">
+      <div className="text-center">
+        <p className="section-kicker">Highlights</p>
+        <h1 className="section-title mt-3">A quick look at flagship builds.</h1>
+      </div>
+      <div className="mx-auto mt-10 w-full max-w-5xl">
         <Slider {...settings}>
           {carouselData.map((item, index) => (
-            <div key={index} className="carousel-slide">
-              {/* Project Name */}
-              <h2 className="text-center text-xl font-semibold text-blue-600 mb-2">
-                {item.projectName}
-              </h2>
-
-              {/* Slide Image */}
-              <Image
-                src={item.image}
-                alt={item.projectName}
-                className="carousel-image w-full h-[500px] object-cover"
-                width={1200}
-                height={500}
-              />
-
-              {/* Slide Title */}
-              <h3 className="carousel-title">{item.title}</h3>
-
-              {/* Slide Description */}
-              <p className="carousel-description">{item.description}</p>
+            <div key={index} className="px-2">
+              <div className="glass-card overflow-hidden p-6 text-center">
+                <p className="text-xs uppercase tracking-[0.3em] text-[#c27a52]">
+                  {item.projectName}
+                </p>
+                <h3 className="mt-3 text-2xl font-semibold text-slate-900">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-sm text-slate-600">{item.description}</p>
+                <Image
+                  src={item.image}
+                  alt={item.projectName}
+                  className="mt-6 h-[420px] w-full rounded-2xl object-cover"
+                  width={1200}
+                  height={500}
+                />
+              </div>
             </div>
           ))}
         </Slider>
       </div>
-
-      <style jsx>{`
-        .carousel-container {
-          width: 100%;
-          max-width: 1200px;
-          margin: auto;
-          padding: 20px;
-        }
-
-        .carousel-slide {
-          text-align: center;
-        }
-
-        .carousel-image {
-          border-radius: 8px;
-        }
-
-        .carousel-title {
-          font-size: 24px;
-          margin-top: 10px;
-          font-weight: bold;
-        }
-
-        .carousel-description {
-          font-size: 16px;
-          margin-top: 5px;
-          color: #555;
-        }
-      `}</style>
-    </div>
+    </section>
   );
 };
 

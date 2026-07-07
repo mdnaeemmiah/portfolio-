@@ -115,27 +115,22 @@ const About = () => {
   const selectedTab = TAB_DATA.find((t) => t.id === tab);
 
   return (
-    <section className="text-black dark:bg-gray-900 dark:text-white container mx-auto">
-      <div className="md:grid min-h-[700px] md:grid-cols-2 gap-8 items-center py-8 px-6 xl:gap-16 sm:py-16 xl:px-24">
+    <section className="section">
+      <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
         {/* Text Section */}
-        <div className="mt-4 md:mt-0 text-left flex flex-col h-full order-2 md:order-1">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-center lg:text-left mt-4">
-            About Me
-          </h2>
-          <p className="text-base text-justify">
-            Hi, I&apos;m a Junior Web Developer skilled in JavaScript,
-            TypeScript, React, Node.js, Express, MongoDB, and Tailwind CSS. I
-            have built several full-stack projects and enjoy working on
-            scalable, modern web apps. I am always eager to learn new
-            technologies and contribute to open-source. I thrive in
-            collaborative environments and aim to build seamless user
-            experiences.
+        <div className="order-2 space-y-6 lg:order-1">
+          <div>
+            <p className="section-kicker">About</p>
+            <h2 className="section-title mt-3">Design-minded developer, product focused.</h2>
+          </div>
+          <p className="text-base leading-relaxed text-slate-600">
+            I&apos;m a junior web developer with a full-stack mindset. I build modern
+            applications with React, Next.js, Node.js, and MongoDB, focusing on
+            clean UI, steady performance, and a smooth user experience.
           </p>
-          <div className="flex  flex-row justify-start mt-8 text-md flex-wrap gap-4">
-            <TabButton
-              selectTab={() => handleTabChange("skills")}
-              active={tab === "skills"}
-            >
+
+          <div className="flex flex-wrap gap-3">
+            <TabButton selectTab={() => handleTabChange("skills")} active={tab === "skills"}>
               Skills
             </TabButton>
             <TabButton
@@ -163,21 +158,23 @@ const About = () => {
               Certifications
             </TabButton>
           </div>
-          <div className="mt-4 border p-4 rounded-md">
+          <div className="glass-card p-6 text-sm text-slate-600">
             {selectedTab ? selectedTab.content : "No content found"}
           </div>
         </div>
 
         {/* Image Section */}
-        <div className="rounded-full mx-auto  flex items-center justify-center w-[240px] h-[295px] lg:w-[315px] lg:h-[390px] order-1 md:order-2">
-          <Image
-            className="rounded-full object-cover"
-            src={img1}
-            width={390}
-            height={390}
-            alt="About pic"
-            priority
-          />
+        <div className="order-1 flex items-center justify-center lg:order-2">
+          <div className="soft-ring rounded-[32px] bg-white/70 p-4">
+            <Image
+              className="rounded-[28px] object-cover"
+              src={img1}
+              width={420}
+              height={520}
+              alt="About"
+              priority
+            />
+          </div>
         </div>
       </div>
     </section>

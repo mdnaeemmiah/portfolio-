@@ -22,33 +22,31 @@ const Blog = () => {
   }
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h1 className="text-3xl sm:text-4xl text-center my-5 font-bold">
-        Explore More Blogs <span className="text-teal-600">My Site</span>
-      </h1>
-      <p className="text-center text-gray-400 mx-auto w-full md:w-2/3 lg:w-1/2">
-        <i>
-          Dive into the fascinating world of quantum computing, where unlocking
-          unprecedented computational power.
-        </i>
-      </p>
+    <section className="section">
+      <div className="text-center">
+        <p className="section-kicker">Journal</p>
+        <h1 className="section-title mt-3">Thoughts on building modern web products.</h1>
+        <p className="mx-auto mt-4 max-w-2xl text-base text-slate-600">
+          Short, practical notes on design, engineering, and the craft of
+          shipping reliable interfaces.
+        </p>
+      </div>
 
-      {/* Blog grid layout with responsive columns */}
-      <div className="grid  grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 my-5">
+      <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
         {blogs.slice(0, 3).map((blog: BlogType) => (
           <BlogCard key={blog._id} blog={blog} />
         ))}
       </div>
 
-      {/* See More Button */}
-      <div className="flex justify-center mt-6">
-        <Link href="/blog">
-          <button className="group inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl">
-            See More...
-          </button>
+      <div className="mt-10 flex justify-center">
+        <Link
+          href="/blog"
+          className="inline-flex items-center justify-center rounded-full border border-slate-200/70 bg-white px-6 py-3 text-sm font-semibold text-slate-700 shadow-sm transition hover:-translate-y-0.5 hover:border-slate-300"
+        >
+          Explore the full journal
         </Link>
       </div>
-    </div>
+    </section>
   );
 };
 

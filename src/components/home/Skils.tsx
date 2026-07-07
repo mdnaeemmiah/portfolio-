@@ -54,27 +54,31 @@ const skills = [
 
 const Skils = () => {
   return (
-    <div className="w-full   py-8 text-center">
-      <h2 className="text-3xl font-bold  mb-2">Explore My Skills</h2>
-      <div className="w-72 h-1 bg-blue-500 mx-auto mb-6"></div>
+    <section className="section text-center">
+      <p className="section-kicker">Core Toolkit</p>
+      <h2 className="section-title mt-3">A focused stack that ships fast.</h2>
+      <p className="mx-auto mt-4 max-w-2xl text-base text-slate-600">
+        I combine modern front-end craft with reliable backend foundations to
+        deliver polished, scalable products.
+      </p>
 
-      {/* Scrolling skills */}
-      <div className="overflow-hidden w-full relative">
+      <div className="mt-10 overflow-hidden">
         <div className="flex gap-6 animate-marquee whitespace-nowrap">
-          {[...skills, ...skills].map((skill) => (
+          {[...skills, ...skills].map((skill, index) => (
             <div
-              key={skill.id}
-              className=" dark:bg-gray-900 shadow-lg rounded-xl p-4 flex flex-col items-center justify-center 
-                         transition transform hover:scale-105"
+              key={`${skill.id}-${index}`}
+              className="glass-card flex min-w-[180px] flex-col items-center justify-center gap-3 p-5 text-left transition-transform duration-300 hover:-translate-y-1"
             >
-              <Image src={skill.image} alt={skill.name} width={80} height={80} className="rounded-md" />
-              <h3 className="text-lg font-bold mt-2 ">{skill.name}</h3>
-              <p className="text-sm ">{skill.title}</p>
+              <Image src={skill.image} alt={skill.name} width={72} height={72} className="rounded-lg" />
+              <div>
+                <h3 className="text-base font-semibold text-slate-900">{skill.name}</h3>
+                <p className="text-xs uppercase tracking-[0.2em] text-slate-500">{skill.title}</p>
+              </div>
             </div>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
