@@ -10,6 +10,8 @@ interface ProjectPostFormData {
   description: string;
   liveLink: string;
   order: string;
+  frontendSource: string;
+  backendSource: string;
   image: File | null;
 }
 
@@ -22,6 +24,8 @@ const ProjectPostForm = () => {
     description: '',
     liveLink: '',
     order: '0',
+    frontendSource: '',
+    backendSource: '',
     image: null,
   });
 
@@ -78,13 +82,23 @@ const ProjectPostForm = () => {
       liveLink: formData.liveLink, // ✅ Fixed liveLink
       image: imageUrl,
       order: Number(formData.order) || 0,
+      frontendSource: formData.frontendSource || undefined,
+      backendSource: formData.backendSource || undefined,
     };
 
     try {
       const response = await createProject(projectPost).unwrap();
       console.log('✅ Success:', response);
       toast.success('Project post created successfully!');
-      setFormData({ title: '', description: '', liveLink: '', order: '0', image: null });
+      setFormData({
+        title: '',
+        description: '',
+        liveLink: '',
+        order: '0',
+        frontendSource: '',
+        backendSource: '',
+        image: null,
+      });
       setImageUrl('');
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
@@ -150,6 +164,36 @@ const ProjectPostForm = () => {
             onChange={handleChange}
             className="dashboard-input"
             required
+          />
+        </div>
+
+        <div className="space-y-2">
+          <label htmlFor="frontendSource" className="dashboard-label">
+            Frontend Source
+          </label>
+          <input
+            type="url"
+            id="frontendSource"
+            name="frontendSource"
+            value={formData.frontendSource}
+            placeholder="https://github.com/yourname/frontend"
+            onChange={handleChange}
+            className="dashboard-input"
+          />
+        </div>
+
+        <div className="space-y-2">
+          <label htmlFor="backendSource" className="dashboard-label">
+            Backend Source
+          </label>
+          <input
+            type="url"
+            id="backendSource"
+            name="backendSource"
+            value={formData.backendSource}
+            placeholder="https://github.com/yourname/backend"
+            onChange={handleChange}
+            className="dashboard-input"
           />
         </div>
 

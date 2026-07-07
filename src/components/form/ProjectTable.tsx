@@ -165,7 +165,7 @@ const ProjectTable = () => {
             </thead>
             <tbody>
               {currentProjects.map((project: Project) => (
-                <tr key={project._id} className="hover:bg-slate-50/80">
+                <tr key={project._id} className="hover:bg-slate-50/80 dark:hover:bg-slate-700/40">
                   <td className="dashboard-td">
                     <div className="flex items-center gap-3">
                       <Image

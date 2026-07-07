@@ -294,6 +294,8 @@ const ManageProjectTable = () => {
     image: string;
     liveLink: string;
     order: number;
+    frontendSource?: string;
+    backendSource?: string;
     id: string;
   } | null>(null);
   const [isUploading, setIsUploading] = useState(false);
@@ -375,13 +377,15 @@ const ManageProjectTable = () => {
     }
   };
 
-  const openUpdateModal = (project: { _id?: string; title: string; description: string; image: string; liveLink: string }) => {
+  const openUpdateModal = (project: { _id?: string; title: string; description: string; image: string; liveLink: string; frontendSource?: string; backendSource?: string }) => {
     setEditProject({
       title: project.title,
       description: project.description || '',
       image: project.image || '',
       liveLink: project.liveLink || '',
       order: (project as { order?: number }).order ?? 0,
+      frontendSource: project.frontendSource || '',
+      backendSource: project.backendSource || '',
       id: project._id || '',
     });
     setIsModalOpen(true);
@@ -428,6 +432,8 @@ const ManageProjectTable = () => {
         image: editProject.image,
         liveLink: editProject.liveLink,
         order: editProject.order,
+        frontendSource: editProject.frontendSource || undefined,
+        backendSource: editProject.backendSource || undefined,
       };
 
       await updateProject({ id: editProject.id, updatedData: updatedProjectData }).unwrap();
@@ -466,7 +472,7 @@ const ManageProjectTable = () => {
             <tbody>
               {currentProjects.length > 0 ? (
                 currentProjects.map((project: any, index: any) => (
-                  <tr key={project._id || index} className="hover:bg-slate-50/80">
+                  <tr key={project._id || index} className="hover:bg-slate-50/80 dark:hover:bg-slate-700/40">
                     <td className="dashboard-td font-semibold text-slate-900">
                       {project.title}
                     </td>
@@ -660,6 +666,30 @@ const ManageProjectTable = () => {
                     <p className="mt-2 text-xs text-slate-500">Current image set.</p>
                   )}
                 </div>
+              </div>
+              <div className="space-y-2 md:col-span-2">
+                <label htmlFor="frontendSource" className="dashboard-label">
+                  Frontend Source
+                </label>
+                <input
+                  type="url"
+                  id="frontendSource"
+                  value={editProject.frontendSource}
+                  onChange={(e) => setEditProject({ ...editProject, frontendSource: e.target.value })}
+                  className="dashboard-input"
+                />
+              </div>
+              <div className="space-y-2 md:col-span-2">
+                <label htmlFor="backendSource" className="dashboard-label">
+                  Backend Source
+                </label>
+                <input
+                  type="url"
+                  id="backendSource"
+                  value={editProject.backendSource}
+                  onChange={(e) => setEditProject({ ...editProject, backendSource: e.target.value })}
+                  className="dashboard-input"
+                />
               </div>
               <div className="md:col-span-2 flex justify-end gap-3">
                 <button

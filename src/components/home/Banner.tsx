@@ -45,7 +45,7 @@ export default function Banner() {
   }, [charIndex, isDeleting, currentTitleIndex]);
 
   return (
-    <section className="section relative overflow-hidden rounded-[32px] border border-white/60 bg-white/70 px-6 py-12 shadow-[0_30px_70px_-40px_rgba(15,23,42,0.5)] sm:px-10 lg:px-16">
+    <section className="section mt-10 relative overflow-hidden rounded-[32px] border border-white/60 bg-white/70 px-6  shadow-[0_30px_70px_-40px_rgba(15,23,42,0.5)] sm:px-10 lg:px-16">
       <div className="pointer-events-none absolute -right-16 top-0 h-72 w-72 rounded-full bg-[#f2c6a0]/40 blur-3xl" />
       <div className="pointer-events-none absolute -left-16 bottom-0 h-60 w-60 rounded-full bg-[#bcd7e6]/40 blur-3xl" />
 

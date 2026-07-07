@@ -15,4 +15,6 @@ export interface Blog {
     image: string;        // URL of the project's image or screenshot
     liveLink: string;     // A link to the live or deployed project
     order?: number;       // Display order for sorting
+    frontendSource?: string; // Frontend repository URL
+    backendSource?: string;  // Backend repository URL
   }

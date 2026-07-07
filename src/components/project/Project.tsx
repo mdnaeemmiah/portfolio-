@@ -4,7 +4,7 @@
 import { useGetAllProjectsQuery } from "@/redux/features/project/projectApi";
 import { Project as ProjectType } from "@/types"; // Import the Project interface
 import Link from "next/link"; // Link to project details or live project
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
 
 const Projects = () => {
   const { data, isLoading } = useGetAllProjectsQuery(undefined);
@@ -65,15 +65,39 @@ const Projects = () => {
                 )}
               </p>
               <div>
-                <Link
-                  href={project.liveLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-slate-200/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-600 transition hover:border-slate-300 hover:text-slate-900"
-                >
-                  View Live
-                  <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
-                </Link>
+                <div className="flex flex-wrap items-center gap-3">
+                  <Link
+                    href={project.liveLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-slate-200/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-600 transition hover:border-slate-300 hover:text-slate-900"
+                  >
+                    View Live
+                    <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+                  </Link>
+                  {project.frontendSource && (
+                    <Link
+                      href={project.frontendSource}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-full border border-slate-200/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-600 transition hover:border-slate-300 hover:text-slate-900"
+                    >
+                      Frontend
+                      <Github className="h-3.5 w-3.5" aria-hidden="true" />
+                    </Link>
+                  )}
+                  {project.backendSource && (
+                    <Link
+                      href={project.backendSource}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-full border border-slate-200/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-600 transition hover:border-slate-300 hover:text-slate-900"
+                    >
+                      Backend
+                      <Github className="h-3.5 w-3.5" aria-hidden="true" />
+                    </Link>
+                  )}
+                </div>
               </div>
             </div>
           </div>

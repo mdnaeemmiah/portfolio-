@@ -109,11 +109,13 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { AiOutlineDashboard } from "react-icons/ai";
 import {
   BiBook,
   BiEdit,
   BiFolderOpen,
+  BiUser,
   BiPlusCircle,
   BiTask,
   BiHome,
@@ -121,12 +123,23 @@ import {
 
 const Sidebar = () => {
   const pathname = usePathname();
+  const [profileImage, setProfileImage] = useState<string | null>(null);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+    const img = localStorage.getItem('profileImage');
+    if (img) {
+      setProfileImage(img);
+    }
+  }, []);
 
   const menuItems = [
     { href: "/", icon: <BiHome className="h-5 w-5" />, label: "Home" },
     { href: "/hello", icon: <AiOutlineDashboard className="h-5 w-5" />, label: "Dashboard" },
     { href: "/dashboard/blogs", icon: <BiBook className="h-5 w-5" />, label: "All Blog" },
     { href: "/dashboard/blogPost", icon: <BiEdit className="h-5 w-5" />, label: "Blog Post" },
+    { href: "/dashboard/profile", icon: <BiUser className="h-5 w-5" />, label: "Profile" },
     { href: "/dashboard/allProject", icon: <BiFolderOpen className="h-5 w-5" />, label: "All Project" },
     { href: "/dashboard/projectPost", icon: <BiPlusCircle className="h-5 w-5" />, label: "Project Post" },
     { href: "/dashboard/message", icon: <BiTask className="h-5 w-5" />, label: "All Message" },
@@ -134,15 +147,23 @@ const Sidebar = () => {
 
   return (
     <div className="glass-card min-h-[calc(100vh-3rem)] rounded-3xl p-5">
-      <div className="flex items-center gap-3 border-b border-slate-200/70 pb-5">
-        <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-900 text-white">
-          AD
+      <Link href="/dashboard/profile" className="group flex items-center gap-3 border-b border-slate-200/70 pb-5 transition">
+        <div className="relative flex h-11 w-11 items-center justify-center overflow-hidden rounded-2xl bg-slate-900 text-white">
+          {isClient && profileImage ? (
+            <img
+              src={profileImage}
+              alt="Profile"
+              className="h-full w-full object-cover"
+            />
+          ) : (
+            <span className="text-sm font-semibold">AD</span>
+          )}
         </div>
         <div>
-          <p className="text-sm font-semibold text-slate-900">Admin Desk</p>
+          <p className="text-sm font-semibold text-slate-900 group-hover:text-blue-600">Admin Desk</p>
           <p className="text-xs text-slate-500">Manage content</p>
         </div>
-      </div>
+      </Link>
 
       <p className="dashboard-label mt-6">Navigation</p>
       <ul className="mt-4 space-y-2 text-sm">

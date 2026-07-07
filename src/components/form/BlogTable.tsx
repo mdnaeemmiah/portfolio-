@@ -199,7 +199,7 @@ const BlogTable = () => {
             <tbody>
               {currentPosts.length > 0 ? (
                 currentPosts.map((post) => (
-                  <tr key={post._id} className="hover:bg-slate-50/80">
+                  <tr key={post._id} className="hover:bg-slate-50/80 dark:hover:bg-slate-700/40">
                     <td className="dashboard-td">
                       <Image
                         src={post.image}

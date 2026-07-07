@@ -139,7 +139,7 @@ const MessageTable = () => {
             <tbody>
               {currentMessages.length > 0 ? (
                 currentMessages.map((msg: Message) => (
-                  <tr key={msg._id} className="hover:bg-slate-50/80">
+                  <tr key={msg._id} className="hover:bg-slate-50/80 dark:hover:bg-slate-700/40">
                     <td className="dashboard-td font-semibold text-slate-900">{msg.name}</td>
                     <td className="dashboard-td">{msg.email}</td>
                     <td className="dashboard-td">{msg.subject}</td>
