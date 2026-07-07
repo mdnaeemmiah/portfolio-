@@ -80,90 +80,96 @@ const BlogPostForm = () => {
     };
 
     try {
-      await createBlogPost(blogPost); // Call the mutation to create the blog post
-      alert("Blog post created successfully!");
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      await createBlogPost(blogPost).unwrap();
+      toast.success("Blog post created successfully!");
+      setFormData({ title: "", category: "", content: "", image: null });
+      setImageUrl("");
     } catch (error) {
-      alert("Error creating blog post.");
+      console.error("Error creating blog post:", error);
+      toast.error("Error creating blog post.");
     }
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="max-w-xl  mx-auto p-4  bg-gray-900"
-    >
-      <h2 className="text-2xl font-bold mb-4 text-center">Create Blog Post</h2>
-
-      <div className="mb-4">
-        <label htmlFor="title" className="block text-sm font-semibold">
-          Title
-        </label>
-        <input
-          type="text"
-          id="title"
-          name="title"
-          value={formData.title}
-          onChange={handleChange}
-          placeholder="Enter title"
-          className="w-full p-2 border rounded text-black"
-          required
-        />
+    <form onSubmit={handleSubmit} className="glass-card mx-auto max-w-3xl p-8">
+      <div className="flex flex-col gap-2 text-left">
+        <p className="section-kicker">New Blog</p>
+        <h2 className="text-3xl font-semibold text-slate-900">Create Blog Post</h2>
+        <p className="text-sm text-slate-600">
+          Publish a new article with a clear title, category, and hero image.
+        </p>
       </div>
 
-      <div className="mb-4">
-        <label htmlFor="category" className="block text-sm font-semibold">
-          Category
-        </label>
-        <input
-          type="text"
-          id="category"
-          name="category"
-          value={formData.category}
-          onChange={handleChange}
-          placeholder="Enter category (e.g. Tech, Health)"
-          className="w-full p-2 border rounded text-black"
-          required
-        />
+      <div className="mt-6 grid grid-cols-1 gap-5 md:grid-cols-2">
+        <div className="space-y-2">
+          <label htmlFor="title" className="dashboard-label">
+            Title
+          </label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            value={formData.title}
+            onChange={handleChange}
+            placeholder="Enter title"
+            className="dashboard-input"
+            required
+          />
+        </div>
+
+        <div className="space-y-2">
+          <label htmlFor="category" className="dashboard-label">
+            Category
+          </label>
+          <input
+            type="text"
+            id="category"
+            name="category"
+            value={formData.category}
+            onChange={handleChange}
+            placeholder="Tech, Design, Product"
+            className="dashboard-input"
+            required
+          />
+        </div>
+
+        <div className="space-y-2 md:col-span-2">
+          <label htmlFor="content" className="dashboard-label">
+            Content
+          </label>
+          <textarea
+            id="content"
+            name="content"
+            value={formData.content}
+            onChange={handleChange}
+            placeholder="Write your content here..."
+            rows={5}
+            className="dashboard-input"
+            required
+          />
+        </div>
+
+        <div className="space-y-2 md:col-span-2">
+          <label htmlFor="image" className="dashboard-label">
+            Image
+          </label>
+          <input
+            type="file"
+            id="image"
+            name="image"
+            accept="image/*"
+            onChange={handleImageChange}
+            className="dashboard-input file:border-0 file:bg-slate-900 file:px-4 file:py-2 file:text-xs file:font-semibold file:uppercase file:tracking-[0.2em] file:text-white"
+            required
+          />
+        </div>
       </div>
 
-      <div className="mb-4">
-        <label htmlFor="content" className="block text-sm font-semibold">
-          Content
-        </label>
-        <textarea
-          id="content"
-          name="content"
-          value={formData.content}
-          onChange={handleChange}
-          placeholder="Write your content here..."
-          rows={4}
-          className="w-full p-2 border rounded text-black"
-          required
-        />
+      <div className="mt-8 flex justify-end">
+        <button type="submit" className="dashboard-button">
+          Create Blog Post
+        </button>
       </div>
-
-      <div className="mb-4">
-        <label htmlFor="image" className="block text-sm font-semibold">
-          Image
-        </label>
-        <input
-          type="file"
-          id="image"
-          name="image"
-          accept="image/*"
-          onChange={handleImageChange}
-          className="w-full p-2 border rounded"
-          required
-        />
-      </div>
-
-      <button
-        type="submit"
-        className="w-full bg-gradient-to-r from-purple-500 via-pink-500 to-red-500  shadow-lg transition-all duration-300 hover:scale-105 text-white p-2 rounded"
-      >
-        Create Blog Post
-      </button>
     </form>
   );
 };

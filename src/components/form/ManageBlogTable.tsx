@@ -311,10 +311,13 @@ import {
   useDeleteBlogPostMutation,
   useUpdateBlogPostMutation,
 } from "@/redux/features/blog/blogApi";
+import axios from "axios";
 import toast from "react-hot-toast";
 import { Trash2 } from "lucide-react";
 import { FiEdit } from "react-icons/fi";
 
+const CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/db9egbkam/image/upload";
+const CLOUDINARY_UPLOAD_PRESET = "naeemmiah";
 const BlogTable = () => {
   const { data, isLoading, isError, refetch } = useGetAllBlogPostsQuery(undefined);
   const [deleteBlogPost] = useDeleteBlogPostMutation();
@@ -327,12 +330,33 @@ const BlogTable = () => {
     content: string;
     image: string;
     id: string;
+  const [isUploading, setIsUploading] = useState(false);
   } | null>(null);
 
   const blogPosts = Array.isArray(data?.data) ? data?.data : data?.data?.posts || [];
 
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 10;
+  const handleImageUpload = async (file: File) => {
+    const imageFormData = new FormData();
+    imageFormData.append("file", file);
+    imageFormData.append("upload_preset", CLOUDINARY_UPLOAD_PRESET);
+
+    try {
+      setIsUploading(true);
+      const response = await axios.post(CLOUDINARY_URL, imageFormData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+      const uploadedUrl = response.data.secure_url as string;
+      setEditPost((prev) => (prev ? { ...prev, image: uploadedUrl } : prev));
+      toast.success("Image uploaded successfully!");
+    } catch (uploadError) {
+      console.error("Error uploading image:", uploadError);
+      toast.error("Error uploading image");
+    } finally {
+      setIsUploading(false);
+    }
+  };
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = blogPosts.slice(indexOfFirstPost, indexOfLastPost);
@@ -343,15 +367,14 @@ const BlogTable = () => {
   const handleDelete = async (id: string) => {
     if (!confirm("Are you sure you want to delete this blog post?")) return;
     try {
-      await deleteBlogPost(id).unwrap();
-      toast.success("Blog post deleted successfully!");
-      refetch();
-    } catch (error: any) {
-      console.error("Error deleting post:", error);
-      toast.error(error?.data?.message || "Error deleting post");
-    }
-  };
+      const updatedPostData = {
+        title: editPost.title,
+        category: editPost.category,
+        content: editPost.content,
+        image: editPost.image,
+      };
 
+      await updateBlogPost({ id: editPost.id, updatedData: updatedPostData }).unwrap();
   const openUpdateModal = (post: any) => {
     setEditPost({
       title: post.title,

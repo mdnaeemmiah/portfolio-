@@ -1,3 +1,15 @@
-export { default } from "next-auth/middleware"
+import { NextResponse, type NextRequest } from "next/server";
 
-export const config = { matcher: ["/dashboard" ] } // "/"
+export function middleware(request: NextRequest) {
+	const token = request.cookies.get("accessToken")?.value;
+
+	if (!token) {
+		const loginUrl = new URL("/auth/login", request.url);
+		loginUrl.searchParams.set("from", request.nextUrl.pathname);
+		return NextResponse.redirect(loginUrl);
+	}
+
+	return NextResponse.next();
+}
+
+export const config = { matcher: ["/dashboard/:path*"] };

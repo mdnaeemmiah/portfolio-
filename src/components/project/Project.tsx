@@ -4,6 +4,7 @@
 import { useGetAllProjectsQuery } from "@/redux/features/project/projectApi";
 import { Project as ProjectType } from "@/types"; // Import the Project interface
 import Link from "next/link"; // Link to project details or live project
+import { ExternalLink } from "lucide-react";
 
 const Projects = () => {
   const { data, isLoading } = useGetAllProjectsQuery(undefined);
@@ -15,10 +16,13 @@ const Projects = () => {
 
   // Ensure data is an array of projects
   const projects = Array.isArray(data?.data) ? data.data : [];
+  const sortedProjects = [...projects].sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
 
   if (projects.length === 0) {
     return <p>No projects available.</p>;
   }
+
+  const visibleProjects = sortedProjects.slice(0, 12);
 
   // Function to truncate the description if it's longer than 20 words
   const truncateDescription = (description: string, wordLimit: number = 20) => {
@@ -41,7 +45,7 @@ const Projects = () => {
       </div>
 
       <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {projects.map((project: ProjectType) => (
+        {visibleProjects.map((project: ProjectType) => (
           <div key={project._id} className="glass-card overflow-hidden">
             <img
               src={project.image}
@@ -61,10 +65,14 @@ const Projects = () => {
                 )}
               </p>
               <div>
-                <Link href={project.liveLink} passHref>
-                  <button className="rounded-full border border-slate-200/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-600 transition hover:border-slate-300 hover:text-slate-900">
-                    View Live
-                  </button>
+                <Link
+                  href={project.liveLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full border border-slate-200/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-600 transition hover:border-slate-300 hover:text-slate-900"
+                >
+                  View Live
+                  <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
                 </Link>
               </div>
             </div>

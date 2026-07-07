@@ -11,15 +11,19 @@ import { logout, setUser } from '../features/auth/authSlice';
   
   
   const baseQuery = fetchBaseQuery({
-    baseUrl: 'https://l2b4-a5-server.vercel.app/api',
+    baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:5000/api',
     // credentials: 'include',
     prepareHeaders: (headers, { getState }) => {
-      const token = (getState() as RootState).auth.token;
-  
+      let token = (getState() as RootState).auth.token;
+
+      if (!token && typeof window !== 'undefined') {
+        token = localStorage.getItem('accessToken');
+      }
+
       if (token) {
         headers.set('authorization', `${token}`);
       }
-  
+
       return headers;
     },
   });
@@ -39,7 +43,8 @@ import { logout, setUser } from '../features/auth/authSlice';
       //* Send Refresh
       console.log('Sending refresh token');
   
-      const res = await fetch('https://l2b4-a5-server.vercel.app/api/auth/refresh-token', {
+      const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:5000/api';
+      const res = await fetch(`${baseUrl}/auth/refresh-token`, {
         method: 'POST',
         credentials: 'include',
       });

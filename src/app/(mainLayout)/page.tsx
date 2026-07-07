@@ -5,6 +5,7 @@ import Blog from '@/components/home/Blog';
 // import Cart from '@/components/home/Cart';
 import Skils from '@/components/home/Skils';
 import Carousal from '@/components/home/carousal';
+import Projects from '@/components/project/Project';
 import React from 'react';
 
 const HomePage = () => {
@@ -14,6 +15,7 @@ const HomePage = () => {
     <div className="space-y-24 pb-24">
       <Banner />
       <Skils />
+      <Projects />
       <About />
       <Carousal />
       <Blog />

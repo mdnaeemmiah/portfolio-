@@ -121,6 +121,7 @@ interface Project {
   image: string;
   title: string;
   liveLink: string;
+  order?: number;
 }
 
 const ProjectTable = () => {
@@ -145,55 +146,70 @@ const ProjectTable = () => {
   if (error) return <p>Error loading projects.</p>;
 
   return (
-    <div>
-      <div className="overflow-x-auto">
-        <table className="min-w-full border-collapse border bg-gray-900 border-gray-300">
-          <thead>
-            <tr className="bg-gray-800 text-white">
-              <th className="border p-2">Image</th>
-              <th className="border p-2">Title</th>
-              <th className="border p-2">Live Link</th>
-            </tr>
-          </thead>
-          <tbody>
-            {currentProjects.map((project: Project) => (
-              <tr key={project._id} className="border text-center text-white">
-                <td className="border p-2 flex items-center justify-center">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    width={60}
-                    height={60}
-                    className="rounded"
-                  />
-                </td>
-                <td className="border p-2">{project.title}</td>
-                <td className="border p-2">
-                  <a
-                    href={project.liveLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-400 hover:underline"
-                  >
-                    View Project
-                  </a>
-                </td>
+    <div className="space-y-6">
+      <div className="glass-card overflow-hidden p-6">
+        <div className="flex flex-col gap-2 border-b border-slate-200/70 pb-4">
+          <p className="section-kicker">Projects</p>
+          <h2 className="text-2xl font-semibold text-slate-900">All Projects</h2>
+        </div>
+
+        <div className="mt-4 overflow-x-auto">
+          <table className="dashboard-table">
+            <thead>
+              <tr>
+                <th className="dashboard-th">Image</th>
+                <th className="dashboard-th">Order</th>
+                <th className="dashboard-th">Title</th>
+                <th className="dashboard-th">Live Link</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {currentProjects.map((project: Project) => (
+                <tr key={project._id} className="hover:bg-slate-50/80">
+                  <td className="dashboard-td">
+                    <div className="flex items-center gap-3">
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        width={56}
+                        height={56}
+                        className="h-14 w-14 rounded-xl object-cover"
+                      />
+                    </div>
+                  </td>
+                  <td className="dashboard-td font-semibold text-slate-900">
+                    {project.order ?? 0}
+                  </td>
+                  <td className="dashboard-td font-semibold text-slate-900">
+                    {project.title}
+                  </td>
+                  <td className="dashboard-td">
+                    <a
+                      href={project.liveLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center rounded-full border border-slate-200/80 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-slate-600 transition hover:border-slate-300 hover:text-slate-900"
+                    >
+                      View Project
+                    </a>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
 
-      {/* Pagination */}
-      <div className="flex justify-center mt-8">
-        <nav className="inline-flex items-center gap-2 bg-gray-100 dark:bg-gray-800 px-4 py-2 rounded-md shadow-md">
+      <div className="flex justify-center">
+        <nav className="inline-flex items-center gap-2 rounded-full border border-slate-200/70 bg-white/80 px-4 py-2 shadow-sm">
           <button
             onClick={() => handlePageChange(currentPage - 1)}
             disabled={currentPage === 1}
-            className={`px-3 py-1 rounded-md text-sm font-medium transition 
-              ${currentPage === 1
-                ? "bg-gray-300 text-gray-600 cursor-not-allowed"
-                : "bg-[#C51963] text-white hover:bg-[#C51963]/90 hover:scale-105"}`}
+            className={`rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] transition ${
+              currentPage === 1
+                ? "cursor-not-allowed bg-slate-100 text-slate-400"
+                : "bg-[#c27a52] text-white hover:bg-[#b86f47]"
+            }`}
           >
             Previous
           </button>
@@ -202,10 +218,11 @@ const ProjectTable = () => {
             <button
               key={number}
               onClick={() => handlePageChange(number)}
-              className={`px-3 py-1 rounded-md text-sm font-medium transition 
-                ${currentPage === number
-                  ? "bg-[#C51963] text-white"
-                  : "bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600"}`}
+              className={`rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] transition ${
+                currentPage === number
+                  ? "bg-[#c27a52] text-white"
+                  : "bg-white text-slate-500 hover:bg-slate-100"
+              }`}
             >
               {number}
             </button>
@@ -214,10 +231,11 @@ const ProjectTable = () => {
           <button
             onClick={() => handlePageChange(currentPage + 1)}
             disabled={currentPage === totalPages}
-            className={`px-3 py-1 rounded-md text-sm font-medium transition 
-              ${currentPage === totalPages
-                ? "bg-gray-300 text-gray-600 cursor-not-allowed"
-                : "bg-[#C51963] text-white hover:bg-[#C51963]/90 hover:scale-105"}`}
+            className={`rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] transition ${
+              currentPage === totalPages
+                ? "cursor-not-allowed bg-slate-100 text-slate-400"
+                : "bg-[#c27a52] text-white hover:bg-[#b86f47]"
+            }`}
           >
             Next
           </button>

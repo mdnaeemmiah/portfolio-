@@ -3,13 +3,15 @@
 import { useLoginMutation } from "@/redux/features/auth/authApi";
 import { setUser, TUser } from "@/redux/features/auth/authSlice";
 import { verifyToken } from "@/utils/veryfyToken";
-import { Input, Link } from "@nextui-org/react";
+import { Input } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
 import { useForm, Controller, SubmitHandler } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useAppDispatch } from "@/redux/hooks";
 import Cookies from "js-cookie";
 import { Button } from "@/components/ui/button";
+import { Eye, EyeOff } from "lucide-react";
+import { useState } from "react";
 
 type LoginFormInputs = {
   email: string;
@@ -20,6 +22,7 @@ const Login = () => {
   const router = useRouter();
   const dispatch = useAppDispatch();
   const [login, { isLoading }] = useLoginMutation(); // ✅ Fix isLoading
+  const [showPassword, setShowPassword] = useState(false);
 
   const {
     handleSubmit,
@@ -46,7 +49,7 @@ const Login = () => {
         dispatch(setUser({ user, token: res.data.accessToken }));
 
         toast.success("Logged in successfully", { id: toastId });
-        router.push("/");
+        router.push("/dashboard");
       } else {
         toast.error("Login failed. Please try again.", { id: toastId });
       }
@@ -59,18 +62,23 @@ const Login = () => {
   };
 
   return (
-    <section className="max-w-7xl mx-2 w-full flex items-center justify-center bg-white rounded-lg">
-      <div className="p-5 md:w-1/2 xl:px-16 flex flex-col">
-        <h3 className="text-2xl font-bold leading-10 tracking-wide mt-5">Login</h3>
+    <section className="min-h-screen px-4 py-10">
+      <div className="mx-auto grid w-full max-w-6xl items-center gap-8 rounded-[32px] border border-white/70 bg-white/75 p-6 shadow-[0_40px_80px_-60px_rgba(15,23,42,0.45)] backdrop-blur md:grid-cols-[1.1fr_0.9fr] md:p-8">
+        <div className="rounded-[28px] bg-white/90 p-8 shadow-[0_25px_60px_-40px_rgba(15,23,42,0.35)]">
+          <p className="section-kicker">Admin Access</p>
+          <h3 className="mt-3 text-3xl font-semibold text-slate-900">Welcome back</h3>
+          <p className="mt-2 text-sm text-slate-600">
+            Sign in to manage projects, blog posts, and messages.
+          </p>
 
-        <form
-          autoComplete="off"
-          className="grid grid-cols-1 gap-y-2 bg-white p-2"
-          onSubmit={handleSubmit(onSubmit)}
-        >
+          <form
+            autoComplete="off"
+            className="mt-6 grid grid-cols-1 gap-y-4"
+            onSubmit={handleSubmit(onSubmit)}
+          >
           {/* Email Input */}
-          <label htmlFor="email" className="font-medium flex space-x-4">
-            Email <span className="text-pink-700">*</span>
+          <label htmlFor="email" className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+            Email <span className="text-[#c27a52]">*</span>
           </label>
           <Controller
             name="email"
@@ -93,13 +101,17 @@ const Login = () => {
                 size="lg"
                 isInvalid={!!errors.email}
                 errorMessage={errors.email?.message}
+                classNames={{
+                  inputWrapper: "border border-slate-200/80 bg-white shadow-sm h-14",
+                  input: "text-slate-900",
+                }}
               />
             )}
           />
 
           {/* Password Input */}
-          <label htmlFor="password" className="font-medium flex space-x-4 mt-2">
-            Password <span className="text-pink-700">*</span>
+          <label htmlFor="password" className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+            Password <span className="text-[#c27a52]">*</span>
           </label>
           <Controller
             name="password"
@@ -108,60 +120,82 @@ const Login = () => {
             rules={{
               required: "Password is required",
               minLength: {
-                value: 6,
-                message: "Minimum 6 characters",
+                value: 3,
+                message: "Minimum 3 characters",
               },
             }}
             render={({ field }) => (
               <Input
                 {...field}
-                type="password"
+                type={showPassword ? "text" : "password"}
                 placeholder="Insert your password"
                 variant="bordered"
                 radius="full"
                 size="lg"
                 isInvalid={!!errors.password}
                 errorMessage={errors.password?.message}
+                classNames={{
+                  inputWrapper: "border border-slate-200/80 bg-white shadow-sm h-14",
+                  input: "text-slate-900",
+                }}
+                endContent={
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword((prev) => !prev)}
+                    className="text-slate-500 hover:text-slate-900"
+                  >
+                    {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                  </button>
+                }
               />
             )}
           />
 
-          <p className="text-sm my-3">
+          {/* <p className="text-sm text-slate-600">
             Forgot your password?{" "}
-            <Link href="/auth/forgot-password" className="text-sm text-blue-500">
+            <Link href="/auth/forgot-password" className="text-sm text-[#c27a52]">
               Forgot Password
             </Link>
-          </p>
+          </p> */}
 
           {/* Submit Button */}
           <Button
             type="submit"
             color="primary"
-            className="text-2xl py-6 my-3 btn hover:scale-105 transition duration-300"
+            className="mt-2 rounded-full bg-[#c27a52] py-6 text-base font-semibold uppercase tracking-[0.2em] text-white transition hover:-translate-y-0.5 hover:bg-[#b86f47]"
             disabled={isLoading}
           >
             {isLoading ? "Logging in..." : "Login"}
           </Button>
         </form>
 
-        <p className="text-sm text-center mt-2">
+        {/* <p className="mt-4 text-sm text-slate-600">
           Don&apos;t have an account?{" "}
-          <Link href="/auth/register" className="text-blue-500">
+          <Link href="/auth/register" className="text-[#c27a52]">
             Register
           </Link>
-        </p>
-      </div>
+        </p> */}
+        </div>
 
-      {/* Right Side Image */}
-      <div
-        className="w-1/2 h-full hidden md:block rounded-r-lg"
-        style={{
-          backgroundImage: `url('https://res.cloudinary.com/dh20zdtys/image/upload/v1723790098/aa0dd710d59f69addf9c35baedbd81af_sdm8wz.png')`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          height: "80vh",
-        }}
-      ></div>
+        <div className="relative hidden h-full min-h-[520px] overflow-hidden rounded-[28px] md:block">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: "linear-gradient(140deg, rgba(194,122,82,0.15), rgba(15,23,42,0.4)), url('https://res.cloudinary.com/dh20zdtys/image/upload/v1723790098/aa0dd710d59f69addf9c35baedbd81af_sdm8wz.png')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent" />
+          <div className="relative z-10 flex h-full flex-col justify-end p-8 text-white">
+            <p className="text-xs uppercase tracking-[0.3em] text-white/70">Control Center</p>
+            <h4 className="mt-3 text-3xl font-semibold">Ship with clarity.</h4>
+            <p className="mt-2 text-sm text-white/70">
+              Keep your portfolio fresh with a streamlined admin workspace.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };

@@ -113,13 +113,11 @@ import { AiOutlineDashboard } from "react-icons/ai";
 import {
   BiBook,
   BiEdit,
-  BiListCheck,
   BiFolderOpen,
   BiPlusCircle,
   BiTask,
   BiHome,
 } from "react-icons/bi";
-import { FaTasks } from "react-icons/fa";
 
 const Sidebar = () => {
   const pathname = usePathname();
@@ -129,25 +127,34 @@ const Sidebar = () => {
     { href: "/hello", icon: <AiOutlineDashboard className="h-5 w-5" />, label: "Dashboard" },
     { href: "/dashboard/blogs", icon: <BiBook className="h-5 w-5" />, label: "All Blog" },
     { href: "/dashboard/blogPost", icon: <BiEdit className="h-5 w-5" />, label: "Blog Post" },
-    { href: "/dashboard/blogManage", icon: <BiListCheck className="h-5 w-5" />, label: "Blog Manage" },
     { href: "/dashboard/allProject", icon: <BiFolderOpen className="h-5 w-5" />, label: "All Project" },
     { href: "/dashboard/projectPost", icon: <BiPlusCircle className="h-5 w-5" />, label: "Project Post" },
-    { href: "/dashboard/ProjectManage", icon: <FaTasks className="h-5 w-5" />, label: "Project Management" },
     { href: "/dashboard/message", icon: <BiTask className="h-5 w-5" />, label: "All Message" },
   ];
 
   return (
-    <div className="glass-card min-h-screen rounded-2xl p-4 pt-10">
-      <ul className="space-y-3 text-sm">
+    <div className="glass-card min-h-[calc(100vh-3rem)] rounded-3xl p-5">
+      <div className="flex items-center gap-3 border-b border-slate-200/70 pb-5">
+        <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-900 text-white">
+          AD
+        </div>
+        <div>
+          <p className="text-sm font-semibold text-slate-900">Admin Desk</p>
+          <p className="text-xs text-slate-500">Manage content</p>
+        </div>
+      </div>
+
+      <p className="dashboard-label mt-6">Navigation</p>
+      <ul className="mt-4 space-y-2 text-sm">
         {menuItems.map((item) => {
           const isActive = pathname === item.href;
           return (
             <li key={item.href}>
               <Link
                 href={item.href}
-                className={`flex items-center space-x-2 rounded-xl px-3 py-2 transition ${
+                className={`flex items-center gap-3 rounded-2xl px-3 py-2.5 transition ${
                   isActive
-                    ? "bg-slate-900 text-white"
+                    ? "bg-slate-900 text-white shadow-[0_12px_30px_-20px_rgba(15,23,42,0.7)]"
                     : "text-slate-600 hover:bg-white/80 hover:text-slate-900"
                 }`}
               >

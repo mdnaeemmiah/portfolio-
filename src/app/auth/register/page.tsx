@@ -206,6 +206,8 @@ import toast from "react-hot-toast";
 import { useAppDispatch } from "@/redux/hooks";
 import Cookies from "js-cookie";
 import { Button } from "@/components/ui/button";
+import { Eye, EyeOff } from "lucide-react";
+import { useState } from "react";
 
 type RegisterFormInputs = {
   name: string;
@@ -217,6 +219,7 @@ const Register = () => {
   const router = useRouter();
   const dispatch = useAppDispatch();
   const [register, { isLoading }] = useRegisterMutation(); // ✅ fix for isLoading
+  const [showPassword, setShowPassword] = useState(false);
 
   const {
     handleSubmit,
@@ -283,6 +286,10 @@ const Register = () => {
                 size="lg"
                 isInvalid={!!errors.name}
                 errorMessage={errors.name?.message}
+                classNames={{
+                  inputWrapper: "border border-slate-200/80 bg-white shadow-sm h-14",
+                  input: "text-slate-900",
+                }}
               />
             )}
           />
@@ -312,6 +319,10 @@ const Register = () => {
                 size="lg"
                 isInvalid={!!errors.email}
                 errorMessage={errors.email?.message}
+                classNames={{
+                  inputWrapper: "border border-slate-200/80 bg-white shadow-sm h-14",
+                  input: "text-slate-900",
+                }}
               />
             )}
           />
@@ -334,13 +345,26 @@ const Register = () => {
             render={({ field }) => (
               <Input
                 {...field}
-                type="password"
+                type={showPassword ? "text" : "password"}
                 placeholder="Enter your password"
                 variant="bordered"
                 radius="full"
                 size="lg"
                 isInvalid={!!errors.password}
                 errorMessage={errors.password?.message}
+                classNames={{
+                  inputWrapper: "border border-slate-200/80 bg-white shadow-sm h-14",
+                  input: "text-slate-900",
+                }}
+                endContent={
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword((prev) => !prev)}
+                    className="text-slate-500 hover:text-slate-900"
+                  >
+                    {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                  </button>
+                }
               />
             )}
           />

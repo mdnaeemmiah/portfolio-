@@ -12,10 +12,11 @@ export default function DashboardLayout({
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
-    <div className="min-h-screen flex flex-col md:flex-row">
+    <div className="min-h-screen bg-transparent px-4 py-8 md:px-10">
+      <div className="relative flex min-h-[calc(100vh-4rem)] flex-col gap-8 md:flex-row">
       {/* Sidebar Toggle Button - Visible only on small screens */}
       <button
-        className="md:hidden fixed top-4 left-4 z-50 p-2 bg-gray-800 text-white rounded"
+        className="md:hidden fixed top-6 left-6 z-50 rounded-xl bg-slate-900 p-2 text-white shadow-lg"
         onClick={() => setIsSidebarOpen(!isSidebarOpen)}
       >
         <Menu />
@@ -30,17 +31,18 @@ export default function DashboardLayout({
       )}
 
       {/* Sidebar - Hidden on small screens, toggleable */}
-      <div
-        className={`fixed md:static top-0 left-0 w-64 h-full  transition-transform z-40 ${
-          isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-        } md:translate-x-0 md:w-[20%]`}
-      >
-        <Sidebar />
-      </div>
+        <div
+          className={`fixed left-0 top-0 z-40 h-full w-72 transition-transform md:sticky md:top-8 md:h-[calc(100vh-4rem)] md:w-[22%] ${
+            isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+          } md:translate-x-0`}
+        >
+          <Sidebar />
+        </div>
 
       {/* Main Content */}
-      <div className="flex-1 text-white rounded-xl p-4 md:ml-2 pt-16">
-        {children}
+        <div className="dashboard-shell flex-1 overflow-y-auto pt-8 md:pt-6">
+          {children}
+        </div>
       </div>
     </div>
   );

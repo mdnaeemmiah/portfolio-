@@ -1,10 +1,10 @@
-import ProjectTable from '@/components/form/ProjectTable';
+import ManageProjectTable from '@/components/form/ManageProjectTable';
 import React from 'react';
 
 const AllProject = () => {
     return (
         <div>
-            <ProjectTable></ProjectTable>
+            <ManageProjectTable></ManageProjectTable>
         </div>
     );
 };

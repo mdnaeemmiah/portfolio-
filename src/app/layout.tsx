@@ -44,6 +44,7 @@ import { Manrope, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Providers from "@/providers";
 import { Toaster } from "react-hot-toast";
+import { Toaster as SonnerToaster } from "sonner";
 
 const display = Playfair_Display({
   subsets: ["latin"],
@@ -76,6 +77,7 @@ export default function RootLayout({
         <Providers>
           <div className="min-h-screen">{children}</div>
           <Toaster position="top-center" reverseOrder={false} />
+          <SonnerToaster position="top-center" richColors toastOptions={{ style: { fontSize: "15px" } }} />
         </Providers>
       </body>
     </html>
