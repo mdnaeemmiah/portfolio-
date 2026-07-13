@@ -1,4 +1,3 @@
-
 // /* eslint-disable @next/next/no-img-element */
 // "use client";
 
@@ -105,7 +104,7 @@
 //                 : "border-transparent text-white"
 //             )}
 //           >
-//             Contact 
+//             Contact
 //           </Link>
 //         </div>
 
@@ -253,18 +252,6 @@
 //   );
 // }
 
-
-
-
-
-
-
-
-
-
-
-
-/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import Link from "next/link";
@@ -310,7 +297,8 @@ export default function Navbar() {
     }
 
     // Decode token to get user info
-    const token = Cookies.get("accessToken") || localStorage.getItem("accessToken");
+    const token =
+      Cookies.get("accessToken") || localStorage.getItem("accessToken");
     if (token) {
       const decoded = verifyToken(token) as DecodedUser;
       if (decoded?.email) {
@@ -344,10 +332,20 @@ export default function Navbar() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <div className="flex items-center gap-3">
-          <Image src={img1} alt="Logo" width={56} height={56} className="logo-tint" />
+          <Image
+            src={img1}
+            alt="Logo"
+            width={56}
+            height={56}
+            className="logo-tint"
+          />
           <div className="hidden sm:block">
-            <p className="text-sm uppercase tracking-[0.3em] text-[#c27a52]">Portfolio</p>
-            <p className="text-lg font-semibold text-slate-900 dark:text-slate-100">Naeem</p>
+            <p className="text-sm uppercase tracking-[0.3em] text-[#c27a52]">
+              Portfolio
+            </p>
+            <p className="text-lg font-semibold text-slate-900 dark:text-slate-100">
+              Naeem
+            </p>
           </div>
         </div>
 
@@ -364,9 +362,10 @@ export default function Navbar() {
               href={href}
               className={clsx(
                 "relative pb-1 text-slate-600 transition-all duration-200 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white",
-                pathname === href || (href === "/project" && pathname.startsWith("/project"))
+                pathname === href ||
+                  (href === "/project" && pathname.startsWith("/project"))
                   ? "text-slate-900 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-[#c27a52]"
-                  : "after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-[#c27a52] hover:after:w-full"
+                  : "after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-[#c27a52] hover:after:w-full",
               )}
             >
               {label}
@@ -390,7 +389,10 @@ export default function Navbar() {
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <button className="flex items-center gap-2 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700">
-                    <UserCircle size={32} className="text-slate-700 dark:text-slate-200" />
+                    <UserCircle
+                      size={32}
+                      className="text-slate-700 dark:text-slate-200"
+                    />
                     {/* <span className="text-teal-400">{user.email}</span> */}
                   </button>
                 </DropdownMenuTrigger>
@@ -431,22 +433,32 @@ export default function Navbar() {
                 <Menu size={24} />
               </Button>
             </SheetTrigger>
-            <SheetContent
-              side="left"
-              className="p-6 dark:bg-[#111319]"
-            >
+            <SheetContent side="left" className="p-6 dark:bg-[#111319]">
               <DialogTitle>
                 <VisuallyHidden>Navigation Menu</VisuallyHidden>
               </DialogTitle>
               <div className="flex flex-col gap-4 text-lg text-slate-700 dark:text-slate-200">
-                <Link href="/" onClick={() => setOpen(false)}>Home</Link>
-                <Link href="/blog" onClick={() => setOpen(false)}>Blogs</Link>
-                <Link href="/project" onClick={() => setOpen(false)}>Projects</Link>
-                <Link href="/contact-us" onClick={() => setOpen(false)}>Contact Us</Link>
+                <Link href="/" onClick={() => setOpen(false)}>
+                  Home
+                </Link>
+                <Link href="/blog" onClick={() => setOpen(false)}>
+                  Blogs
+                </Link>
+                <Link href="/project" onClick={() => setOpen(false)}>
+                  Projects
+                </Link>
+                <Link href="/contact-us" onClick={() => setOpen(false)}>
+                  Contact Us
+                </Link>
                 {user ? (
                   <>
-                    <Link href="/hello" onClick={() => setOpen(false)}>Dashboard</Link>
-                    <button onClick={handleLogout} className="text-left text-red-600">
+                    <Link href="/hello" onClick={() => setOpen(false)}>
+                      Dashboard
+                    </Link>
+                    <button
+                      onClick={handleLogout}
+                      className="text-left text-red-600"
+                    >
                       Logout
                     </button>
                   </>

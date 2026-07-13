@@ -1,10 +1,13 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { useDeleteMessageMutation, useGetAllMessagesQuery } from '@/redux/features/message/messageApi';
-import toast from 'react-hot-toast';
-import { toast as sonnerToast } from 'sonner';
-import { Eye, Trash2 } from 'lucide-react';
+import { useState } from "react";
+import {
+  useDeleteMessageMutation,
+  useGetAllMessagesQuery,
+} from "@/redux/features/message/messageApi";
+import toast from "react-hot-toast";
+import { toast as sonnerToast } from "sonner";
+import { Eye, Trash2 } from "lucide-react";
 
 interface Message {
   _id: string;
@@ -14,10 +17,18 @@ interface Message {
   message: string;
 }
 
+type ApiErrorShape = {
+  data?: {
+    message?: string;
+  };
+};
+
 const MessageTable = () => {
   const { data, isLoading, error, refetch } = useGetAllMessagesQuery(undefined);
   const [deleteMessage] = useDeleteMessageMutation();
-  const messages = Array.isArray(data?.data) ? data?.data : data?.data?.messages || [];
+  const messages = Array.isArray(data?.data)
+    ? data?.data
+    : data?.data?.messages || [];
 
   const [currentPage, setCurrentPage] = useState(1);
   const messagesPerPage = 10;
@@ -28,7 +39,7 @@ const MessageTable = () => {
   const totalPages = Math.ceil(messages.length / messagesPerPage);
   const currentMessages = messages.slice(
     (currentPage - 1) * messagesPerPage,
-    currentPage * messagesPerPage
+    currentPage * messagesPerPage,
   );
 
   const goToPage = (page: number) => {
@@ -61,7 +72,8 @@ const MessageTable = () => {
           gridTemplateRows: "auto 1fr auto",
           gap: "14px",
           textAlign: "center",
-          background: "linear-gradient(180deg, rgba(255,255,255,0.98), rgba(249,245,240,0.98))",
+          background:
+            "linear-gradient(180deg, rgba(255,255,255,0.98), rgba(249,245,240,0.98))",
           boxShadow: "0 30px 60px -40px rgba(15,23,42,0.55)",
         },
         action: {
@@ -96,16 +108,17 @@ const MessageTable = () => {
     });
 
   const handleDelete = async (id: string) => {
-    const accepted = await confirmDelete('Delete this message?');
+    const accepted = await confirmDelete("Delete this message?");
     if (!accepted) return;
 
     try {
       await deleteMessage(id).unwrap();
-      toast.success('Message deleted successfully!');
+      toast.success("Message deleted successfully!");
       refetch();
-    } catch (deleteError: any) {
-      console.error('Error deleting message:', deleteError);
-      toast.error(deleteError?.data?.message || 'Error deleting message');
+    } catch (deleteError: unknown) {
+      console.error("Error deleting message:", deleteError);
+      const message = (deleteError as ApiErrorShape)?.data?.message;
+      toast.error(message || "Error deleting message");
     }
   };
 
@@ -139,8 +152,13 @@ const MessageTable = () => {
             <tbody>
               {currentMessages.length > 0 ? (
                 currentMessages.map((msg: Message) => (
-                  <tr key={msg._id} className="hover:bg-slate-50/80 dark:hover:bg-slate-700/40">
-                    <td className="dashboard-td font-semibold text-slate-900">{msg.name}</td>
+                  <tr
+                    key={msg._id}
+                    className="hover:bg-slate-50/80 dark:hover:bg-slate-700/40"
+                  >
+                    <td className="dashboard-td font-semibold text-slate-900">
+                      {msg.name}
+                    </td>
                     <td className="dashboard-td">{msg.email}</td>
                     <td className="dashboard-td">{msg.subject}</td>
                     <td className="dashboard-td text-slate-600">
@@ -177,7 +195,10 @@ const MessageTable = () => {
                 ))
               ) : (
                 <tr>
-                  <td colSpan={5} className="dashboard-td text-center text-slate-500">
+                  <td
+                    colSpan={5}
+                    className="dashboard-td text-center text-slate-500"
+                  >
                     No messages found
                   </td>
                 </tr>
@@ -188,45 +209,51 @@ const MessageTable = () => {
       </div>
 
       {/* Pagination */}
-  
-        <div className="flex justify-center">
-          <nav className="inline-flex items-center gap-2 rounded-full border border-slate-200/70 bg-white/80 px-4 py-2 shadow-sm">
-            <button
-              onClick={() => goToPage(currentPage - 1)}
-              disabled={currentPage === 1}
-              className={`px-3 py-1 rounded-md text-sm font-medium transition 
-                ${currentPage === 1
-                  ? "bg-gray-300 text-gray-600 cursor-not-allowed"
-                  : "bg-[#c27a52] text-white hover:bg-[#b86f47]"}`}
-            >
-              Previous
-            </button>
 
-            {Array.from({ length: totalPages }, (_, i) => i + 1).map((number) => (
-              <button
-                key={number}
-                onClick={() => goToPage(number)}
-                className={`px-3 py-1 rounded-md text-sm font-medium transition 
-                  ${currentPage === number
-                    ? "bg-[#c27a52] text-white"
-                    : "bg-white text-slate-500 hover:bg-slate-100"}`}
-              >
-                {number}
-              </button>
-            ))}
+      <div className="flex justify-center">
+        <nav className="inline-flex items-center gap-2 rounded-full border border-slate-200/70 bg-white/80 px-4 py-2 shadow-sm">
+          <button
+            onClick={() => goToPage(currentPage - 1)}
+            disabled={currentPage === 1}
+            className={`px-3 py-1 rounded-md text-sm font-medium transition 
+                ${
+                  currentPage === 1
+                    ? "bg-gray-300 text-gray-600 cursor-not-allowed"
+                    : "bg-[#c27a52] text-white hover:bg-[#b86f47]"
+                }`}
+          >
+            Previous
+          </button>
 
+          {Array.from({ length: totalPages }, (_, i) => i + 1).map((number) => (
             <button
-              onClick={() => goToPage(currentPage + 1)}
-              disabled={currentPage === totalPages}
+              key={number}
+              onClick={() => goToPage(number)}
               className={`px-3 py-1 rounded-md text-sm font-medium transition 
-                ${currentPage === totalPages
-                  ? "bg-gray-300 text-gray-600 cursor-not-allowed"
-                  : "bg-[#c27a52] text-white hover:bg-[#b86f47]"}`}
+                  ${
+                    currentPage === number
+                      ? "bg-[#c27a52] text-white"
+                      : "bg-white text-slate-500 hover:bg-slate-100"
+                  }`}
             >
-              Next
+              {number}
             </button>
-          </nav>
-        </div>
+          ))}
+
+          <button
+            onClick={() => goToPage(currentPage + 1)}
+            disabled={currentPage === totalPages}
+            className={`px-3 py-1 rounded-md text-sm font-medium transition 
+                ${
+                  currentPage === totalPages
+                    ? "bg-gray-300 text-gray-600 cursor-not-allowed"
+                    : "bg-[#c27a52] text-white hover:bg-[#b86f47]"
+                }`}
+          >
+            Next
+          </button>
+        </nav>
+      </div>
 
       {isViewOpen && viewMessage && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 p-4 backdrop-blur-sm">
@@ -234,7 +261,9 @@ const MessageTable = () => {
             <div className="flex items-start justify-between gap-4">
               <div>
                 <p className="section-kicker">Message</p>
-                <h3 className="text-2xl font-semibold text-slate-900">Message Details</h3>
+                <h3 className="text-2xl font-semibold text-slate-900">
+                  Message Details
+                </h3>
               </div>
               <button
                 type="button"
@@ -248,19 +277,27 @@ const MessageTable = () => {
             <div className="mt-6 space-y-4 text-sm text-slate-700">
               <div>
                 <p className="dashboard-label">Name</p>
-                <p className="mt-1 text-base font-semibold text-slate-900">{viewMessage.name}</p>
+                <p className="mt-1 text-base font-semibold text-slate-900">
+                  {viewMessage.name}
+                </p>
               </div>
               <div>
                 <p className="dashboard-label">Email</p>
-                <p className="mt-1 text-base text-slate-700">{viewMessage.email}</p>
+                <p className="mt-1 text-base text-slate-700">
+                  {viewMessage.email}
+                </p>
               </div>
               <div>
                 <p className="dashboard-label">Subject</p>
-                <p className="mt-1 text-base text-slate-700">{viewMessage.subject}</p>
+                <p className="mt-1 text-base text-slate-700">
+                  {viewMessage.subject}
+                </p>
               </div>
               <div>
                 <p className="dashboard-label">Message</p>
-                <p className="mt-1 text-base text-slate-700">{viewMessage.message}</p>
+                <p className="mt-1 text-base text-slate-700">
+                  {viewMessage.message}
+                </p>
               </div>
             </div>
           </div>

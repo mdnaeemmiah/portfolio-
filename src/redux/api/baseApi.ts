@@ -11,7 +11,7 @@ import { logout, setUser } from '../features/auth/authSlice';
   
   
   const baseQuery = fetchBaseQuery({
-    baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:5000/api',
+    baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL || 'https://l2b4-a5-server.vercel.app/api',
     // credentials: 'include',
     prepareHeaders: (headers, { getState }) => {
       let token = (getState() as RootState).auth.token;
@@ -43,7 +43,7 @@ import { logout, setUser } from '../features/auth/authSlice';
       //* Send Refresh
       console.log('Sending refresh token');
   
-      const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:5000/api';
+      const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || 'https://l2b4-a5-server.vercel.app/api';
       const res = await fetch(`${baseUrl}/auth/refresh-token`, {
         method: 'POST',
         credentials: 'include',

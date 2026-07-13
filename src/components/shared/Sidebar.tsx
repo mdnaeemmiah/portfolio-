@@ -103,11 +103,10 @@
 
 // export default Sidebar;
 
-
-
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AiOutlineDashboard } from "react-icons/ai";
@@ -128,7 +127,7 @@ const Sidebar = () => {
 
   useEffect(() => {
     setIsClient(true);
-    const img = localStorage.getItem('profileImage');
+    const img = localStorage.getItem("profileImage");
     if (img) {
       setProfileImage(img);
     }
@@ -136,23 +135,56 @@ const Sidebar = () => {
 
   const menuItems = [
     { href: "/", icon: <BiHome className="h-5 w-5" />, label: "Home" },
-    { href: "/hello", icon: <AiOutlineDashboard className="h-5 w-5" />, label: "Dashboard" },
-    { href: "/dashboard/blogs", icon: <BiBook className="h-5 w-5" />, label: "All Blog" },
-    { href: "/dashboard/blogPost", icon: <BiEdit className="h-5 w-5" />, label: "Blog Add" },
-    { href: "/dashboard/allProject", icon: <BiFolderOpen className="h-5 w-5" />, label: "All Project" },
-    { href: "/dashboard/projectPost", icon: <BiPlusCircle className="h-5 w-5" />, label: "Project Add" },
-    { href: "/dashboard/message", icon: <BiTask className="h-5 w-5" />, label: "All Message" },
-    { href: "/dashboard/profile", icon: <BiUser className="h-5 w-5" />, label: "Profile" },
+    {
+      href: "/hello",
+      icon: <AiOutlineDashboard className="h-5 w-5" />,
+      label: "Dashboard",
+    },
+    {
+      href: "/dashboard/blogs",
+      icon: <BiBook className="h-5 w-5" />,
+      label: "All Blog",
+    },
+    {
+      href: "/dashboard/blogPost",
+      icon: <BiEdit className="h-5 w-5" />,
+      label: "Blog Add",
+    },
+    {
+      href: "/dashboard/allProject",
+      icon: <BiFolderOpen className="h-5 w-5" />,
+      label: "All Project",
+    },
+    {
+      href: "/dashboard/projectPost",
+      icon: <BiPlusCircle className="h-5 w-5" />,
+      label: "Project Add",
+    },
+    {
+      href: "/dashboard/message",
+      icon: <BiTask className="h-5 w-5" />,
+      label: "All Message",
+    },
+    {
+      href: "/dashboard/profile",
+      icon: <BiUser className="h-5 w-5" />,
+      label: "Profile",
+    },
   ];
 
   return (
     <div className="glass-card min-h-[calc(100vh-3rem)] rounded-3xl p-5">
-      <Link href="/dashboard/profile" className="group flex items-center gap-3 border-b border-slate-200/70 pb-5 transition">
+      <Link
+        href="/dashboard/profile"
+        className="group flex items-center gap-3 border-b border-slate-200/70 pb-5 transition"
+      >
         <div className="relative flex h-11 w-11 items-center justify-center overflow-hidden rounded-2xl bg-slate-900 text-white">
           {isClient && profileImage ? (
-            <img
+            <Image
               src={profileImage}
               alt="Profile"
+              width={44}
+              height={44}
               className="h-full w-full object-cover"
             />
           ) : (
@@ -160,7 +192,9 @@ const Sidebar = () => {
           )}
         </div>
         <div>
-          <p className="text-sm font-semibold text-slate-900 group-hover:text-blue-600">Admin Desk</p>
+          <p className="text-sm font-semibold text-slate-900 group-hover:text-blue-600">
+            Admin Desk
+          </p>
           <p className="text-xs text-slate-500">Manage content</p>
         </div>
       </Link>

@@ -1,15 +1,32 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import Image from "next/image";
 import toast from "react-hot-toast";
 import { useAppSelector } from "@/redux/hooks";
 import { selectCurrentUser } from "@/redux/features/auth/authSlice";
 import { verifyToken } from "@/utils/veryfyToken";
-import { useGetUsersQuery, useUpdateUserMutation } from "@/redux/features/user/userApi";
+import {
+  useGetUsersQuery,
+  useUpdateUserMutation,
+} from "@/redux/features/user/userApi";
 import axios from "axios";
 
 type DecodedToken = {
   email?: string;
+};
+
+type ProfileUser = {
+  _id: string;
+  email: string;
+  name?: string;
+  profileImage?: string;
+};
+
+type ApiErrorShape = {
+  data?: {
+    message?: string;
+  };
 };
 
 const ProfilePage = () => {
@@ -22,13 +39,17 @@ const ProfilePage = () => {
   const [isUploading, setIsUploading] = useState(false);
   const [passwordError, setPasswordError] = useState("");
 
-  const CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/db9egbkam/image/upload";
+  const CLOUDINARY_URL =
+    "https://api.cloudinary.com/v1_1/db9egbkam/image/upload";
   const CLOUDINARY_UPLOAD_PRESET = "naeemmiah";
 
   const { data, isLoading, refetch } = useGetUsersQuery(undefined);
   const [updateUser, { isLoading: isUpdating }] = useUpdateUserMutation();
 
-  const users = Array.isArray(data?.data) ? data.data : [];
+  const users = useMemo<ProfileUser[]>(
+    () => (Array.isArray(data?.data) ? data.data : []),
+    [data?.data],
+  );
 
   const tokenEmail = useMemo(() => {
     if (typeof window === "undefined") return "";
@@ -46,7 +67,7 @@ const ProfilePage = () => {
   const email = currentUser?.email || tokenEmail;
 
   const profileUser = useMemo(
-    () => users.find((u: { email: string }) => u.email === email),
+    () => users.find((u) => u.email === email),
     [users, email],
   );
 
@@ -56,8 +77,8 @@ const ProfilePage = () => {
     }
     if (profileUser?.profileImage) {
       setProfileImage(profileUser.profileImage);
-      if (typeof window !== 'undefined') {
-        localStorage.setItem('profileImage', profileUser.profileImage);
+      if (typeof window !== "undefined") {
+        localStorage.setItem("profileImage", profileUser.profileImage);
       }
     }
   }, [profileUser]);
@@ -95,7 +116,12 @@ const ProfilePage = () => {
       return;
     }
 
-    const payload: { name?: string; currentPassword?: string; newPassword?: string; profileImage?: string } = {};
+    const payload: {
+      name?: string;
+      currentPassword?: string;
+      newPassword?: string;
+      profileImage?: string;
+    } = {};
 
     if (name.trim()) payload.name = name.trim();
     if (newPassword.trim()) {
@@ -117,14 +143,15 @@ const ProfilePage = () => {
       await updateUser({ id: profileUser._id, updatedData: payload }).unwrap();
       toast.success("Profile updated successfully");
       if (payload.profileImage) {
-        localStorage.setItem('profileImage', payload.profileImage);
+        localStorage.setItem("profileImage", payload.profileImage);
       }
       setCurrentPassword("");
       setNewPassword("");
       setConfirmPassword("");
       refetch();
-    } catch (error: any) {
-      toast.error(error?.data?.message || "Failed to update profile");
+    } catch (error: unknown) {
+      const message = (error as ApiErrorShape)?.data?.message;
+      toast.error(message || "Failed to update profile");
     }
   };
 
@@ -136,7 +163,9 @@ const ProfilePage = () => {
     <section className="space-y-6">
       <div className="glass-card p-6">
         <p className="section-kicker">Profile</p>
-        <h1 className="mt-2 text-3xl font-semibold text-slate-900">Admin Profile</h1>
+        <h1 className="mt-2 text-3xl font-semibold text-slate-900">
+          Admin Profile
+        </h1>
         <p className="mt-2 text-sm text-slate-600">
           Update your display name and change password from here.
         </p>
@@ -148,7 +177,12 @@ const ProfilePage = () => {
             <label className="dashboard-label" htmlFor="email">
               Email
             </label>
-            <input id="email" value={email} disabled className="dashboard-input opacity-80" />
+            <input
+              id="email"
+              value={email}
+              disabled
+              className="dashboard-input opacity-80"
+            />
           </div>
 
           <div className="space-y-2">
@@ -232,19 +266,31 @@ const ProfilePage = () => {
             />
             {profileImage && (
               <div className="flex items-center gap-3 pt-2">
-                <img
+                <Image
                   src={profileImage}
                   alt="Profile preview"
+                  width={48}
+                  height={48}
                   className="h-12 w-12 rounded-full object-cover"
                 />
-                <p className="text-xs text-slate-500">Profile image ready to save</p>
+                <p className="text-xs text-slate-500">
+                  Profile image ready to save
+                </p>
               </div>
             )}
           </div>
 
           <div className="flex justify-end">
-            <button type="submit" className="dashboard-button" disabled={isUpdating || isUploading}>
-              {isUploading ? "Uploading..." : isUpdating ? "Updating..." : "Update Profile"}
+            <button
+              type="submit"
+              className="dashboard-button"
+              disabled={isUpdating || isUploading}
+            >
+              {isUploading
+                ? "Uploading..."
+                : isUpdating
+                  ? "Updating..."
+                  : "Update Profile"}
             </button>
           </div>
         </div>

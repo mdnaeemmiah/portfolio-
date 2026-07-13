@@ -1,17 +1,17 @@
-'use client';
+"use client";
 
 import {
   useDeleteBlogPostMutation,
   useGetAllBlogPostsQuery,
   useUpdateBlogPostMutation,
-} from '@/redux/features/blog/blogApi';
-import Image from 'next/image';
-import { useState } from 'react';
-import axios from 'axios';
-import toast from 'react-hot-toast';
-import { toast as sonnerToast } from 'sonner';
-import { Trash2 } from 'lucide-react';
-import { FiEdit } from 'react-icons/fi';
+} from "@/redux/features/blog/blogApi";
+import Image from "next/image";
+import { useState } from "react";
+import axios from "axios";
+import toast from "react-hot-toast";
+import { toast as sonnerToast } from "sonner";
+import { Trash2 } from "lucide-react";
+import { FiEdit } from "react-icons/fi";
 
 interface BlogPost {
   _id: string;
@@ -21,11 +21,18 @@ interface BlogPost {
   content?: string;
 }
 
-const CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/db9egbkam/image/upload';
-const CLOUDINARY_UPLOAD_PRESET = 'naeemmiah';
+type ApiErrorShape = {
+  data?: {
+    message?: string;
+  };
+};
+
+const CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/db9egbkam/image/upload";
+const CLOUDINARY_UPLOAD_PRESET = "naeemmiah";
 
 const BlogTable = () => {
-  const { data, error, isLoading, refetch } = useGetAllBlogPostsQuery(undefined);
+  const { data, error, isLoading, refetch } =
+    useGetAllBlogPostsQuery(undefined);
   const [deleteBlogPost] = useDeleteBlogPostMutation();
   const [updateBlogPost] = useUpdateBlogPostMutation();
   const blogPosts: BlogPost[] = Array.isArray(data?.data) ? data?.data : [];
@@ -59,8 +66,8 @@ const BlogTable = () => {
     setEditPost({
       title: post.title,
       category: post.category,
-      content: post.content || '',
-      image: post.image || '',
+      content: post.content || "",
+      image: post.image || "",
       id: post._id,
     });
     setIsModalOpen(true);
@@ -85,15 +92,16 @@ const BlogTable = () => {
           gridTemplateRows: "auto 1fr auto",
           gap: "14px",
           textAlign: "center",
-          background: "linear-gradient(180deg, rgba(255,255,255,0.98), rgba(249,245,240,0.98))",
+          background:
+            "linear-gradient(180deg, rgba(255,255,255,0.98), rgba(249,245,240,0.98))",
           boxShadow: "0 30px 60px -40px rgba(15,23,42,0.55)",
         },
         action: {
-          label: 'Delete',
+          label: "Delete",
           onClick: () => resolve(true),
         },
         cancel: {
-          label: 'Cancel',
+          label: "Cancel",
           onClick: () => resolve(false),
         },
         actionButtonStyle: {
@@ -120,34 +128,35 @@ const BlogTable = () => {
     });
 
   const handleDelete = async (id: string) => {
-    const accepted = await confirmDelete('Delete this blog post?');
+    const accepted = await confirmDelete("Delete this blog post?");
     if (!accepted) return;
     try {
       await deleteBlogPost(id).unwrap();
-      toast.success('Blog post deleted successfully!');
+      toast.success("Blog post deleted successfully!");
       refetch();
-    } catch (deleteError: any) {
-      console.error('Error deleting post:', deleteError);
-      toast.error(deleteError?.data?.message || 'Error deleting post');
+    } catch (deleteError: unknown) {
+      console.error("Error deleting post:", deleteError);
+      const message = (deleteError as ApiErrorShape)?.data?.message;
+      toast.error(message || "Error deleting post");
     }
   };
 
   const handleImageUpload = async (file: File) => {
     const imageFormData = new FormData();
-    imageFormData.append('file', file);
-    imageFormData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+    imageFormData.append("file", file);
+    imageFormData.append("upload_preset", CLOUDINARY_UPLOAD_PRESET);
 
     try {
       setIsUploading(true);
       const response = await axios.post(CLOUDINARY_URL, imageFormData, {
-        headers: { 'Content-Type': 'multipart/form-data' },
+        headers: { "Content-Type": "multipart/form-data" },
       });
       const uploadedUrl = response.data.secure_url as string;
       setEditPost((prev) => (prev ? { ...prev, image: uploadedUrl } : prev));
-      toast.success('Image uploaded successfully!');
+      toast.success("Image uploaded successfully!");
     } catch (uploadError) {
-      console.error('Error uploading image:', uploadError);
-      toast.error('Error uploading image');
+      console.error("Error uploading image:", uploadError);
+      toast.error("Error uploading image");
     } finally {
       setIsUploading(false);
     }
@@ -155,7 +164,7 @@ const BlogTable = () => {
 
   const handleUpdateSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!editPost?.id) return toast.error('Post ID is missing!');
+    if (!editPost?.id) return toast.error("Post ID is missing!");
 
     try {
       const updatedData = {
@@ -165,12 +174,13 @@ const BlogTable = () => {
         image: editPost.image,
       };
       await updateBlogPost({ id: editPost.id, updatedData }).unwrap();
-      toast.success('Blog post updated successfully!');
+      toast.success("Blog post updated successfully!");
       refetch();
       closeUpdateModal();
-    } catch (updateError: any) {
-      console.error('Error updating post:', updateError);
-      toast.error(updateError?.data?.message || 'Error updating post');
+    } catch (updateError: unknown) {
+      console.error("Error updating post:", updateError);
+      const message = (updateError as ApiErrorShape)?.data?.message;
+      toast.error(message || "Error updating post");
     }
   };
 
@@ -182,7 +192,9 @@ const BlogTable = () => {
       <div className="glass-card p-6">
         <div className="flex flex-col gap-2 border-b border-slate-200/70 pb-4">
           <p className="section-kicker">Blogs</p>
-          <h2 className="text-2xl font-semibold text-slate-900">All Blog Posts</h2>
+          <h2 className="text-2xl font-semibold text-slate-900">
+            All Blog Posts
+          </h2>
         </div>
 
         <div className="mt-4 overflow-x-auto">
@@ -199,7 +211,10 @@ const BlogTable = () => {
             <tbody>
               {currentPosts.length > 0 ? (
                 currentPosts.map((post) => (
-                  <tr key={post._id} className="hover:bg-slate-50/80 dark:hover:bg-slate-700/40">
+                  <tr
+                    key={post._id}
+                    className="hover:bg-slate-50/80 dark:hover:bg-slate-700/40"
+                  >
                     <td className="dashboard-td">
                       <Image
                         src={post.image}
@@ -209,7 +224,9 @@ const BlogTable = () => {
                         className="h-14 w-14 rounded-xl object-cover"
                       />
                     </td>
-                    <td className="dashboard-td font-semibold text-slate-900">{post.title}</td>
+                    <td className="dashboard-td font-semibold text-slate-900">
+                      {post.title}
+                    </td>
                     <td className="dashboard-td">{post.category}</td>
                     <td className="dashboard-td">
                       <button
@@ -231,7 +248,10 @@ const BlogTable = () => {
                 ))
               ) : (
                 <tr>
-                  <td colSpan={5} className="dashboard-td text-center text-slate-500">
+                  <td
+                    colSpan={5}
+                    className="dashboard-td text-center text-slate-500"
+                  >
                     No blog posts found.
                   </td>
                 </tr>
@@ -289,9 +309,12 @@ const BlogTable = () => {
             <div className="flex items-start justify-between gap-4">
               <div>
                 <p className="section-kicker">Update</p>
-                <h3 className="text-2xl font-semibold text-slate-900">Update Blog Post</h3>
+                <h3 className="text-2xl font-semibold text-slate-900">
+                  Update Blog Post
+                </h3>
                 <p className="mt-2 text-sm text-slate-600">
-                  Keep the title and summary sharp, then refresh the hero image if needed.
+                  Keep the title and summary sharp, then refresh the hero image
+                  if needed.
                 </p>
               </div>
               <button
@@ -303,7 +326,10 @@ const BlogTable = () => {
               </button>
             </div>
 
-            <form onSubmit={handleUpdateSubmit} className="mt-6 grid gap-5 md:grid-cols-2">
+            <form
+              onSubmit={handleUpdateSubmit}
+              className="mt-6 grid gap-5 md:grid-cols-2"
+            >
               <div className="space-y-2">
                 <label htmlFor="title" className="dashboard-label">
                   Title
@@ -312,7 +338,9 @@ const BlogTable = () => {
                   type="text"
                   id="title"
                   value={editPost.title}
-                  onChange={(e) => setEditPost({ ...editPost, title: e.target.value })}
+                  onChange={(e) =>
+                    setEditPost({ ...editPost, title: e.target.value })
+                  }
                   className="dashboard-input"
                   required
                 />
@@ -325,7 +353,9 @@ const BlogTable = () => {
                   type="text"
                   id="category"
                   value={editPost.category}
-                  onChange={(e) => setEditPost({ ...editPost, category: e.target.value })}
+                  onChange={(e) =>
+                    setEditPost({ ...editPost, category: e.target.value })
+                  }
                   className="dashboard-input"
                   required
                 />
@@ -337,7 +367,9 @@ const BlogTable = () => {
                 <textarea
                   id="content"
                   value={editPost.content}
-                  onChange={(e) => setEditPost({ ...editPost, content: e.target.value })}
+                  onChange={(e) =>
+                    setEditPost({ ...editPost, content: e.target.value })
+                  }
                   rows={5}
                   className="dashboard-input"
                   required
@@ -361,7 +393,9 @@ const BlogTable = () => {
                     className="dashboard-input file:border-0 file:bg-slate-900 file:px-4 file:py-2 file:text-xs file:font-semibold file:uppercase file:tracking-[0.2em] file:text-white"
                   />
                   {editPost.image && (
-                    <p className="mt-2 text-xs text-slate-500">Current image set.</p>
+                    <p className="mt-2 text-xs text-slate-500">
+                      Current image set.
+                    </p>
                   )}
                 </div>
               </div>
@@ -373,7 +407,11 @@ const BlogTable = () => {
                 >
                   Cancel
                 </button>
-                <button type="submit" className="dashboard-button" disabled={isUploading}>
+                <button
+                  type="submit"
+                  className="dashboard-button"
+                  disabled={isUploading}
+                >
                   {isUploading ? "Uploading..." : "Update"}
                 </button>
               </div>
