@@ -138,11 +138,11 @@ const Sidebar = () => {
     { href: "/", icon: <BiHome className="h-5 w-5" />, label: "Home" },
     { href: "/hello", icon: <AiOutlineDashboard className="h-5 w-5" />, label: "Dashboard" },
     { href: "/dashboard/blogs", icon: <BiBook className="h-5 w-5" />, label: "All Blog" },
-    { href: "/dashboard/blogPost", icon: <BiEdit className="h-5 w-5" />, label: "Blog Post" },
-    { href: "/dashboard/profile", icon: <BiUser className="h-5 w-5" />, label: "Profile" },
+    { href: "/dashboard/blogPost", icon: <BiEdit className="h-5 w-5" />, label: "Blog Add" },
     { href: "/dashboard/allProject", icon: <BiFolderOpen className="h-5 w-5" />, label: "All Project" },
-    { href: "/dashboard/projectPost", icon: <BiPlusCircle className="h-5 w-5" />, label: "Project Post" },
+    { href: "/dashboard/projectPost", icon: <BiPlusCircle className="h-5 w-5" />, label: "Project Add" },
     { href: "/dashboard/message", icon: <BiTask className="h-5 w-5" />, label: "All Message" },
+    { href: "/dashboard/profile", icon: <BiUser className="h-5 w-5" />, label: "Profile" },
   ];
 
   return (
